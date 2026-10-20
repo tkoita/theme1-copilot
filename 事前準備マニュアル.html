@@ -1,0 +1,1100 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>事前準備マニュアル：テーマ1（小板） — 情報システム演習実験II</title><style>
+
+:root{--paper:#fbfaf7;--ink:#1f2933;--soft:#52606d;--line:#d9dee5;--codebg:#f4f6f9;}
+*{box-sizing:border-box;}html,body{margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#e8ebef;color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,"Meiryo",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;padding:0 16px 80px;}
+/* ---- Web閲覧向け：固定ナビゲーション ---- */
+.topnav{position:sticky;top:0;z-index:60;margin:0 -16px 24px;padding:0 16px;background:rgba(232,235,239,.93);backdrop-filter:saturate(150%) blur(10px);-webkit-backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid #d3d9e0;}
+.topnav .inner{max-width:880px;margin:0 auto;display:flex;align-items:center;gap:14px;height:54px;}
+.topnav .brand{font-size:12.5px;font-weight:800;color:#1f2933;white-space:nowrap;letter-spacing:.02em;}
+.topnav .brand span{display:block;font-size:10.5px;font-weight:700;color:#7b8794;letter-spacing:.06em;}
+.topnav .links{display:flex;gap:3px;overflow-x:auto;flex:1;scrollbar-width:none;-ms-overflow-style:none;}
+.topnav .links::-webkit-scrollbar{display:none;}
+.topnav .links a{font-size:12px;font-weight:700;color:#52606d;text-decoration:none;padding:6px 11px;border-radius:6px;white-space:nowrap;transition:background .12s,color .12s;}
+.topnav .links a:hover{background:#dde2e8;color:#1f2933;}
+.topnav .links a.on{background:#1f2933;color:#fff;}
+.topnav .go{flex:0 0 auto;font-size:11.5px;font-weight:800;color:#fff;background:#4338ca;border-radius:6px;padding:7px 13px;text-decoration:none;white-space:nowrap;}
+.topnav .go:hover{background:#312e81;}
+.sheet,.topnotice{scroll-margin-top:70px;}
+/* ---- リンク ---- */
+a.ulink{text-decoration:none;border-bottom:1px solid rgba(11,108,181,.35);}
+a.ulink code{color:#0b6cb5;cursor:pointer;}
+a.ulink:hover code{background:#eef6fc;border-color:#bcdcf2;}
+/* ---- コードのコピーボタン ---- */
+.codewrap{position:relative;}
+.copybtn{position:absolute;top:9px;right:9px;font-size:11px;font-weight:700;color:#52606d;background:#fff;border:1px solid var(--line);border-radius:5px;padding:4px 11px;cursor:pointer;font-family:inherit;line-height:1.6;}
+.copybtn:hover{background:#eef1f4;color:#1f2933;}
+.copybtn.done{background:#eafaf0;border-color:#b9e4c8;color:#1f6631;}
+/* ---- チェックリストを操作可能に ---- */
+.checklist li{cursor:pointer;-webkit-user-select:none;user-select:none;border-radius:5px;transition:opacity .15s,background .12s;}
+.checklist li:hover{background:#f7f9fb;}
+.checklist li.done{opacity:.45;}
+.checklist li.done::before{background:var(--accent);border-color:var(--accent);}
+.checklist li.done::after{content:"\2713";position:absolute;left:3px;top:1px;color:#fff;font-size:12px;font-weight:900;line-height:1.45;}
+.ckprog{float:right;font-size:11px;font-weight:800;color:var(--soft);letter-spacing:.04em;}
+.ckhint{font-size:11px;color:#8a97a3;font-weight:600;margin:0 0 9px;}
+.sheet{max-width:880px;margin:0 auto 26px;background:var(--paper);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 30px rgba(20,30,45,.10);padding:44px 48px 52px;}
+.sheet.k1{--accent:#2f9e44;--accent-deep:#1f6631;--accentbg:#eafaf0;--accentbd:#b9e4c8;}
+.sheet.k2{--accent:#0b6cb5;--accent-deep:#08507f;--accentbg:#eef6fc;--accentbd:#bcdcf2;}
+.sheet.k3{--accent:#D97706;--accent-deep:#9a5407;--accentbg:#fff4e2;--accentbd:#f0cd9a;}
+.sheet.k4{--accent:#7c3aed;--accent-deep:#5b21b6;--accentbg:#f3eefe;--accentbd:#d6c6f5;}
+.sheet.k5{--accent:#4338ca;--accent-deep:#312e81;--accentbg:#eef0fd;--accentbd:#c7cbf5;}
+.sheet.k6{--accent:#be185d;--accent-deep:#831843;--accentbg:#fdeef5;--accentbd:#f3bdd7;}
+.sheet.i1{--accent:#0f766e;--accent-deep:#0b4a44;--accentbg:#f0fdf9;--accentbd:#a8ded7;}
+.sheet.i2{--accent:#334155;--accent-deep:#1e293b;--accentbg:#f1f5f9;--accentbd:#cbd5e1;}
+.figure{margin-top:14px;padding:16px 18px 10px;background:#fff;border:1px solid var(--line);border-radius:8px;overflow-x:auto;}
+.figure .cap{font-size:11.5px;color:var(--soft);margin:6px 0 0;text-align:left;line-height:1.7;}
+.figure svg{display:block;min-width:620px;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--accent);text-transform:uppercase;}
+.eyebrow .no{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:15px;}
+.badge{font-size:11px;letter-spacing:.08em;font-weight:800;color:#fff;background:var(--accent);padding:2px 9px;border-radius:20px;}
+.badge.alt{background:#334155;}
+h1{font-size:28px;font-weight:800;margin:6px 0 0;line-height:1.25;}
+.lead{margin:13px 0 0;color:var(--soft);font-size:14px;}
+.lead b{color:var(--ink);font-weight:700;} code{font-family:"SFMono-Regular",Consolas,Menlo,monospace;}
+.meta{margin-top:16px;display:flex;gap:22px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:11px 0;font-size:12.5px;color:var(--soft);}
+.meta b{color:var(--ink);font-weight:700;}
+.grid2{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap;}
+.card{flex:1;min-width:240px;padding:14px 16px;border-radius:8px;border:1px solid var(--accentbd);background:var(--accentbg);}
+.card h3{margin:0 0 7px;font-size:13px;font-weight:800;color:var(--accent-deep);letter-spacing:.03em;}
+.card ul{margin:0;padding-left:18px;font-size:12.8px;color:#444;} .card li{margin:3px 0;}
+.card code{background:#fff;border:1px solid var(--accentbd);border-radius:4px;padding:0 4px;font-size:12px;}
+.verify{margin-top:14px;padding:13px 16px;background:#eef6fc;border:1px solid #bcdcf2;border-left:4px solid #1971c2;border-radius:8px;font-size:12.8px;color:#1d4e74;line-height:1.7;}
+.verify b{font-weight:800;} .verify code{font-family:"SFMono-Regular",Consolas,Menlo,monospace;background:#fff;border:1px solid #bcdcf2;border-radius:4px;padding:0 4px;}
+.warn{margin-top:12px;padding:11px 15px;background:#fdecec;border:1px solid #f3b9b9;border-left:4px solid #c0392b;border-radius:8px;font-size:12.6px;color:#7a1f1f;line-height:1.65;} .warn b{font-weight:800;}
+.warn code{background:#fff;border:1px solid #f3b9b9;border-radius:4px;padding:0 4px;}
+.timerule{margin-top:14px;padding:13px 16px;background:#fff1f0;border:1px solid #f0b4ae;border-left:5px solid #c0392b;border-radius:8px;font-size:13.3px;color:#7a1f1f;line-height:1.7;} .timerule b{font-weight:800;} .timerule .big{display:inline-block;font-size:15px;font-weight:800;margin-right:6px;}
+.notimerule{margin-top:14px;padding:13px 16px;background:#eafaf0;border:1px solid #b9e4c8;border-left:5px solid #2f9e44;border-radius:8px;font-size:13.3px;color:#1f6631;line-height:1.7;} .notimerule b{font-weight:800;} .notimerule .big{display:inline-block;font-size:15px;font-weight:800;margin-right:6px;}
+.notimerule code{background:#fff;border:1px solid #b9e4c8;border-radius:4px;padding:0 4px;}
+.plabel{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--soft);text-transform:uppercase;margin:26px 0 9px;}
+pre.code{margin:0;background:var(--codebg);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:5px;padding:18px 20px;overflow-x:auto;font-family:"SFMono-Regular",Consolas,Menlo,"Yu Gothic",monospace;font-size:13px;line-height:1.9;color:#27313b;white-space:pre;}
+.cmt{color:#8a97a3;} .kw{color:#0b6cb5;font-weight:600;} .str{color:#1f7a3d;}
+.idnote{margin:14px 0 0;padding:11px 15px;background:#fff7e0;border:1px solid #f0d68a;border-left:4px solid #e0a800;border-radius:8px;font-size:13px;color:#6e5200;line-height:1.6;}
+.idnote b{font-weight:800;} .idnote code{font-family:"SFMono-Regular",Consolas,Menlo,monospace;background:#fff;border:1px solid #f0d68a;border-radius:4px;padding:0 4px;}
+.dayof{margin-top:14px;padding:13px 16px;background:#2a2f38;border-radius:8px;color:#f4f6f9;font-size:12.8px;line-height:1.8;}
+.dayof b{color:#ffd479;font-weight:800;}
+.dayof code{background:#3a4049;border-radius:4px;padding:0 5px;color:#e6edf3;}
+.ainote{margin-top:14px;padding:13px 16px;background:#f0fdf9;border:1px solid #a8ded7;border-left:4px solid #0f766e;border-radius:8px;font-size:12.8px;color:#0b4a44;line-height:1.75;}
+.ainote b{font-weight:800;} .ainote code{background:#fff;border:1px solid #a8ded7;border-radius:4px;padding:0 4px;}
+.design{margin-top:14px;padding:13px 16px;background:#f4f6f9;border:1px solid var(--line);border-left:4px solid var(--soft);border-radius:8px;font-size:12.6px;color:#3a4654;line-height:1.75;}
+.design b{color:var(--ink);}
+.topnotice{max-width:880px;margin:0 auto 26px;background:#fffaf0;border:2px solid #e0a800;border-radius:8px;padding:22px 26px;box-shadow:0 8px 30px rgba(20,30,45,.10);}
+.topnotice h2{margin:0 0 10px;font-size:16px;font-weight:800;color:#8a6200;display:flex;align-items:center;gap:8px;}
+.topnotice h2::before{content:"";width:4px;height:18px;background:#e0a800;border-radius:2px;}
+.topnotice p{margin:0 0 8px;font-size:13.3px;line-height:1.85;color:#4a3c00;}
+.topnotice ul{margin:6px 0 8px;padding-left:20px;font-size:13.3px;line-height:1.85;color:#4a3c00;}
+.topnotice li{margin:4px 0;}
+.topnotice b{color:#5c4700;}
+.topnotice .axis{margin-top:10px;padding:11px 15px;background:#fff;border:1px solid #e0a800;border-radius:6px;font-size:13px;color:#4a3c00;}
+h2{font-size:16px;font-weight:800;margin:30px 0 6px;display:flex;align-items:center;gap:10px;}
+h2::before{content:"";width:4px;height:18px;background:var(--accent);border-radius:2px;}
+.note{font-size:12.8px;color:var(--soft);margin:0 0 14px;}
+table.levels{border-collapse:collapse;width:100%;margin:4px 0 6px;font-size:13px;}
+table.levels th,table.levels td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top;}
+table.levels thead th{background:var(--accentbg);color:var(--accent-deep);font-weight:800;}
+table.levels tbody tr:nth-child(even){background:#fafbfc;}
+table.levels code{background:#f1f3f6;border:1px solid #e0e4ea;border-radius:4px;padding:0 4px;font-size:11.6px;word-break:break-all;}
+table.levels b{font-weight:700;}
+.level{margin-bottom:12px;border:1px solid var(--accentbd);border-radius:8px;overflow:hidden;background:#fff;}
+.lvhead{display:flex;align-items:center;gap:10px;padding:8px 13px;background:var(--accentbg);border-bottom:1px solid var(--accentbd);}
+.chip{font-size:11px;font-weight:800;color:#fff;padding:2px 10px;border-radius:20px;}
+.c-beg{background:#2f9e44;}.c-mid{background:#1971c2;}.c-adv{background:#9a3412;}.c-exp{background:#6741d9;}
+.lvhead .t{font-size:13px;font-weight:700;} .level ul,.level ol{margin:9px 15px 13px;padding-left:20px;font-size:12.8px;line-height:1.7;color:#3a4654;} .level li{margin:4px 0;}
+.level code{background:#f1f3f6;border:1px solid #e0e4ea;border-radius:4px;padding:0 4px;font-size:12px;word-break:break-all;} .level b{font-weight:700;color:var(--ink);}
+.level p{margin:9px 15px 11px;font-size:12.8px;line-height:1.7;color:#3a4654;}
+.cmdlist{margin:10px 15px 15px;}
+.cmdlist .cmd{border:1px solid #e0e4ea;border-left:3px solid var(--accent);border-radius:6px;background:#fafbfc;padding:12px 15px;margin:10px 0;}
+.cmdlist .cmdhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.cmdlist .cmdname{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:13.5px;font-weight:800;color:var(--accent-deep);background:#fff;border:1px solid var(--accentbd);border-radius:4px;padding:2px 9px;}
+.cmdlist .cmdtag{font-size:10.5px;font-weight:800;color:#fff;background:var(--accent);border-radius:20px;padding:2px 9px;letter-spacing:.04em;}
+.cmdlist .cmdtag.red{background:#c0392b;}
+.cmdlist p{margin:9px 0 0;font-size:12.6px;line-height:1.8;color:#3a4654;}
+.cmdlist p .lbl{display:inline-block;font-size:10.5px;font-weight:800;color:var(--accent-deep);background:var(--accentbg);border:1px solid var(--accentbd);border-radius:3px;padding:0 6px;margin-right:7px;vertical-align:1px;}
+.cmdlist code{background:#fff;border:1px solid #e0e4ea;border-radius:4px;padding:0 4px;font-size:12px;}
+.cmdlist .ex{margin-top:9px;padding:9px 12px;background:#fff;border:1px dashed #b8c2ce;border-radius:5px;font-size:12px;line-height:1.8;color:#52606d;}
+.cmdlist .ex .q{display:block;font-family:"SFMono-Regular",Consolas,Menlo,"Hiragino Kaku Gothic ProN",monospace;color:#27313b;margin:3px 0;}
+.cmdlist .ex b{color:var(--accent-deep);}
+.lbl{display:inline-block;font-size:10.5px;font-weight:800;color:var(--accent-deep);background:var(--accentbg);border:1px solid var(--accentbd);border-radius:3px;padding:0 6px;margin-right:7px;vertical-align:1px;}
+.stats{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap;}
+.stat{flex:1;min-width:148px;background:#fff;border:1px solid var(--accentbd);border-radius:8px;padding:14px 14px 12px;text-align:center;}
+.stat .n{font-size:31px;font-weight:800;color:var(--accent);line-height:1.05;letter-spacing:-.02em;}
+.stat .n small{font-size:16px;font-weight:800;}
+.stat .l{font-size:11.5px;color:#3a4654;margin-top:8px;line-height:1.6;}
+.stat.bad{border-color:#f3b9b9;background:#fffafa;}
+.stat.bad .n{color:#c0392b;}
+.statsrc{font-size:11px;color:var(--soft);margin-top:9px;line-height:1.6;}
+.statlead{font-size:12.5px;font-weight:800;color:var(--accent-deep);margin:18px 0 0;letter-spacing:.03em;}
+.statlead.bad{color:#c0392b;}
+.qrbox{flex:0 0 auto;width:158px;text-align:center;}
+.qrimg{width:158px;height:158px;background:#fff;border:1px solid var(--accentbd);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;box-sizing:border-box;}
+.qrimg svg{width:100%;height:auto;display:block;flex:0 0 auto;}
+.qrimg .ph{font-size:11.5px;font-weight:800;color:var(--accent);line-height:1.7;}
+.qrcap{font-size:11px;color:var(--soft);margin-top:8px;line-height:1.55;}
+.formurl{margin:11px 0 0;padding:11px 14px;background:#fff;border:1px solid var(--accentbd);border-radius:6px;font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:12.5px;color:#0b6cb5;word-break:break-all;font-weight:700;}
+.formfields{margin:11px 0 0;padding:0;list-style:none;}
+.formfields li{font-size:12.6px;line-height:1.75;color:#3a4654;padding:5px 0 5px 26px;position:relative;border-bottom:1px dotted var(--accentbd);}
+.formfields li:last-child{border-bottom:none;}
+.formfields li::before{content:"";position:absolute;left:2px;top:11px;width:9px;height:9px;border-radius:2px;background:var(--accent);}
+.formfields li b{color:var(--ink);}
+.record{margin-top:30px;display:flex;gap:22px;align-items:center;background:var(--accentbg);border:1px solid var(--accentbd);border-left:4px solid var(--accent);border-radius:8px;padding:20px 22px;}
+.record .txt{flex:1;min-width:0;} .record .rh{font-size:15px;font-weight:800;margin:0 0 7px;display:flex;align-items:center;gap:9px;color:var(--accent-deep);}
+.record .rh .ic{width:25px;height:25px;border-radius:6px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.record p{margin:0 0 8px;font-size:13px;line-height:1.65;color:#444;}
+.record .vals{display:flex;gap:10px;flex-wrap:wrap;margin:9px 0 11px;}
+.record .vals span{background:#fff;border:1px solid var(--accentbd);border-radius:5px;padding:5px 12px;font-size:12.3px;font-weight:700;color:var(--accent-deep);}
+.record .lnk{font-size:12px;word-break:break-all;} .record .lnk a{color:#0b6cb5;font-weight:700;}
+.foot{margin-top:30px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px;color:var(--soft);}
+ol.steps{margin:12px 0 0;padding-left:22px;font-size:13.3px;line-height:1.85;}
+ol.steps li{margin:7px 0;} ol.steps code{background:#f1f3f6;border:1px solid #e0e4ea;border-radius:4px;padding:0 5px;font-size:12.3px;word-break:break-all;}
+ol.steps b{font-weight:700;}
+.checklist{margin-top:16px;padding:16px 18px;background:#fff;border:1px solid var(--accentbd);border-radius:8px;}
+.checklist h4{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--accent-deep);text-transform:uppercase;}
+.checklist ul{margin:0;padding:0;list-style:none;font-size:13px;}
+.checklist li{margin:8px 0;padding-left:29px;position:relative;line-height:1.7;color:#3a4654;}
+.checklist li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border:2px solid var(--accent);border-radius:3px;background:#fff;}
+.checklist li b{color:var(--ink);font-weight:700;}
+.checklist code{background:#f1f3f6;border:1px solid #e0e4ea;border-radius:4px;padding:0 4px;font-size:12px;}
+.checklist .fill{display:inline-block;min-width:80px;border-bottom:1.5px dashed var(--accent);}
+.flowbox{margin-top:12px;display:flex;flex-direction:column;gap:0;}
+.frow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e0a800;border-radius:6px;padding:10px 14px;}
+.frow .fno{flex:0 0 auto;font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:11px;font-weight:800;letter-spacing:.1em;color:#8a6200;background:#fff7e0;border:1px solid #f0d68a;border-radius:20px;padding:2px 11px;}
+.frow .ftxt{flex:1;font-size:13px;color:#4a3c00;}
+.frow .ftime{flex:0 0 auto;font-size:11.5px;color:#8a6200;font-weight:700;}
+.farrow{text-align:center;color:#c39a00;font-size:14px;line-height:1;padding:3px 0;}
+.frow.home{background:#fffdf5;}
+.ftag{flex:0 0 auto;font-size:10.5px;font-weight:800;color:#fff;background:#c39a00;border-radius:20px;padding:2px 9px;letter-spacing:.04em;}
+.roomnote{margin-top:12px;padding:13px 16px;background:#eafaf0;border:2px solid #2f9e44;border-radius:8px;font-size:13.2px;color:#1f6631;line-height:1.8;}
+.roomnote b{font-weight:800;}
+.roomnote .rt{display:block;font-size:14px;font-weight:800;margin-bottom:7px;}
+.roomnote code{background:#fff;border:1px solid #b9e4c8;border-radius:4px;padding:0 4px;}
+.roomtag{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:9px 14px;background:#eafaf0;border:1px solid #b9e4c8;border-left:4px solid #2f9e44;border-radius:8px;font-size:12.8px;color:#1f6631;line-height:1.7;}
+.fwait{background:#fdecec;border:1px dashed #c0392b;border-radius:6px;padding:8px 14px;font-size:12.6px;color:#7a1f1f;font-weight:700;text-align:center;}
+@media print{html{scroll-behavior:auto;}body{background:#fff;padding:0;}.topnav,.copybtn,.ckprog,.ckhint{display:none!important;}a.ulink{border-bottom:none;}.sheet{box-shadow:none;border:none;border-radius:0;max-width:none;padding:24px 28px;margin:0;}.topnotice{box-shadow:none;max-width:none;margin:0 0 14px;}.sheet.i2,.sheet.k1,.sheet.k2,.sheet.k3,.sheet.k4,.sheet.k5,.sheet.k6{page-break-before:always;}.level,pre.code,.record,.card,.verify,.checklist,.ainote,.warn,.dayof,.idnote,.figure,table.levels{break-inside:avoid;}}
+@media (max-width:640px){.topnav .inner{height:50px;gap:9px;}.topnav .brand{display:none;}.topnav .go{padding:6px 10px;font-size:11px;}.qrbox{width:100%;}.qrimg{margin:0 auto;}.sheet{padding:30px 22px 40px;}h1{font-size:23px;}pre.code{font-size:12px;padding:15px;}.record{flex-direction:column;align-items:flex-start;}.frow{flex-wrap:wrap;gap:7px;}}
+</style></head><body>
+
+<header class="topnav">
+  <div class="inner">
+    <div class="brand">事前準備マニュアル：テーマ1（小板）<span>情報システム演習実験II</span></div>
+    <div class="links">
+      <a href="#intro1">Copilot とは</a>
+      <a href="#intro2">心得</a>
+      <a href="#step1">STEP 1</a>
+      <a href="#step2">STEP 2</a>
+      <a href="#step3">STEP 3</a>
+      <a href="#step4">STEP 4</a>
+      <a href="#step5">STEP 5</a>
+      <a href="#appendix">付録</a>
+    </div>
+    <a class="go" href="https://forms.cloud.microsoft/r/Wa8w8CFkXs" target="_blank" rel="noopener">提出フォーム</a>
+  </div>
+</header>
+
+<section class="topnotice" id="top">
+  <h2>★ 第1回の授業までに必ず終わらせること</h2>
+  <p>この演習では <b>GitHub Copilot</b> を使います。しかし <b>使える状態にするまでに、最短でも数日、長いと数週間かかります</b>（GitHub 側の審査があるため）。<b>第1回の当日にセットアップを始めると、その日は何もできません。</b></p>
+  <ul>
+    <li>手を動かす時間そのものは、<b>待ち時間を除けば40分程度</b>です。</li>
+    <li><b>STEP 2 の審査を待っている間に、STEP 3 を必ず進めてください。</b>審査結果を待ってから始めると間に合いません。</li>
+    <li>途中でつまずいたら、期限直前ではなく<b>その日のうちに</b>担当教員に連絡してください。</li>
+  </ul>
+  <div class="axis">
+    <b>全体の流れ</b>
+    <div class="flowbox">
+      <div class="frow"><span class="fno">STEP 1</span><span class="ftxt">GitHub アカウントの準備</span><span class="ftime">約20分</span></div>
+      <div class="farrow">▼</div>
+      <div class="frow"><span class="fno">STEP 2</span><span class="ftxt">学生認証（GitHub Education）の申請</span><span class="ftime">約10分</span></div>
+      <div class="farrow">▼</div>
+      <div class="fwait">★ 審査待ち：数日 〜 数週間 ★　←　この間に STEP 3 を進める</div>
+      <div class="farrow">▼</div>
+      <div class="frow home"><span class="fno">STEP 3</span><span class="ftxt">Visual Studio Code と Git の準備</span><span class="ftag">自宅のみ</span><span class="ftime">約20分</span></div>
+      <div class="farrow">▼</div>
+      <div class="frow home"><span class="fno">STEP 4</span><span class="ftxt">Copilot を有効にする</span><span class="ftag">自宅のみ</span><span class="ftime">約5分</span></div>
+      <div class="farrow">▼</div>
+      <div class="frow"><span class="fno">STEP 5</span><span class="ftxt">動作確認 → 完了報告</span><span class="ftime">約5分</span></div>
+    </div>
+  </div>
+  <div class="roomnote"><span class="rt">■ STEP 3・STEP 4 は、全員がやる必要はありません</span>
+  <b>情報メディア教室（JM）の PC を使う場合、STEP 3・STEP 4 の環境はすでに準備済みです。</b>これらを自分で行う必要はありません。<br>
+  <b>自宅の PC で環境を作る場合だけ</b>、STEP 3・STEP 4 を実施してください。<br><br>
+  <b>ただし STEP 1・STEP 2・STEP 5 は、どこで作業する人も全員必須です。</b>STEP 1（アカウント）と STEP 2（学生認証）は<b>あなた個人のアカウントに対する手続き</b>なので、教室の PC が準備済みであることとは関係ありません。</div>
+</section>
+
+<!-- ============================ はじめに 1 ============================ -->
+<section class="sheet i1" id="intro1">
+  <div class="eyebrow">はじめに <span class="no">1</span><span class="badge">まず読む</span></div>
+  <h1>GitHub Copilot とは何か</h1>
+  <p class="lead">この演習で使う <b>GitHub Copilot</b> について、<b>使ったことがない人向け</b>に説明します。設定作業に入る前に読んでください。何をする道具なのかを分かったうえで触るのと、分からないまま触るのとでは、4週間後の到達点がまったく変わります。</p>
+  <div class="meta"><span>読了目安 <b>10分</b></span><span>前提知識 <b>不要</b></span><span>提供元 <b>GitHub（Microsoft傘下）</b></span></div>
+
+  <h2>一言でいうと</h2>
+  <p class="note" style="font-size:13.3px;color:var(--ink);line-height:1.9;margin-bottom:14px;">
+    <b>あなたがコードを書いている横で、「次はこう書くのでは？」と予測して提案してくれる AI</b> です。<br>
+    エディタ（Visual Studio Code）に組み込んで使います。提案は<b>薄いグレーの文字</b>で表示され、<code>Tab</code> キーを押すと採用、<code>Esc</code> キーで却下。<b>あなたが採用しない限り、コードは1文字も書き換わりません。</b>
+  </p>
+  <div class="ainote"><b>Copilot ＝「副操縦士」という意味です。</b>この名前は本質を的確に表しています。副操縦士は操縦を手伝いますが、<b>機長はあくまであなた</b>です。どこへ飛ぶかを決めるのも、計器の値がおかしいと気づくのも、最終的な責任を負うのもあなたです。この演習の全体を通して、この関係を意識してください。</div>
+
+  <h2>どういう仕組みで動いているのか</h2>
+  <p class="note">中身を厳密に知る必要はありませんが、<b>大まかな仕組みを知っているかどうかで、使いこなせるかが決まります。</b></p>
+
+  <div class="figure">
+    <svg viewBox="0 0 760 322" xmlns="http://www.w3.org/2000/svg">
+      <!-- ===== ① エディタ ===== -->
+      <text x="10" y="22" font-size="12" font-weight="700" fill="#0b4a44">① あなたが書く</text>
+      <rect x="10" y="32" width="212" height="152" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+      <path d="M10 40 a8 8 0 0 1 8 -8 h196 a8 8 0 0 1 8 8 v14 h-212 z" fill="#eef1f4"/>
+      <line x1="10" y1="54" x2="222" y2="54" stroke="#cbd5e1"/>
+      <circle cx="24" cy="43" r="3.2" fill="#f0a9a3"/><circle cx="35" cy="43" r="3.2" fill="#f0d68a"/><circle cx="46" cy="43" r="3.2" fill="#a8ddb5"/>
+      <text x="60" y="47" font-size="9.5" fill="#8a97a3">test.py</text>
+      <text x="22" y="78" font-size="9" fill="#c2cad2">1</text>
+      <text x="36" y="78" font-size="10" fill="#8a97a3" font-family="SFMono-Regular,Consolas,Menlo,monospace"># 1から100までの</text>
+      <text x="36" y="93" font-size="10" fill="#8a97a3" font-family="SFMono-Regular,Consolas,Menlo,monospace">#   素数を表示する関数</text>
+      <text x="22" y="112" font-size="9" fill="#c2cad2">2</text>
+      <rect x="36" y="102" width="2" height="13" fill="#1f2933"/>
+      <text x="48" y="112" font-size="9.5" fill="#b8c0c8">← カーソル</text>
+      <text x="22" y="146" font-size="10" fill="#52606d">日本語のコメントを書いて</text>
+      <text x="22" y="162" font-size="10" fill="#52606d">改行し、2〜3秒待つだけ</text>
+
+      <line x1="226" y1="108" x2="262" y2="108" stroke="#0f766e" stroke-width="2"/>
+      <polygon points="262,102 274,108 262,114" fill="#0f766e"/>
+      <text x="250" y="97" font-size="10" fill="#0f766e" font-weight="700" text-anchor="middle">文脈を送信</text>
+
+      <!-- ===== ② モデル ===== -->
+      <text x="278" y="22" font-size="12" font-weight="700" fill="#0b4a44">② AI が予測する</text>
+      <rect x="278" y="32" width="204" height="152" rx="8" fill="#f0fdf9" stroke="#a8ded7"/>
+      <g stroke="#8fcfc7" stroke-width="0.8" opacity="0.85">
+        <line x1="316" y1="70" x2="378" y2="58"/><line x1="316" y1="70" x2="378" y2="86"/><line x1="316" y1="70" x2="378" y2="114"/><line x1="316" y1="70" x2="378" y2="142"/>
+        <line x1="316" y1="98" x2="378" y2="58"/><line x1="316" y1="98" x2="378" y2="86"/><line x1="316" y1="98" x2="378" y2="114"/><line x1="316" y1="98" x2="378" y2="142"/>
+        <line x1="316" y1="126" x2="378" y2="58"/><line x1="316" y1="126" x2="378" y2="86"/><line x1="316" y1="126" x2="378" y2="114"/><line x1="316" y1="126" x2="378" y2="142"/>
+        <line x1="378" y1="58" x2="440" y2="84"/><line x1="378" y1="58" x2="440" y2="112"/>
+        <line x1="378" y1="86" x2="440" y2="84"/><line x1="378" y1="86" x2="440" y2="112"/>
+        <line x1="378" y1="114" x2="440" y2="84"/><line x1="378" y1="114" x2="440" y2="112"/>
+        <line x1="378" y1="142" x2="440" y2="84"/><line x1="378" y1="142" x2="440" y2="112"/>
+      </g>
+      <g fill="#5eada4"><circle cx="316" cy="70" r="5.5"/><circle cx="316" cy="98" r="5.5"/><circle cx="316" cy="126" r="5.5"/></g>
+      <g fill="#0f766e"><circle cx="378" cy="58" r="5.5"/><circle cx="378" cy="86" r="5.5"/><circle cx="378" cy="114" r="5.5"/><circle cx="378" cy="142" r="5.5"/></g>
+      <g fill="#0b4a44"><circle cx="440" cy="84" r="5.5"/><circle cx="440" cy="112" r="5.5"/></g>
+      <text x="380" y="164" font-size="9.5" fill="#52606d" text-anchor="middle">大量の公開コードを学習したモデル</text>
+      <text x="380" y="178" font-size="9.5" fill="#8a97a3" text-anchor="middle">「理解」ではなく「確率的な予測」</text>
+
+      <line x1="486" y1="108" x2="522" y2="108" stroke="#0f766e" stroke-width="2"/>
+      <polygon points="522,102 534,108 522,114" fill="#0f766e"/>
+      <text x="510" y="97" font-size="10" fill="#0f766e" font-weight="700" text-anchor="middle">候補を返す</text>
+
+      <!-- ===== ③ 提案 ===== -->
+      <text x="538" y="22" font-size="12" font-weight="700" fill="#0b4a44">③ グレーの文字で提案</text>
+      <rect x="538" y="32" width="212" height="152" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+      <path d="M538 40 a8 8 0 0 1 8 -8 h196 a8 8 0 0 1 8 8 v14 h-212 z" fill="#eef1f4"/>
+      <line x1="538" y1="54" x2="750" y2="54" stroke="#cbd5e1"/>
+      <circle cx="552" cy="43" r="3.2" fill="#f0a9a3"/><circle cx="563" cy="43" r="3.2" fill="#f0d68a"/><circle cx="574" cy="43" r="3.2" fill="#a8ddb5"/>
+      <text x="588" y="47" font-size="9.5" fill="#8a97a3">test.py</text>
+      <text x="550" y="76" font-size="9" fill="#c2cad2">1</text>
+      <text x="564" y="76" font-size="10" fill="#8a97a3" font-family="SFMono-Regular,Consolas,Menlo,monospace"># 1から100までの…</text>
+      <rect x="560" y="84" width="176" height="52" rx="4" fill="#f6f8fa" stroke="#e3e8ee" stroke-dasharray="3 2"/>
+      <text x="566" y="99" font-size="9.5" fill="#c2cad2" font-family="SFMono-Regular,Consolas,Menlo,monospace">def show_primes():</text>
+      <text x="566" y="113" font-size="9.5" fill="#c2cad2" font-family="SFMono-Regular,Consolas,Menlo,monospace">    for n in range(2,101):</text>
+      <text x="566" y="127" font-size="9.5" fill="#c2cad2" font-family="SFMono-Regular,Consolas,Menlo,monospace">        if is_prime(n):</text>
+      <text x="560" y="156" font-size="9.5" fill="#8a97a3">薄いグレー ＝ まだ入力されて</text>
+      <text x="560" y="170" font-size="9.5" fill="#8a97a3">いない「提案」の状態</text>
+
+      <!-- ===== ④ 採否 ===== -->
+      <text x="10" y="212" font-size="12" font-weight="700" fill="#0b4a44">④ 採用するかどうかは、あなたが決める</text>
+      <rect x="10" y="222" width="364" height="60" rx="8" fill="#eafaf0" stroke="#b9e4c8"/>
+      <rect x="28" y="238" width="48" height="28" rx="5" fill="#ffffff" stroke="#2f9e44" stroke-width="1.5"/>
+      <text x="52" y="257" font-size="11.5" font-weight="700" fill="#1f6631" text-anchor="middle">Tab</text>
+      <text x="90" y="248" font-size="12" font-weight="700" fill="#1f6631">採用する</text>
+      <text x="90" y="266" font-size="10.5" fill="#3a4654">グレーだった提案が、そのまま入力される</text>
+
+      <rect x="386" y="222" width="364" height="60" rx="8" fill="#fdecec" stroke="#f3b9b9"/>
+      <rect x="404" y="238" width="48" height="28" rx="5" fill="#ffffff" stroke="#c0392b" stroke-width="1.5"/>
+      <text x="428" y="257" font-size="11.5" font-weight="700" fill="#7a1f1f" text-anchor="middle">Esc</text>
+      <text x="466" y="248" font-size="12" font-weight="700" fill="#7a1f1f">却下する</text>
+      <text x="466" y="266" font-size="10.5" fill="#3a4654">提案は消える。コードは1文字も変わらない</text>
+
+      <text x="10" y="306" font-size="11" fill="#52606d">※ 提案が表示されている間、ファイルはまだ書き換わっていません。<tspan font-weight="700" fill="#1f2933">勝手にコードを書き換えられることはありません。</tspan></text>
+    </svg>
+    <p class="cap">図1：コメントを書いてから提案が出るまでの流れ</p>
+  </div>
+
+  <div class="figure">
+    <svg viewBox="0 0 760 292" xmlns="http://www.w3.org/2000/svg">
+      <!-- エディタ本体 -->
+      <rect x="210" y="26" width="340" height="248" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+      <path d="M210 34 a8 8 0 0 1 8 -8 h324 a8 8 0 0 1 8 8 v26 h-340 z" fill="#eef1f4"/>
+      <rect x="216" y="32" width="82" height="24" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="257" y="48" font-size="9.5" fill="#1f2933" text-anchor="middle">main.py</text>
+      <rect x="302" y="32" width="82" height="24" rx="4" fill="#e3e8ee"/>
+      <text x="343" y="48" font-size="9.5" fill="#8a97a3" text-anchor="middle">utils.py</text>
+      <rect x="388" y="32" width="94" height="24" rx="4" fill="#e3e8ee"/>
+      <text x="435" y="48" font-size="9.5" fill="#8a97a3" text-anchor="middle">README.md</text>
+      <line x1="210" y1="60" x2="550" y2="60" stroke="#cbd5e1"/>
+
+      <rect x="228" y="72" width="308" height="17" rx="3" fill="#fff7e0"/>
+      <text x="220" y="85" font-size="9" fill="#c2cad2">1</text>
+      <text x="236" y="85" font-size="10" fill="#8a97a3" font-family="SFMono-Regular,Consolas,Menlo,monospace"># 受け取った点数の合計を計算する</text>
+      <text x="220" y="107" font-size="9" fill="#c2cad2">2</text>
+      <text x="236" y="107" font-size="10" fill="#27313b" font-family="SFMono-Regular,Consolas,Menlo,monospace">def <tspan fill="#0b6cb5" font-weight="700">calc_total</tspan>(<tspan fill="#0b6cb5" font-weight="700">scores</tspan>):</text>
+      <text x="220" y="129" font-size="9" fill="#c2cad2">3</text>
+      <text x="236" y="129" font-size="10" fill="#27313b" font-family="SFMono-Regular,Consolas,Menlo,monospace">    total = 0</text>
+      <text x="220" y="151" font-size="9" fill="#c2cad2">4</text>
+      <text x="236" y="151" font-size="10" fill="#27313b" font-family="SFMono-Regular,Consolas,Menlo,monospace">    for s in scores:</text>
+      <text x="220" y="173" font-size="9" fill="#c2cad2">5</text>
+      <text x="236" y="173" font-size="10" fill="#27313b" font-family="SFMono-Regular,Consolas,Menlo,monospace">        total += s</text>
+      <text x="220" y="195" font-size="9" fill="#c2cad2">6</text>
+      <rect x="268" y="185" width="2" height="13" fill="#1f2933"/>
+
+      <text x="380" y="236" font-size="10.5" fill="#52606d" text-anchor="middle">これらが自動でまとめられ、</text>
+      <text x="380" y="253" font-size="10.5" fill="#52606d" text-anchor="middle">「文脈」として AI に送られる</text>
+
+      <!-- 左の吹き出し -->
+      <g stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 2" fill="none">
+        <line x1="192" y1="46" x2="212" y2="44"/>
+        <line x1="192" y1="118" x2="230" y2="82"/>
+        <line x1="192" y1="196" x2="234" y2="168"/>
+        <line x1="568" y1="98" x2="548" y2="104"/>
+        <line x1="568" y1="176" x2="548" y2="192"/>
+      </g>
+      <rect x="8" y="30" width="184" height="34" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="20" y="45" font-size="10.5" font-weight="700" fill="#1e293b">開いている他のタブ</text>
+      <text x="20" y="59" font-size="10" fill="#52606d">これも文脈に含まれる</text>
+
+      <rect x="8" y="102" width="184" height="34" rx="6" fill="#fff7e0" stroke="#f0d68a"/>
+      <text x="20" y="117" font-size="10.5" font-weight="700" fill="#6e5200">あなたが書いたコメント</text>
+      <text x="20" y="131" font-size="10" fill="#6e5200">いちばん効く「指示」</text>
+
+      <rect x="8" y="180" width="184" height="34" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="20" y="195" font-size="10.5" font-weight="700" fill="#1e293b">前後のコードの中身</text>
+      <text x="20" y="209" font-size="10" fill="#52606d">書き方の癖も読み取られる</text>
+
+      <!-- 右の吹き出し -->
+      <rect x="568" y="82" width="184" height="34" rx="6" fill="#eef6fc" stroke="#bcdcf2"/>
+      <text x="580" y="97" font-size="10.5" font-weight="700" fill="#08507f">関数名・変数名</text>
+      <text x="580" y="111" font-size="10" fill="#1d4e74">意味のある名前ほど効く</text>
+
+      <rect x="568" y="160" width="184" height="34" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+      <text x="580" y="175" font-size="10.5" font-weight="700" fill="#1e293b">カーソルの位置</text>
+      <text x="580" y="189" font-size="10" fill="#52606d">ここの続きが予測される</text>
+    </svg>
+    <p class="cap">図2：「文脈（コンテキスト）」として送られているもの。AI はこれらだけを手がかりに予測している</p>
+  </div>
+
+  <div class="idnote">★ <b>図2から分かる、いちばん実用的なこと。</b>AI に渡っているのは、この5つ<b>だけ</b>です。つまり<b>「Copilot の性能」より「あなたの伝え方」で結果が決まります。</b>コメントを丁寧に書く、変数名をきちんと付ける、関係ないファイルは閉じる──たったこれだけで提案の質は目に見えて変わります。</div>
+
+  <div class="dayof"><b>★ この図から読み取ってほしい2つのこと</b><br>
+  <b>1. 提案の質は「文脈」で決まる。</b>コメントを丁寧に書く、変数名をきちんと付ける、関係ないファイルを閉じる。それだけで提案の質が目に見えて変わります。「Copilot が使えない」と言う人の大半は、文脈の与え方が雑なだけです。<br>
+  <b>2. Copilot は「考えて」いない。</b>もっともらしい続きを<b>確率的に予測</b>しているだけです。だから、<b>平気で間違えます</b>。これは故障ではなく、仕組み上そういうものです。</div>
+
+  <h2>4つの使い方</h2>
+  <p class="note">Copilot には大きく4つの使い方があります。<b>第1回のハンズオンで全部試します</b>ので、ここでは「そういうものがある」と分かれば十分です。暗記する必要はありません。</p>
+
+  <div class="design"><b>「ハンズオン」とは</b><br>
+  <b>hands-on ＝「手を動かす」</b>という意味です。講義を聞いて終わりではなく、<b>受講者全員がその場で自分のパソコンを操作して、実際に機能を試す形式</b>の授業を指します。第1回の前半（およそ90分）がこれにあたります。<br>
+  進め方は次のとおりです。教員が前で1つの操作を示す → <b>全員が同じ操作を自分の画面で再現する</b> → できたことを確認して次へ進む、の繰り返しです。分からなくなったらその場で手を挙げてください。全員が同じ画面を出している前提で進むので、黙って置いていかれるのがいちばん困ります。<br>
+  この形式をとるのは、<b>Copilot は「聞いて分かったつもり」になりやすい道具だから</b>です。説明を聞けば簡単そうに思えますが、実際に自分で打ってみると「提案が出ない」「思ったのと違うコードが出る」といったことが必ず起きます。その最初のつまずきを、教員がいる場で済ませてしまうのが狙いです。</div>
+
+  <div class="level"><div class="lvhead"><span class="chip c-beg">① 基本</span><span class="t">インライン補完 － コメントを書いて <code style="background:#fff;">Tab</code></span></div>
+    <p>最もよく使う機能です。コメントで「何をしたいか」を日本語で書いて改行すると、その下にコードが提案されます。<code>Tab</code> で採用、<code>Esc</code> で却下、<code>Alt + ]</code> で別の候補を表示。<b>この演習ではこれが主戦力になります。</b></p>
+  </div>
+
+  <div class="level"><div class="lvhead"><span class="chip c-beg">② 基本</span><span class="t">インラインチャット － <code style="background:#fff;">Ctrl + I</code></span></div>
+    <p>コードを選択した状態で <code>Ctrl + I</code>（Mac は <code>Cmd + I</code>）を押すと、その場で日本語の指示が出せます。「このコードにエラー処理を追加して」「この関数を読みやすく書き直して」のように使います。</p>
+  </div>
+
+  <div class="level"><div class="lvhead"><span class="chip c-mid">③ 対話</span><span class="t">Copilot Chat － サイドバーで会話する</span></div>
+    <p>サイドバーを開いて、日本語で AI と会話しながら進める使い方です。ふつうに質問してもよいのですが、<b>先頭に決まった記号を付けると、AI に「何をしてほしいか」が正確に伝わり、返ってくる答えの質が大きく上がります。</b>この演習では次の4つを覚えてください。</p>
+    <div class="cmdlist">
+
+      <div class="cmd">
+        <div class="cmdhead"><span class="cmdname">/explain</span><span class="cmdtag">最重要</span><span style="font-size:12px;font-weight:700;color:#3a4654;">コードの意味を説明させる</span></div>
+        <p><span class="lbl">何をする</span>エディタでコードを<b>選択してから</b> <code>/explain</code> と入力すると、そのコードが何をしているかを日本語で説明してくれます。1行ずつの動作だけでなく、<b>使われている文法の名前、なぜその書き方をするのか、どんなときに壊れるのか</b>まで聞き出せます。</p>
+        <p><span class="lbl">使う場面</span>Copilot の提案を採用したものの、中身が分からないとき。班の他のメンバーが書いた部分を読むとき。授業で習っていない書き方に出会ったとき。</p>
+        <div class="ex"><b>入力例</b>（コードを選択した状態で）
+          <span class="q">/explain 初心者にも分かるように、1行ずつ日本語で説明して</span>
+          <span class="q">/explain この書き方をする理由は？もっと簡単な書き方はある？</span>
+        </div>
+        <p><span class="lbl">重要</span>この演習の鉄則「<b>説明できないコードを残さない</b>」を守るための、いちばん現実的な手段です。<b>意味の分からないコードを見つけたら、その場で投げる。</b>これを習慣にできるかどうかで、4週間後の到達点が変わります。</p>
+      </div>
+
+      <div class="cmd">
+        <div class="cmdhead"><span class="cmdname">/fix</span><span class="cmdtag">エラー対応</span><span style="font-size:12px;font-weight:700;color:#3a4654;">原因を推測して直させる</span></div>
+        <p><span class="lbl">何をする</span>エラーが出ているコードを選択して <code>/fix</code> と打つと、<b>原因の推測と修正案</b>を出してくれます。修正後のコードは元との差分で提示されるので、どこがどう変わったのかを確認したうえで採用できます。</p>
+        <p><span class="lbl">使う場面</span>実行してエラーが出たが、エラーメッセージの意味が分からないとき。エラーは出ないのに、期待した結果にならないとき。</p>
+        <div class="ex"><b>入力例</b>（エラー箇所を選択し、<b>エラーメッセージを全文コピーして貼り付ける</b>）
+          <span class="q">/fix 実行するとこのエラーが出ます：〔ここにエラー全文を貼る〕</span>
+        </div>
+        <p><span class="lbl">コツ</span>エラーメッセージは<b>省略せず全部貼る</b>こと。「なんかエラーが出ます」だけでは、AI も推測しかできません。逆に全文を貼れば、的中率は一気に上がります。</p>
+        <p><span class="lbl">注意</span>提示された修正が正しいとは限りません。<b>採用する前に「なぜそれで直るのか」を <code>/explain</code> で確認</b>してください。原因を理解しないまま直すと、同じエラーを何度も繰り返します。</p>
+      </div>
+
+      <div class="cmd">
+        <div class="cmdhead"><span class="cmdname">/tests</span><span class="cmdtag">検証</span><span style="font-size:12px;font-weight:700;color:#3a4654;">テストコードを書かせる</span></div>
+        <p><span class="lbl">何をする</span>選択した関数に対する<b>テストコード</b>（その関数が正しく動くかを自動で確かめるプログラム）を生成します。ふつうの入力だけでなく、<b>データが空のとき・0のとき・想定外の値が来たとき</b>といった「境界のケース」も作ってくれることが多いのが利点です。</p>
+        <p><span class="lbl">使う場面</span>自分の書いた関数が本当に正しいか確かめたいとき。とくに <b>AI が生成したコードを検証したいとき</b>に有効です。</p>
+        <div class="ex"><b>入力例</b>（関数を選択した状態で）
+          <span class="q">/tests 境界値のケースも含めてテストを作って</span>
+          <span class="q">/tests 空のリストが渡されたときの動作もテストして</span>
+        </div>
+        <p><span class="lbl">なぜ重要か</span>AI の出したコードを AI に検証させるのは万能ではありませんが、<b>自分では思いつかなかったケースに気づける</b>という効果があります。テストが通らなければ、そのコードはどこかが間違っています。「動いたように見える」で先に進まないための保険です。</p>
+      </div>
+
+      <div class="cmd">
+        <div class="cmdhead"><span class="cmdname">@workspace</span><span class="cmdtag">範囲指定</span><span style="font-size:12px;font-weight:700;color:#3a4654;">プロジェクト全体を見て答えさせる</span></div>
+        <p><span class="lbl">何をする</span>これだけは他の3つと性質が違い、<b>命令ではなく「見る範囲の指定」</b>です。質問の先頭に付けると、いま開いている1つのファイルだけでなく、<b>プロジェクトの中のファイル全部</b>を見たうえで答えてくれます。</p>
+        <p><span class="lbl">使う場面</span>ファイルが増えてきて「あの処理、どこに書いたっけ」となったとき。班のメンバーが書いた部分も含めて全体像を知りたいとき。新しい機能をどのファイルに足すべきか相談したいとき。</p>
+        <div class="ex"><b>入力例</b>（コードの選択は不要）
+          <span class="q">@workspace ログイン処理はどのファイルに書かれている？</span>
+          <span class="q">@workspace この機能を追加するなら、どのファイルを直すべき？</span>
+          <span class="q">@workspace このプロジェクト全体の構成を初心者向けに説明して</span>
+        </div>
+        <p><span class="lbl">注意</span>見る範囲が広いぶん、答えが返るまで時間がかかります。<b>1つのファイルを見れば済む質問には付けない</b>ようにしてください。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="level"><div class="lvhead"><span class="chip c-exp">④ 自動</span><span class="t">Agent（エージェント）モード － まとめて任せる</span></div>
+    <p>Chat の上部でモードを <b>Agent</b> に切り替えると、ファイルの作成・複数ファイルの同時編集・コマンド実行まで<b>まとめて自動でやってくれます</b>。非常に強力ですが、その分<b>何をされたか把握しにくく</b>、後で自分のコードが分からなくなる原因にもなります。使うときは必ず差分を確認してください。</p>
+  </div>
+
+  <div class="idnote">★ <b>③と④は「プレミアムリクエスト」を消費します。</b>無料枠では<b>月50回</b>しか使えません（①と②の補完は月2,000回で実質使い放題）。詳しくは STEP 4 で説明します。<b>Agent モードを気軽に回していると、2回目の演習日で枯れます。</b></div>
+
+  <h2>なぜこの演習で使うのか</h2>
+  <p class="note" style="font-size:13px;color:var(--ink);line-height:1.85;">理由は3つあります。<b>①現場ではすでに標準装備になっている</b>、<b>②しかし現場は AI を信用していない</b>、<b>③だから求められているのは「使える人」ではなく「検証できる人」だから</b>です。順に見ていきます。</p>
+
+  <p class="statlead">① すでに「使えて当たり前」になっている</p>
+  <div class="stats">
+    <div class="stat"><div class="n">84<small>%</small></div><div class="l">AI ツールを使っている／使う予定の開発者<br><span style="color:#8a97a3;">2024年は76%</span></div></div>
+    <div class="stat"><div class="n">51<small>%</small></div><div class="l">プロの開発者のうち<br><b>毎日</b>使っている割合</div></div>
+    <div class="stat"><div class="n">55.5<small>%</small></div><div class="l">経験の浅い開発者の毎日利用率<br><b>若手ほど高い</b></div></div>
+  </div>
+
+  <p class="statlead bad">② しかし、現場は AI を信用していない</p>
+  <div class="stats">
+    <div class="stat bad"><div class="n">29<small>%</small></div><div class="l">出力が正確だと信じている開発者<br><span style="color:#8a97a3;">2024年は40%。下がっている</span></div></div>
+    <div class="stat bad"><div class="n">3<small>%</small></div><div class="l">「強く信頼している」と<br>答えた割合</div></div>
+    <div class="stat bad"><div class="n">66<small>%</small></div><div class="l">最大の不満は<br><b>「ほぼ正しいが、微妙に違う」</b></div></div>
+  </div>
+  <p class="statsrc">出典：Stack Overflow 開発者調査（世界177か国・49,000人以上が回答）。数値は調査結果から抜粋。</p>
+
+  <div class="dayof"><b>★ この2つの数字の組み合わせが、すべてを物語っています。</b><br>
+  <b>使用率は過去最高、信頼度は過去最低。</b>そして開発者の最大の不満が「<b>ほぼ正しいが、微妙に違う</b>」であることに注目してください。<br><br>
+  これは、このマニュアルの「はじめに2」で挙げる落とし穴①──<b>「動かないコードより、動くけれど間違っているコードのほうが危険」</b>──とまったく同じことです。世界中のプロが、いま全員そこで困っています。<br><br>
+  つまり現場が求めているのは <b>「AI を使える人」ではなく「AI の出力を検証できる人」</b>です。前者は誰でも数分でなれます。後者になるには訓練が要ります。<b>この演習で訓練するのは、後者です。</b></div>
+
+  <h2>この4週間で、実際にこういう場面が来る</h2>
+  <p class="note">抽象的な話ではありません。以下は、この演習で<b>ほぼ確実に起きる場面</b>です。</p>
+
+  <div class="level"><div class="lvhead"><span class="chip c-mid">場面 1</span><span class="t">使ったことのないライブラリを使うことになる</span></div>
+    <p><span class="lbl">状況</span>「お店の位置を地図に表示したい」。地図を出すには専用のライブラリが必要だが、<b>班の誰も触ったことがない。</b></p>
+    <p><span class="lbl">従来</span>英語の公式ドキュメントを読み、サンプルを探し、動かない原因を調べる。<b>ここだけで半日から1日</b>が消えます。</p>
+    <p><span class="lbl">Copilot</span>「地図を表示して、指定した緯度経度にピンを立てるコードを書いて」と頼めば、<b>動く土台が数分で出ます。</b>あとは自分たちのデータに合わせて直すだけ。</p>
+    <p><span class="lbl">意味</span>この演習は授業時間が<b>合計20時間しかありません</b>。この差は致命的です。Copilot を使う本当の狙いは、<b>「調べる時間」を「何を作るか考える時間」と「ユーザーに聞きに行く時間」に振り替えること</b>にあります。</p>
+  </div>
+
+  <div class="level"><div class="lvhead"><span class="chip c-mid">場面 2</span><span class="t">公開したら動かない</span></div>
+    <p><span class="lbl">状況</span>自分のパソコンでは動くのに、インターネットに公開したら画面が真っ白。原因が分からないまま1時間が経過。</p>
+    <p><span class="lbl">やること</span>エラーログを<b>全文コピーして</b> <code>/fix</code> に貼る。</p>
+    <p><span class="lbl">結果</span>「設定ファイルの値が読み込まれていない」といった原因が、数十秒で指摘されます。</p>
+    <p><span class="lbl">意味</span>1回の授業は5時間弱です。この種の詰まりで2時間溶かすと、<b>その週の実装は終わりません。</b>調べ物の速度が、そのまま成果物の完成度に直結します。</p>
+  </div>
+
+  <div class="level"><div class="lvhead"><span class="chip c-mid">場面 3</span><span class="t">班のメンバーが書いたコードが読めない</span></div>
+    <p><span class="lbl">状況</span>2週目、他のメンバーが書いた画面を自分が修正することになった。<b>150行あって、どこから読めばいいのか分からない。</b></p>
+    <p><span class="lbl">やること</span>全部選択して <code>/explain 全体の構造を初心者向けに説明して</code>。</p>
+    <p><span class="lbl">結果</span>5分で全体像がつかめ、直すべき箇所が特定できます。</p>
+    <p><span class="lbl">意味</span>チーム開発でいちばん時間を食うのは、実は<b>「他人のコードを読む時間」</b>です。ここが速くなると、班の中で担当を融通できるようになり、<b>1人が詰まっても全体が止まらなくなります。</b></p>
+  </div>
+
+  <div class="level"><div class="lvhead"><span class="chip c-mid">場面 4</span><span class="t">使ってもらった人の指摘を、その場で直す</span></div>
+    <p><span class="lbl">状況</span>3週目、実際に触ってもらったら「ボタンが小さくて押せない」「文字が読めない」と言われた。</p>
+    <p><span class="lbl">やること</span>その場で修正して、<b>次の人にもう一度試してもらう。</b></p>
+    <p><span class="lbl">意味</span>この演習の肝は「作って終わり」ではなく、<b>「言われたことを直して、もう一度試してもらう」往復</b>にあります。修正が速いほど、この往復を多く回せます。<b>Copilot は、往復の回数を増やすための道具</b>だと考えてください。</p>
+  </div>
+
+  <h2>逆に、こう使うと失敗する</h2>
+  <p class="note">以下は<b>毎年実際に起きている失敗</b>です。先に知っておいてください。</p>
+
+  <div class="warn"><b>✗ 失敗例1：Agent モードに丸投げする</b><br>
+  「社会課題を解決するアプリを作って」と頼む → <b>15個のファイルが自動生成される</b> → 一見それらしく動く → 1か所直したら全体が壊れる → <b>誰も直せない</b> → 最初からやり直し。<br><br>
+  3週目にこれをやると、まず間に合いません。<b>速く進んでいるように見えて、いちばん遠回りです。</b><br>
+  <b>→ 正しくは：</b>機能を1つずつ、<b>自分が読める大きさ</b>で頼む。生成された差分は必ず目を通す。</div>
+
+  <div class="warn"><b>✗ 失敗例2：<code>/fix</code> を連打する</b><br>
+  エラーが出る → <code>/fix</code> → 別のエラーが出る → <code>/fix</code> → また別のエラー…… これを30分繰り返し、<b>最初より状況が悪化する。</b><br><br>
+  原因を理解しないまま直しているので、当然こうなります。<br>
+  <b>→ 正しくは：</b>1回目の <code>/fix</code> の結果を <b><code>/explain</code> で確認してから</b>採用する。「なぜそれで直るのか」が言えない修正は、採用してはいけません。</div>
+
+  <div class="warn"><b>✗ 失敗例3：とりあえず <code>Tab</code> を押し続ける</b><br>
+  提案が出るたびに内容を読まず採用 → 2週目には<b>自分のコードなのに何が書いてあるか分からない</b>状態になる → 修正できず、機能を足せなくなる。<br><br>
+  <b>→ 正しくは：</b>読んで分からない提案が出たら、その場で <code>/explain</code>。ここを面倒がった班は、例外なく後半で止まります。</div>
+
+  <h2>この演習で身につけてほしい3つの力</h2>
+  <div class="grid2">
+    <div class="card"><h3>① 伝える力</h3><ul>
+      <li>AI に渡っているのは<b>文脈だけ</b>（図2）</li>
+      <li>曖昧な指示には曖昧な答えが返る</li>
+      <li>コメント・変数名・頼み方を磨く</li>
+    </ul></div>
+    <div class="card"><h3>② 疑う力</h3><ul>
+      <li><b>「ほぼ正しい」を見抜く</b></li>
+      <li>世界中のプロの66%が困っているのがここ</li>
+      <li>テストを書いて確かめる習慣</li>
+    </ul></div>
+    <div class="card"><h3>③ 説明する力</h3><ul>
+      <li>自分のコードを1行残らず説明できる</li>
+      <li>班の他の人に引き継げる</li>
+      <li><b>この演習の評価軸そのもの</b></li>
+    </ul></div>
+  </div>
+  <div class="ainote"><b>まとめると。</b>この演習は「Copilot の使い方講座」ではありません。<b>AI を道具として制御する側に立つ訓練</b>です。制御される側になると、開発はむしろ遅くなります──失敗例1〜3が、まさにそれです。<b>4週間後に「AI に書かせたけれど、全部説明できる」状態になっていれば成功</b>だと考えてください。</div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+</section>
+
+<!-- ============================ はじめに 2 ============================ -->
+<section class="sheet i2" id="intro2">
+  <div class="eyebrow">はじめに <span class="no">2</span><span class="badge">まず読む</span></div>
+  <h1>得意・苦手と、使うときの心得</h1>
+  <p class="lead">Copilot は万能ではありません。<b>何が得意で何が苦手かを知らないまま使うと、かえって時間を溶かします。</b>また、初めて使う人が必ずと言っていいほどハマる落とし穴が4つあります。事前に知っておいてください。</p>
+
+  <h2>得意なこと・苦手なこと</h2>
+  <table class="levels">
+    <thead><tr><th style="width:50%;">得意なこと（どんどん任せてよい）</th><th>苦手なこと（自分でやるべき）</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>定型的なコード（ループ、入出力、データ変換、画面の枠組み）</td>
+        <td><b>「何を作るべきか」の判断</b>。これは人間の仕事です</td>
+      </tr>
+      <tr>
+        <td>初めて使う言語やライブラリの<b>書き方</b>を教えてもらう</td>
+        <td>プロジェクト全体の設計。部分は書けても全体は組めません</td>
+      </tr>
+      <tr>
+        <td>エラーメッセージの意味を調べる（貼り付けて聞くだけ）</td>
+        <td>ごく最近出たライブラリ。学習データに含まれていません</td>
+      </tr>
+      <tr>
+        <td><b>既存コードが何をしているかの説明</b>（<code>/explain</code>）</td>
+        <td><b>正しさの保証</b>。動くコードと正しいコードは別物です</td>
+      </tr>
+      <tr>
+        <td>テストコードやサンプルデータの生成</td>
+        <td>あなたの意図の推測。<b>曖昧な指示には曖昧な答え</b>が返ります</td>
+      </tr>
+      <tr>
+        <td>コメント・ドキュメント・コミットメッセージを書く</td>
+        <td>複雑な業務ルールや、その場限りの特殊な仕様の実装</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>初めて使う人が必ずハマる4つの落とし穴</h2>
+
+  <div class="warn"><b>① 平気で間違えます。しかも自信満々に。</b><br>
+  存在しない関数を呼び出す、引数の順番が違う、境界の条件（0のとき、空のとき、最後の1件）を間違える──こういうことが日常的に起こります。これは<b>不具合ではなく、仕組み上そういうもの</b>です。<br>
+  そして<b>いちばん危険なのは「動かないコード」ではなく「動くけれど間違っているコード」</b>です。動かなければすぐ気づきますが、動いてしまうと最後まで気づきません。<b>提案されたコードは必ず自分で読んでください。</b></div>
+
+  <div class="idnote">★ <b>② 何も考えずに <code>Tab</code> を押し続けると、力がつきません。</b><br>
+  これは実際に毎年起こります。「動いたからヨシ」で進むと、2週目に必ず詰みます。自分のコードなのに、どこを直せばいいのか分からなくなるからです。<br>
+  <b>対策は簡単で、意味の分からないコードを見たらすぐ <code>/explain</code> に投げる</b>、それだけです。習慣にしてください。</div>
+
+  <div class="warn"><b>③ 入力してはいけないものがあります。</b><br>
+  入力した内容はクラウド上の AI に送信されます。次のものは<b>絶対に書かない・貼らない</b>でください。<br>
+  ・API キー、パスワード、アクセストークン　・自分や他人の個人情報　・他人の未公開のコードや、公開が許されていない資料<br>
+  特に <b>API キーをコードに直接書いて GitHub にアップロードする</b>のは典型的な事故です。演習中も必ず守ってください。</div>
+
+  <div class="ainote"><b>④ AI の利用ルールは、授業ごとに違います。</b><br>
+  <b>この演習では Copilot の使用を推奨していますが、他の科目では禁止されている場合があります。</b>「情報システム演習実験II で使ってよかったから」は他の科目での理由になりません。<b>各科目の指示を必ず確認してください。</b><br>
+  また、この演習でも <b>生成されたコードをそのまま提出して内容を説明できない場合は、大幅な減点対象</b>です。</div>
+
+  <h2>この演習の鉄則</h2>
+  <div class="dayof" style="font-size:13.5px;"><b>★ 「Copilot が書いたので分かりません」は通用しません。</b><br><br>
+  自分のリポジトリにあるコードは、<b>1行残らず説明できる状態</b>にしておいてください。発表会でも個人レポートでも、ここを問われます。<br><br>
+  <b>動くことより、理解していることのほうが重要です。</b>この演習の評価はその方針で行います。</div>
+
+  <h2>用語集</h2>
+  <p class="note">この先のマニュアルや演習中に出てくる言葉です。分からなくなったらここに戻ってください。</p>
+  <table class="levels">
+    <thead><tr><th style="width:30%;">用語</th><th>意味</th></tr></thead>
+    <tbody>
+      <tr><td><b>補完（completion）</b></td><td>書きかけのコードの続きを AI が予測して提案すること。グレーの文字で表示される</td></tr>
+      <tr><td><b>noreply アドレス</b></td><td>GitHub が用意する身代わりのメールアドレス。<code>ID+ユーザー名@users.noreply.github.com</code> の形式。これをコミットに使うと本来のアドレスが公開されない</td></tr>
+      <tr><td><b>プロンプト</b></td><td>AI への指示文のこと。「何をしてほしいか」を書いた文章</td></tr>
+      <tr><td><b>コンテキスト（文脈）</b></td><td>AI に一緒に送られる周辺情報。開いているファイル、コメント、変数名など。<b>これが提案の質を決める</b></td></tr>
+      <tr><td><b>LLM（大規模言語モデル）</b></td><td>Copilot の中身にあたる AI。大量の文章やコードを学習し、次に来る内容を予測する</td></tr>
+      <tr><td><b>ハルシネーション</b></td><td>AI が事実でないことをもっともらしく答えてしまう現象。存在しない関数名などが典型例</td></tr>
+      <tr><td><b>エージェント（Agent）</b></td><td>指示を受けて、ファイル作成やコマンド実行まで自動で進める使い方</td></tr>
+      <tr><td><b>プレミアムリクエスト</b></td><td>Chat や Agent モードを使うときに消費される回数。<b>無料枠では月50回</b></td></tr>
+      <tr><td><b>Copilot Free</b></td><td>誰でも無料で使えるプラン。<b>この演習はこれで完走できる</b></td></tr>
+      <tr><td><b>Copilot Student</b></td><td>学生認証が通った人が使える無料プラン。制限がゆるい</td></tr>
+      <tr><td><b>リポジトリ</b></td><td>GitHub 上のプロジェクトの保管場所。コードとその変更履歴が入っている</td></tr>
+      <tr><td><b>スラッシュコマンド</b></td><td>Copilot Chat で <code>/</code> から始まる命令。<code>/explain</code>・<code>/fix</code>・<code>/tests</code> など</td></tr>
+      <tr><td><b>ハンズオン</b></td><td>hands-on ＝「手を動かす」。聞くだけでなく、<b>全員がその場で自分の PC を操作して試す形式</b>の授業。第1回の前半がこれにあたる</td></tr>
+    </tbody>
+  </table>
+
+  <div class="verify"><b>ここまで読めたら</b>　次のページから実際の設定作業に入ります。<b>STEP 1 → 2 →（審査待ちの間に）3 → 4 → 5</b> の順に進めてください。<b>STEP 2 の申請だけは、実験ガイダンス終了後すぐに出してしまうこと。</b></div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+</section>
+
+<!-- ============================ STEP 1 ============================ -->
+<section class="sheet k1" id="step1">
+  <div class="eyebrow">STEP <span class="no">1</span><span class="badge">約20分</span></div>
+  <h1>GitHub アカウントの準備</h1>
+  <p class="lead">学生認証は<b>審査</b>です。アカウントの情報が不十分だと落とされます。ここでの作業が STEP 2 の合否をほぼ決めるので、<b>5項目すべて</b>を確実に済ませてください。</p>
+  <div class="meta"><span>所要 <b>約20分</b></span><span>使うもの <b>PC・スマホ</b></span><span>この STEP の到達点 <b>審査に出せるアカウント</b></span></div>
+
+  <div class="grid2">
+    <div class="card"><h3>用意するもの</h3><ul>
+      <li><b>大学が発行したメールアドレス</b>（<code>〜@doshisha.ac.jp</code>）</li>
+      <li>スマホ（二段階認証の設定に使う）</li>
+      <li>本名のアルファベット表記</li>
+    </ul></div>
+    <div class="card"><h3>この STEP のゴール</h3><ul>
+      <li>大学メールが <b>Verified</b> になっている</li>
+      <li>プロフィールの <b>Name の方針</b>を決め、<b>Bio</b> を入れた</li>
+      <li>二段階認証が有効で、<b>リカバリコードを保存済み</b></li>
+      <li><b>メールアドレスを非公開</b>にした</li>
+    </ul></div>
+  </div>
+
+  <h2>1-1　アカウントを作る</h2>
+  <ol class="steps">
+    <li><a class="ulink" href="https://github.com/" target="_blank" rel="noopener"><code>https://github.com/</code></a> にアクセスし、<b>Sign up</b> をクリック。</li>
+    <li>ユーザー名は<b>今後もずっと使えるもの</b>にしてください（就職活動でも使います）。</li>
+    <li>すでにアカウントを持っている人は 1-2 へ進んでください。</li>
+  </ol>
+
+  <h2>1-2　大学のメールアドレスを登録・認証する</h2>
+  <p class="note">学生認証で<b>最も重視される</b>項目です。</p>
+  <ol class="steps">
+    <li>右上のアイコン → <b>Settings</b> → 左メニューの <b>Emails</b>。</li>
+    <li><b>Add email address</b> で大学のメールアドレスを追加。</li>
+    <li><b>そのアドレス宛に届く確認メールのリンクをクリックする。</b></li>
+  </ol>
+  <div class="verify"><b>ここで確認</b>　Settings → Emails の画面で、大学メールの横にある <b>Unverified</b> の表示が消えていること。消えていなければ、確認メールのリンクをまだ踏んでいません。迷惑メールフォルダも確認してください。</div>
+
+  <h2>1-3　プロフィールを埋める</h2>
+  <div class="idnote">★ <b>空のプロフィールは審査で落ちる原因になります。</b>「アカウントを作っただけ」の状態では通りません。</div>
+  <ol class="steps">
+    <li>Settings → <b>Public profile</b>。</li>
+    <li><b>Name</b>：本名をアルファベット表記で（例：<code>Taro Yamada</code>）。<b>学生証の氏名と一致させてください。</b></li>
+    <li><b>Bio</b>：一言でよいので入れる（例：<code>Student at Doshisha University, studying information systems.</code>）。</li>
+    <li>アイコン画像も設定しておくと通りやすくなります。</li>
+  </ol>
+
+  <div class="warn"><b>⚠ 先に知っておくこと：GitHub のプロフィールは全世界に公開されます。</b><br>
+  <b>Name 欄に入れた名前は、大学とは無関係の誰からも見られます</b>（検索エンジンにも載ります）。氏名を公開したくない場合は、下の選択肢を読んでから決めてください。<br><br>
+  なお <b>本名の登録は、学生認証の「必須条件」ではありません。</b>審査で本当に必要なのは<b>学生証の画像と大学メール</b>です。本名を入れると通りやすくなる、という経験則があるだけです。</div>
+
+  <div class="level"><div class="lvhead"><span class="chip c-beg">案 A</span><span class="t">審査の間だけ本名にして、通ったら変える（おすすめ）</span></div>
+    <p>申請時は本名を入れて審査に通し、<b>承認メールが届いたら Name を好きな表記に変更する</b>方法です。承認後の変更は自由で、資格が取り消されることはありません。<b>審査通過率とプライバシーの両方を取れる</b>ので、迷ったらこれを選んでください。</p>
+  </div>
+  <div class="level"><div class="lvhead"><span class="chip c-mid">案 B</span><span class="t">最初から本名を入れない</span></div>
+    <p>Name 欄は空欄またはニックネームのままにし、<b>Bio とアイコンだけ埋めて</b>申請します。それでも通ることは多いです。もし却下されたら、そのとき本名を入れて再申請してください。<b>却下されても不利益はありません</b>ので、この順番でも構いません。</p>
+  </div>
+  <div class="level"><div class="lvhead"><span class="chip c-adv">案 C</span><span class="t">本名のまま運用する</span></div>
+    <p>GitHub のアカウントは<b>そのまま就職活動のポートフォリオとして使えます。</b>「何を作れる人なのか」を本名で示せることには実際に価値があり、意図して本名で運用している技術者は大勢います。将来そう使うつもりなら、この選択も十分に合理的です。</p>
+  </div>
+
+  <div class="design"><b>どれを選んでも構いませんが、次の項目（1-5）だけは全員必ず実施してください。</b>名前を隠しても、メールアドレスが漏れていては意味がないためです。</div>
+
+  <h2>1-4　二段階認証（2FA）を設定する</h2>
+  <ol class="steps">
+    <li>Settings → <b>Password and authentication</b>。</li>
+    <li><b>Two-factor authentication</b> を有効化。</li>
+    <li>スマホに認証アプリ（Microsoft Authenticator / Google Authenticator など）を入れて設定。</li>
+  </ol>
+  <div class="warn"><b>⚠ リカバリコードを必ず保存してください。</b><br>
+  スマホを機種変更・紛失すると、リカバリコードがない限り<b>アカウントに二度と入れなくなります</b>。表示されたコードをスクリーンショットし、<b>クラウドと紙の両方</b>に残してください。毎年これで詰む人がいます。</div>
+
+  <h2>1-5　メールアドレスを非公開にする（全員必須）</h2>
+  <div class="warn"><b>⚠ 何もしないと、あなたのメールアドレスが全世界に公開されます。</b><br>
+  Git は、コミット（保存）のたびに<b>作業者のメールアドレスをコードの履歴に埋め込みます。</b>公開リポジトリなら、その履歴は誰でも読めます。つまり<b>ふつうに設定すると、大学のメールアドレスが誰でも取り出せる状態になります。</b>スパムやフィッシングの標的になるので、必ず対策してください。<br>
+  対策は簡単です。GitHub が<b>身代わりのアドレス</b>（noreply アドレス）を用意してくれているので、それを使います。</div>
+  <ol class="steps">
+    <li><a class="ulink" href="https://github.com/settings/emails" target="_blank" rel="noopener"><code>https://github.com/settings/emails</code></a> にアクセス。</li>
+    <li><b>Keep my email addresses private</b> にチェックを入れる。<br>
+        → メールアドレスが非公開になり、その下に <code>1234567+ユーザー名@users.noreply.github.com</code> という形式のアドレスが表示されます。</li>
+    <li><b>Block command line pushes that expose my email</b> にも<b>必ず</b>チェックを入れる。<br>
+        → こちらは保険です。万一 STEP 3 の設定を忘れても、<b>GitHub 側がアップロードを拒否してくれる</b>ので事故を防げます。</li>
+    <li>表示された <b>noreply アドレスをコピーして控えておく</b>。<b>STEP 3 で使います。</b></li>
+  </ol>
+  <div class="verify"><b>ここで確認</b>　チェックボックスが<b>2か所とも</b>オンになっていること。そして <code>@users.noreply.github.com</code> で終わるアドレスが画面に表示されていること。このアドレスは人によって違います（先頭の数字はあなた専用の ID です）。</div>
+  <div class="ainote"><b>補足：</b>この設定をしても、GitHub からの通知メールは今までどおり自分のアドレスに届きます。<b>「他人から見えなくなる」だけ</b>で、不便になることはありません。</div>
+
+  <div class="checklist"><h4>STEP 1 完了チェック</h4><ul>
+    <li>アカウントを作った</li>
+    <li>大学メールを追加し、確認メールのリンクを踏んだ（<b>Verified</b> になっている）</li>
+    <li>プロフィール（Name の方針を決めた／<b>Bio</b> を入れた）</li>
+    <li>二段階認証を設定し、<b>リカバリコードを保存した</b></li>
+    <li><b>メールアドレスを非公開にした</b>（2か所ともチェック）</li>
+    <li><b>noreply アドレスを控えた</b>（STEP 3 で使います）<br><span style="font-size:11.5px;color:#8a97a3;">→ <span class="fill" style="min-width:230px;">&nbsp;</span>@users.noreply.github.com</span></li>
+  </ul></div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+</section>
+
+<!-- ============================ STEP 2 ============================ -->
+<section class="sheet k2" id="step2">
+  <div class="eyebrow">STEP <span class="no">2</span><span class="badge">約10分</span><span class="badge alt">審査あり</span></div>
+  <h1>学生認証（GitHub Education）を申請する</h1>
+  <p class="lead">学生であることを GitHub に証明する手続きです。<b>申請してから結果が出るまで数日〜数週間かかります。</b>ここを後回しにすると全体が間に合わないので、<b>実験ガイダンス終了後すぐに出してください</b>。</p>
+  <div class="meta"><span>所要 <b>約10分</b>（＋審査待ち）</span><span>結果 <b>メールで通知</b></span><span>却下されても <b>再申請できます</b></span></div>
+
+  <h2>2-1　用意するもの：学生証の写真</h2>
+  <div class="grid2">
+    <div class="card"><h3>撮影のポイント</h3><ul>
+      <li><b>氏名・大学名・有効期限</b>がはっきり写るように</li>
+      <li><b>有効期限が裏面にある場合は、裏面も撮影</b>する</li>
+      <li>日本語のままで構いません（<b>英訳は不要</b>）</li>
+      <li>ピンボケ・見切れ・反射は<b>却下されます</b></li>
+    </ul></div>
+    <div class="card"><h3>よくある却下理由</h3><ul>
+      <li>大学メールが<b>未認証</b>のまま</li>
+      <li>プロフィールが<b>空</b></li>
+      <li>学生証の写真が<b>不鮮明</b>／有効期限が写っていない</li>
+      <li>GitHub の氏名と学生証の氏名が<b>不一致</b></li>
+    </ul></div>
+  </div>
+
+  <h2>2-2　申請する</h2>
+  <ol class="steps">
+    <li><a class="ulink" href="https://github.com/settings/education/benefits" target="_blank" rel="noopener"><code>https://github.com/settings/education/benefits</code></a> にアクセス。<br>
+        （または Settings → <b>Billing and licensing</b> → <b>Education benefits</b>）</li>
+    <li><b>Start an application</b> をクリック。</li>
+    <li>大学名を入力。大学メールを登録済みなら大学名が候補として提案されるので、合っていれば <b>Select this school</b>。</li>
+    <li>用途を英語で記入。下の文章をそのままコピーして構いません。</li>
+    <li>学生証の写真をアップロードして送信。</li>
+  </ol>
+
+  <div class="plabel">用途欄に記入する文章（そのままコピーしてよい）</div>
+<pre class="code">I am taking a team software development course at my school.
+I will use GitHub and Copilot for version control and coding practice.</pre>
+
+  <h2>2-3　審査を待つ</h2>
+  <div class="timerule"><span class="big">⏳ 数日 〜 数週間</span>通常は<b>数日〜1週間程度</b>ですが、書類の確認が必要な場合は<b>数週間</b>かかることがあります。結果はメールで届きます。<b>この待ち時間に STEP 3 を進めてください。</b></div>
+
+  <div class="ainote"><b>却下されても終わりではありません。</b>落ちる理由はほぼ「大学メール未認証」「プロフィールが空」「学生証が読めない」のどれかです。<b>STEP 1 を見直して再申請</b>してください。また、<b>結果を待たずに STEP 4 の Copilot Free は有効にできます</b>ので、演習の準備は止まりません。</div>
+
+  <div class="checklist"><h4>STEP 2 完了チェック</h4><ul>
+    <li>学生証を撮影した（<b>有効期限が写っている</b>）</li>
+    <li>申請を送信した</li>
+    <li>申請日をメモした　→　申請日：<span class="fill">&nbsp;</span> 月 <span class="fill">&nbsp;</span> 日</li>
+  </ul></div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+</section>
+
+<!-- ============================ STEP 3 ============================ -->
+<section class="sheet k3" id="step3">
+  <div class="eyebrow">STEP <span class="no">3</span><span class="badge">約20分</span><span class="badge alt">自宅で作業する人のみ</span></div>
+  <h1>Visual Studio Code と Git の準備</h1>
+  <div class="roomnote"><span class="rt">■ 情報メディア教室（JM）の PC を使う人は、この STEP は不要です</span>
+  教室の PC には <b>Visual Studio Code・Copilot 拡張機能・Git がすでに導入済み</b>です。読み飛ばして <b>STEP 5</b> に進んでください。<br>
+  <b>自宅の PC でも作業したい人だけ</b>、以下を実施してください。</div>
+  <p class="lead" style="margin-top:16px;"><b>STEP 2 の審査を待っている間に進められます。</b>審査結果とは関係ありません。自宅の環境が整っていれば、演習時間外でも作業を進められるようになります。</p>
+  <div class="meta"><span>所要 <b>約20分</b></span><span>対象 <b>自宅で作業する人</b></span><span>OS <b>Windows / Mac 共通</b></span></div>
+
+  <h2>3-1　Visual Studio Code をインストール</h2>
+  <ol class="steps">
+    <li><a class="ulink" href="https://code.visualstudio.com/" target="_blank" rel="noopener"><code>https://code.visualstudio.com/</code></a> からダウンロードしてインストール。</li>
+    <li>起動したら、左サイドバーの<b>四角が4つ並んだアイコン</b>（拡張機能）を開く。</li>
+    <li>以下を検索してインストール。
+      <ul style="margin:5px 0 0;padding-left:18px;">
+        <li><code>GitHub Copilot</code></li>
+        <li><code>GitHub Copilot Chat</code></li>
+        <li><code>Japanese Language Pack for Visual Studio Code</code>（日本語にしたい人）</li>
+      </ul>
+    </li>
+    <li>左下のアカウントアイコンから <b>GitHub アカウントでサインイン</b>。</li>
+  </ol>
+
+  <h2>3-2　Git をインストール</h2>
+  <div class="level"><div class="lvhead"><span class="chip c-mid">Windows</span><span class="t">インストーラを使う</span></div><ol>
+    <li><a class="ulink" href="https://git-scm.com/" target="_blank" rel="noopener"><code>https://git-scm.com/</code></a> からダウンロード。</li>
+    <li>インストーラは基本的に「Next」を押し続けて構いません。</li>
+    <li>インストール後、<b>PC を再起動</b>すると確実です。</li>
+  </ol></div>
+  <div class="level"><div class="lvhead"><span class="chip c-beg">Mac</span><span class="t">ターミナルから</span></div><ol>
+    <li>ターミナルを開いて <code>git --version</code> と入力。</li>
+    <li>未インストールならインストールを促されるので、指示に従う。</li>
+  </ol></div>
+
+  <h2>3-3　Git の初期設定</h2>
+  <p class="note">Visual Studio Code の上部メニュー → <b>ターミナル</b> → <b>新しいターミナル</b> を開き、以下を実行します。<b>ここで設定した名前とメールアドレスが、今後のすべてのコミット（保存の履歴）に記録されます。</b></p>
+  <div class="idnote">★ <b>メールアドレスには、STEP 1-5 で控えた noreply アドレスを使ってください。</b>ここで大学のメールアドレスを設定すると、それが全コミットに埋め込まれ、公開リポジトリでは誰でも読める状態になります。</div>
+  <div class="plabel">実行するコマンド（自分の情報に書き換えること）</div>
+<pre class="code"><span class="cmt"># ★ 名前：公開されます。本名でも、ニックネームでも構いません</span>
+git config --global user.name <span class="str">"Taro Yamada"</span>
+
+<span class="cmt"># ★ メール：STEP 1-5 で控えた noreply アドレスに書き換える</span>
+<span class="cmt">#   （大学のメールアドレスは使わないこと）</span>
+git config --global user.email <span class="str">"1234567+yourname@users.noreply.github.com"</span>
+
+<span class="cmt"># 設定できたか確認する</span>
+git config --global --list</pre>
+  <div class="verify"><b>ここで確認</b>　最後の <code>git config --global --list</code> を実行して、<code>user.name</code> と <code>user.email</code> が表示されれば成功です。<b><code>user.email</code> が <code>@users.noreply.github.com</code> で終わっていることを必ず確認してください。</b>何も表示されない・エラーが出る場合は、Git がインストールされていないか、PC の再起動が必要です。</div>
+  <div class="ainote"><b>もし noreply アドレスを控え忘れたら</b>　<a class="ulink" href="https://github.com/settings/emails" target="_blank" rel="noopener"><code>https://github.com/settings/emails</code></a> をもう一度開けば、いつでも確認できます。<b>アドレスは変わりません。</b></div>
+
+  <div class="checklist"><h4>STEP 3 完了チェック</h4><ul>
+    <li>Visual Studio Code をインストールした</li>
+    <li><b>Copilot</b> / <b>Copilot Chat</b> 拡張機能を入れた</li>
+    <li>Visual Studio Code で GitHub にサインインした</li>
+    <li><code>git --version</code> でバージョンが表示される</li>
+    <li><code>git config --global --list</code> に名前とメールが出る</li>
+    <li>そのメールが <b><code>@users.noreply.github.com</code></b> で終わっている</li>
+  </ul></div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+</section>
+
+<!-- ============================ STEP 4 ============================ -->
+<section class="sheet k4" id="step4">
+  <div class="eyebrow">STEP <span class="no">4</span><span class="badge">約5分</span><span class="badge alt">自宅で作業する人のみ</span></div>
+  <h1>Copilot を有効にする</h1>
+  <div class="roomnote"><span class="rt">■ 情報メディア教室（JM）の PC を使う人は、この STEP は不要です</span>
+  教室の PC では <b>Copilot が利用できる状態に準備済み</b>です。読み飛ばして <b>STEP 5</b> に進んでください。<br>
+  <b>自宅の PC でも Copilot を使いたい人だけ</b>、以下を実施してください。</div>
+  <p class="lead" style="margin-top:16px;">Copilot には無料で使える <b>Copilot Free</b> と、学生認証が通った人が使える <b>Copilot Student</b> があります。<b>まず Copilot Free を有効にしてください。</b>この演習は Copilot Free で完走できるように設計してあります。</p>
+  <div class="meta"><span>対象 <b>自宅で作業する人</b></span><span>まず <b>4-1</b></span><span>認証が通った人だけ <b>4-2</b></span></div>
+
+  <h2>4-1　Copilot Free を有効にする</h2>
+  <div class="idnote">★ <b>学生認証の結果を待たずに、先にこちらをやってください。</b>学生プランが取れなくても、この演習は Copilot Free で完走できます。</div>
+  <ol class="steps">
+    <li><a class="ulink" href="https://github.com/settings/copilot" target="_blank" rel="noopener"><code>https://github.com/settings/copilot</code></a> にアクセス。</li>
+    <li><b>Copilot Free</b> を有効化する。</li>
+    <li>Visual Studio Code に戻り、GitHub アカウントで<b>サインインし直す</b>。</li>
+  </ol>
+
+  <div class="grid2">
+    <div class="card"><h3>Copilot Free で使える量（目安）</h3><ul>
+      <li>インラインのコード補完：<b>月2,000回</b>（実質使い放題）</li>
+      <li>Chat・Agent モード等の「プレミアムリクエスト」：<b>月50回</b></li>
+    </ul></div>
+    <div class="card"><h3>消費するもの／しないもの</h3><ul>
+      <li><b>消費しない</b>：コメント → <code>Tab</code> の補完</li>
+      <li><b>消費する</b>：Chat の1往復、Agent モード、コミットメッセージ自動生成</li>
+    </ul></div>
+  </div>
+
+  <div class="timerule"><span class="big">⚠ 演習中の利用ルール</span>
+  <b>プレミアムリクエスト（Chat・Agent モード）は月50回しかありません。</b>何も考えずに Agent モードを回すと、2回目の演習日で枯れます。<br>
+  ・<b>インライン補完（コメント→Tab）と <code>/explain</code> を主戦力にする</b><br>
+  ・<b>Agent モードは1日3回まで</b>を目安に、ここぞという場面で使う<br>
+  ・使用量は <a class="ulink" href="https://github.com/settings/copilot" target="_blank" rel="noopener"><code>https://github.com/settings/copilot</code></a> で確認できる<br>
+  上限に達した場合は、隠さずに担当教員へ申し出てください。<br><b>※ この利用ルールは、教室の PC を使う場合も同じです。</b></div>
+
+  <h2>4-2　学生認証が通った人だけ（Copilot Student）</h2>
+  <p class="note">「GitHub Education にようこそ」というメールが届いた人は、以下も実施してください。<b>届いていない人はこの節を飛ばして構いません。</b></p>
+  <ol class="steps">
+    <li><a class="ulink" href="https://github.com/settings/education/benefits" target="_blank" rel="noopener"><code>https://github.com/settings/education/benefits</code></a> にアクセス。</li>
+    <li>学生・教員向け無料リソースの項目から <b>Copilot</b> の詳細を開く。</li>
+    <li>画面の指示に従って <b>Copilot Student を有効化</b>する。</li>
+    <li>Visual Studio Code でサインインし直す。</li>
+  </ol>
+
+  <div class="warn"><b>⚠ ここを勘違いする人が毎年います。</b><br>
+  <b>承認メールが届いただけでは、利用上限は解除されません。</b>上記の有効化操作が<b>別途必要</b>です。</div>
+
+  <div class="dayof"><b>★ 有効化できなくても心配しなくてよい理由</b><br>
+  現在、GitHub 側の都合で<b>学生プランの新規受付が段階的な再開の途中</b>です。そのため「承認済みなのに Copilot Student を有効化できない」という状態が起こりえます。<br>
+  その場合は<b>慌てずに Copilot Free のまま演習に参加してください</b>。演習の内容は Copilot Free で完走できるように設計してあります。深追いして時間を溶かさないこと。</div>
+
+  <div class="ainote"><b>Copilot Student に関する補足</b><br>
+  ・Copilot Student では、GPT や Claude などのモデルを<b>手動で選択することはできません</b>（Auto モードで自動選択されます）。通常のコード補完やチャットには影響しません。<br>
+  ・学生資格は<b>毎月再評価</b>されます。学生証の有効期限が切れると使えなくなります。</div>
+
+  <div class="checklist"><h4>STEP 4 完了チェック</h4><ul>
+    <li><b>Copilot Free を有効化した</b></li>
+    <li>Visual Studio Code でサインインし直した</li>
+    <li>プレミアムリクエストが<b>月50回</b>であることを理解した</li>
+    <li>（学生認証が通った人のみ）Copilot Student を有効化した</li>
+  </ul></div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+</section>
+
+<!-- ============================ STEP 5 ============================ -->
+<section class="sheet k5" id="step5">
+  <div class="eyebrow">STEP <span class="no">5</span><span class="badge">約5分</span><span class="badge alt">提出あり</span></div>
+  <h1>動作確認と完了報告</h1>
+  <p class="lead">実際に Copilot が動くところまで確認します。<b>「インストールしたから大丈夫」は通用しません。</b>必ず自分の目で提案が出るところまで確認し、<b>完了報告フォーム</b>から提出してください。</p>
+  <div class="meta"><span>所要 <b>約5分</b></span><span>対象 <b>全員必須</b></span><span>提出 <b>Microsoft Forms</b></span></div>
+  <div class="roomtag"><b>教室の PC を使う人も、自宅で作業する人も、この STEP は全員必須です。</b></div>
+
+  <h2>5-1　コード補完の動作確認</h2>
+  <ol class="steps">
+    <li>デスクトップに <code>copilot-test</code> というフォルダを作る。</li>
+    <li>Visual Studio Code で <b>ファイル → フォルダーを開く</b> から、そのフォルダを開く。</li>
+    <li>新しいファイル <code>test.py</code> を作る（<b>拡張子 <code>.py</code> を必ず付ける</b>）。</li>
+    <li>下の1行を入力し、<b>Enter で改行して2〜3秒待つ</b>。</li>
+    <li><b>グレーの薄い文字</b>でコードが提案されたら、<code>Tab</code> キーを押す。</li>
+  </ol>
+
+  <div class="plabel">test.py に入力する内容（この1行だけ）</div>
+<pre class="code"><span class="cmt"># 1から100までの素数を全て表示する関数</span></pre>
+
+  <div class="verify"><b>ここで確認</b>　<code>Tab</code> を押してコードが確定されれば<b>合格</b>です。提案が出ない場合は、①ファイルに拡張子が付いているか ②画面いちばん上、検索ボックスのすぐ右にある Copilot アイコンに「×」が付いていないか ③GitHub にサインインしているか、の順に確認してください。</div>
+
+  <h2>5-2　Chat の動作確認</h2>
+  <ol class="steps">
+    <li><code>Ctrl + Alt + I</code>（Mac は <code>Cmd + Ctrl + I</code>）で Copilot Chat を開く。</li>
+    <li>「こんにちは。あなたは使えますか？」と<b>日本語で</b>送信する。</li>
+    <li>返事が返ってくれば OK。</li>
+  </ol>
+  <div class="idnote">★ この確認だけで<b>プレミアムリクエストを1回消費</b>します（月50回のうちの1回）。動作確認のために何度も送らないでください。</div>
+
+  <h2>5-3　完了報告フォームから提出する</h2>
+  <p class="note">動作確認ができたら、<b>Microsoft Forms</b> から報告してください。<b>この提出をもって事前準備の完了とします。</b></p>
+
+  <div class="record"><div class="txt">
+    <div class="rh"><span class="ic">&#10003;</span>完了報告フォーム（全員必須）</div>
+    <p>下の QR コードをスマホで読み取るか、URL を直接開いてください。<b>大学のアカウントでサインインした状態</b>で回答します。</p>
+    <div class="formurl"><a href="https://forms.cloud.microsoft/r/Wa8w8CFkXs" style="color:#0b6cb5;text-decoration:none;">https://forms.cloud.microsoft/r/Wa8w8CFkXs</a></div>
+    <p style="margin-top:11px;"><b>フォームで入力する項目</b></p>
+    <ul class="formfields">
+      <li><b>学生ID（学籍番号）</b>　半角で正確に入力すること</li>
+      <li><b>氏名</b>　学生証と同じ表記で</li>
+      <li><b>GitHub アカウント名</b>　GitHub の右上アイコンから確認できるユーザー名（@ は不要）</li>
+      <li><b>作業環境</b>　情報メディア教室（JM）／自宅の PC ／両方</li>
+      <li><b>スクリーンショット①</b>　Copilot の提案が出ている Visual Studio Code の画面</li>
+      <li><b>スクリーンショット②</b>　<a class="ulink" href="https://github.com/settings/copilot" target="_blank" rel="noopener"><code>https://github.com/settings/copilot</code></a> を開いた画面<br><span style="font-size:11.5px;color:#8a97a3;">Free / Student のどちらでも構いません</span></li>
+      <li><b>困っていること</b>　あれば記入（なければ空欄で可）</li>
+    </ul>
+  </div>
+  <div class="qrbox">
+    <div class="qrimg"><svg viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="完了報告フォームの QR コード"><rect width="41" height="41" fill="#ffffff"/><path d="M4 4h7v1h-7zM12 4h1v1h-1zM15 4h1v1h-1zM18 4h1v1h-1zM22 4h2v1h-2zM25 4h4v1h-4zM30 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM13 5h2v1h-2zM16 5h3v1h-3zM20 5h2v1h-2zM24 5h5v1h-5zM30 5h1v1h-1zM36 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM12 6h3v1h-3zM18 6h1v1h-1zM20 6h2v1h-2zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h3v1h-3zM36 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM17 7h1v1h-1zM19 7h3v1h-3zM25 7h4v1h-4zM30 7h1v1h-1zM32 7h3v1h-3zM36 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM14 8h2v1h-2zM19 8h1v1h-1zM21 8h1v1h-1zM23 8h1v1h-1zM25 8h1v1h-1zM27 8h2v1h-2zM30 8h1v1h-1zM32 8h3v1h-3zM36 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h2v1h-2zM16 9h2v1h-2zM20 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM28 9h1v1h-1zM30 9h1v1h-1zM36 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h7v1h-7zM12 11h3v1h-3zM17 11h1v1h-1zM21 11h6v1h-6zM28 11h1v1h-1zM5 12h1v1h-1zM7 12h1v1h-1zM9 12h5v1h-5zM16 12h3v1h-3zM20 12h1v1h-1zM23 12h1v1h-1zM25 12h1v1h-1zM27 12h1v1h-1zM29 12h3v1h-3zM33 12h2v1h-2zM36 12h1v1h-1zM6 13h2v1h-2zM9 13h1v1h-1zM15 13h4v1h-4zM20 13h1v1h-1zM24 13h2v1h-2zM28 13h4v1h-4zM36 13h1v1h-1zM4 14h2v1h-2zM10 14h1v1h-1zM12 14h1v1h-1zM14 14h2v1h-2zM17 14h1v1h-1zM21 14h1v1h-1zM23 14h3v1h-3zM29 14h4v1h-4zM34 14h1v1h-1zM36 14h1v1h-1zM4 15h2v1h-2zM7 15h3v1h-3zM11 15h2v1h-2zM14 15h1v1h-1zM17 15h1v1h-1zM19 15h3v1h-3zM25 15h2v1h-2zM28 15h2v1h-2zM32 15h2v1h-2zM4 16h1v1h-1zM8 16h1v1h-1zM10 16h1v1h-1zM14 16h1v1h-1zM19 16h1v1h-1zM23 16h2v1h-2zM27 16h1v1h-1zM30 16h2v1h-2zM33 16h1v1h-1zM35 16h1v1h-1zM5 17h3v1h-3zM9 17h1v1h-1zM13 17h3v1h-3zM25 17h2v1h-2zM28 17h1v1h-1zM30 17h1v1h-1zM32 17h2v1h-2zM35 17h2v1h-2zM6 18h1v1h-1zM8 18h3v1h-3zM14 18h2v1h-2zM17 18h1v1h-1zM19 18h2v1h-2zM22 18h1v1h-1zM25 18h7v1h-7zM35 18h1v1h-1zM7 19h3v1h-3zM12 19h1v1h-1zM15 19h1v1h-1zM17 19h1v1h-1zM21 19h1v1h-1zM23 19h1v1h-1zM25 19h3v1h-3zM30 19h1v1h-1zM32 19h1v1h-1zM35 19h1v1h-1zM4 20h2v1h-2zM8 20h1v1h-1zM10 20h3v1h-3zM14 20h3v1h-3zM19 20h2v1h-2zM22 20h7v1h-7zM30 20h1v1h-1zM32 20h1v1h-1zM35 20h1v1h-1zM4 21h2v1h-2zM7 21h1v1h-1zM12 21h4v1h-4zM17 21h3v1h-3zM21 21h2v1h-2zM24 21h2v1h-2zM27 21h3v1h-3zM31 21h1v1h-1zM33 21h1v1h-1zM35 21h1v1h-1zM5 22h1v1h-1zM7 22h1v1h-1zM9 22h2v1h-2zM13 22h1v1h-1zM15 22h2v1h-2zM18 22h2v1h-2zM24 22h2v1h-2zM28 22h2v1h-2zM34 22h3v1h-3zM7 23h2v1h-2zM12 23h1v1h-1zM16 23h1v1h-1zM24 23h3v1h-3zM29 23h3v1h-3zM36 23h1v1h-1zM5 24h1v1h-1zM8 24h3v1h-3zM12 24h1v1h-1zM14 24h2v1h-2zM18 24h4v1h-4zM25 24h1v1h-1zM27 24h1v1h-1zM29 24h1v1h-1zM11 25h1v1h-1zM13 25h2v1h-2zM16 25h1v1h-1zM19 25h5v1h-5zM31 25h1v1h-1zM34 25h3v1h-3zM4 26h7v1h-7zM12 26h7v1h-7zM21 26h1v1h-1zM23 26h1v1h-1zM26 26h1v1h-1zM30 26h1v1h-1zM33 26h1v1h-1zM36 26h1v1h-1zM5 27h1v1h-1zM8 27h1v1h-1zM13 27h5v1h-5zM22 27h1v1h-1zM24 27h2v1h-2zM29 27h1v1h-1zM33 27h1v1h-1zM35 27h1v1h-1zM4 28h1v1h-1zM6 28h1v1h-1zM8 28h7v1h-7zM16 28h2v1h-2zM19 28h4v1h-4zM24 28h2v1h-2zM28 28h5v1h-5zM12 29h2v1h-2zM16 29h2v1h-2zM20 29h5v1h-5zM26 29h1v1h-1zM28 29h1v1h-1zM32 29h2v1h-2zM35 29h2v1h-2zM4 30h7v1h-7zM12 30h1v1h-1zM15 30h3v1h-3zM19 30h4v1h-4zM24 30h3v1h-3zM28 30h1v1h-1zM30 30h1v1h-1zM32 30h4v1h-4zM4 31h1v1h-1zM10 31h1v1h-1zM12 31h2v1h-2zM15 31h1v1h-1zM18 31h2v1h-2zM23 31h4v1h-4zM28 31h1v1h-1zM32 31h1v1h-1zM36 31h1v1h-1zM4 32h1v1h-1zM6 32h3v1h-3zM10 32h1v1h-1zM16 32h1v1h-1zM21 32h1v1h-1zM23 32h1v1h-1zM26 32h1v1h-1zM28 32h6v1h-6zM35 32h2v1h-2zM4 33h1v1h-1zM6 33h3v1h-3zM10 33h1v1h-1zM12 33h1v1h-1zM15 33h4v1h-4zM20 33h1v1h-1zM26 33h3v1h-3zM30 33h1v1h-1zM32 33h2v1h-2zM35 33h1v1h-1zM4 34h1v1h-1zM6 34h3v1h-3zM10 34h1v1h-1zM13 34h2v1h-2zM17 34h3v1h-3zM21 34h2v1h-2zM24 34h2v1h-2zM27 34h1v1h-1zM32 34h1v1h-1zM36 34h1v1h-1zM4 35h1v1h-1zM10 35h1v1h-1zM12 35h1v1h-1zM14 35h2v1h-2zM17 35h4v1h-4zM22 35h1v1h-1zM25 35h1v1h-1zM27 35h3v1h-3zM4 36h7v1h-7zM13 36h1v1h-1zM18 36h2v1h-2zM23 36h3v1h-3zM28 36h3v1h-3zM32 36h1v1h-1zM35 36h1v1h-1z" fill="#1f2933"/></svg></div>
+    <p class="qrcap"><b>スマホのカメラで<br>読み取ってください</b></p>
+  </div></div>
+
+  <div class="idnote">★ <b>学生ID・氏名・GitHub アカウント名は必ず正確に入力してください。</b>GitHub アカウント名は、第2回でリポジトリに追加するために使います。この提出状況をもとに、第1回の冒頭で個別サポートが必要な人を把握します。入力ミスがあると「未提出」として扱われます。</div>
+  <div class="ainote"><b>ファイルのアップロードでサインインを求められた場合</b>は、<b>大学のアカウント</b>（<code>〜@doshisha.ac.jp</code>）でサインインしてください。個人の Microsoft アカウントでは提出できないことがあります。</div>
+
+  <div class="checklist"><h4>STEP 5 完了チェック</h4><ul>
+    <li>コードの提案が出ることを確認した</li>
+    <li>Copilot Chat が返事をすることを確認した</li>
+    <li><b>完了報告フォーム</b>から提出した（学生ID・氏名・GitHub アカウント名・スクリーンショット2枚）</li>
+  </ul></div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+</section>
+
+<!-- ============================ 付録 ============================ -->
+<section class="sheet k6" id="appendix">
+  <div class="eyebrow">付録 <span class="no">A</span><span class="badge">困ったとき</span></div>
+  <h1>トラブル対応・最終チェック</h1>
+  <p class="lead">つまずいたら、まずこの表を見てください。<b>それでも解決しない場合は、期限直前ではなく早めに担当教員へ連絡すること。</b>特に学生認証のやり直しには日数がかかります。</p>
+
+  <h2>トラブル対応表</h2>
+  <table class="levels">
+    <thead><tr><th style="width:34%;">症状</th><th>原因と対処</th></tr></thead>
+    <tbody>
+      <tr><td><b>コードの提案が出ない</b></td><td>① ファイルに拡張子が付いていない（<code>test</code> → <code>test.py</code>）　② 画面いちばん上、検索ボックスのすぐ右にある Copilot アイコンに「×」が付いていないか確認　③ GitHub にサインインし直す</td></tr>
+      <tr><td><b>「サインインしてください」と出続ける</b></td><td>Visual Studio Code を完全に終了して再起動。それでもダメなら左下アカウント → サインアウト → 再サインイン</td></tr>
+      <tr><td><b>「上限に達しました」と出る</b></td><td>プレミアムリクエスト（月50回）を使い切っています。<b>インライン補完は引き続き使えるはず</b>です。担当教員に申し出てください</td></tr>
+      <tr><td><b>学生認証が却下された</b></td><td>理由はほぼ次の3つ。① 大学メールが未認証　② プロフィールが空　③ 学生証の写真が不鮮明・有効期限が写っていない。<b>STEP 1 を見直して再申請</b>。ただし再申請を待たず Copilot Free で演習に参加してよい</td></tr>
+      <tr><td><b>承認メールは来たのに<br>有効化できない</b></td><td>GitHub 側で学生プランの受付が段階的再開の途中です。<b>Copilot Free のまま参加して問題ありません</b>。深追いしないこと</td></tr>
+      <tr><td><b><code>git</code> コマンドが見つからない</b></td><td>Git が未インストール、または PC の再起動が必要です</td></tr>
+      <tr><td><b>大学の PC で Copilot が繋がらない</b></td><td>学内ネットワークの制限の可能性があります。<b>自分で解決しようとせず担当教員に連絡</b>してください</td></tr>
+      <tr><td><b>二段階認証のスマホを<br>機種変更してしまった</b></td><td>リカバリコードがあれば復旧できます。ない場合は復旧が非常に困難です。判明した時点ですぐ担当教員に連絡してください</td></tr>
+    </tbody>
+  </table>
+
+  <h2>最終チェックリスト</h2>
+  <p class="note">期限までに、以下がすべて埋まっている状態にしてください。<b><span style="color:#8a6200;">自宅のみ</span></b> の印がある項目は、<b>自宅の PC で環境を作る人だけ</b>が対象です。情報メディア教室（JM）の PC を使う人は不要です。</p>
+  <div class="checklist"><h4>事前準備 総合チェック</h4><ul>
+    <li>GitHub アカウントを作った</li>
+    <li>大学メールを登録し、<b>認証済み（Verified）</b>になっている</li>
+    <li>プロフィールの <b>Name</b> の方針を決めた／<b>Bio</b> を入れた</li>
+    <li>二段階認証を設定し、<b>リカバリコードを保存した</b></li>
+    <li>学生認証（GitHub Education）を申請した　→　申請日：<span class="fill">&nbsp;</span> 月 <span class="fill">&nbsp;</span> 日</li>
+    <li><span style="font-size:10.5px;font-weight:800;color:#8a6200;background:#fff7e0;border:1px solid #f0d68a;border-radius:3px;padding:0 6px;margin-right:6px;">自宅のみ</span>Visual Studio Code と Copilot 拡張機能をインストールした</li>
+    <li><span style="font-size:10.5px;font-weight:800;color:#8a6200;background:#fff7e0;border:1px solid #f0d68a;border-radius:3px;padding:0 6px;margin-right:6px;">自宅のみ</span>Git をインストールし、<code>user.name</code> / <code>user.email</code>（<b>noreply アドレス</b>）を設定した</li>
+    <li><span style="font-size:10.5px;font-weight:800;color:#8a6200;background:#fff7e0;border:1px solid #f0d68a;border-radius:3px;padding:0 6px;margin-right:6px;">自宅のみ</span><b>Copilot Free を有効化した</b></li>
+    <li>コードの提案が出ることを確認した</li>
+    <li>Copilot Chat が返事をすることを確認した</li>
+    <li><b>完了報告フォーム</b>から提出した（学生ID・氏名・GitHub アカウント名・スクリーンショット2枚）</li>
+  </ul></div>
+
+  <h2>参考リンク</h2>
+  <table class="levels">
+    <thead><tr><th style="width:34%;">用途</th><th>URL</th></tr></thead>
+    <tbody>
+      <tr><td>学生認証の申請・確認</td><td><a class="ulink" href="https://github.com/settings/education/benefits" target="_blank" rel="noopener"><code>https://github.com/settings/education/benefits</code></a></td></tr>
+      <tr><td>Copilot のプラン確認・有効化</td><td><a class="ulink" href="https://github.com/settings/copilot" target="_blank" rel="noopener"><code>https://github.com/settings/copilot</code></a></td></tr>
+      <tr><td>GitHub 公式ドキュメント（学生向け）</td><td><a class="ulink" href="https://docs.github.com/ja/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students" target="_blank" rel="noopener"><code>https://docs.github.com/ja/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students</code></a></td></tr>
+      <tr><td>Visual Studio Code ダウンロード</td><td><a class="ulink" href="https://code.visualstudio.com/" target="_blank" rel="noopener"><code>https://code.visualstudio.com/</code></a></td></tr>
+      <tr><td>Git ダウンロード</td><td><a class="ulink" href="https://git-scm.com/" target="_blank" rel="noopener"><code>https://git-scm.com/</code></a></td></tr>
+    </tbody>
+  </table>
+  <div class="design"><b>※ GitHub の仕様は頻繁に変わります。</b>画面が本マニュアルの記載と異なる場合は、<b>公式ドキュメントの記載を優先</b>してください。それでも判断がつかない場合は担当教員に確認すること。</div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+</section>
+
+<script>
+(function(){
+  // --- コード欄にコピーボタン ---
+  document.querySelectorAll('pre.code').forEach(function(pre){
+    var w=document.createElement('div'); w.className='codewrap';
+    pre.parentNode.insertBefore(w,pre); w.appendChild(pre);
+    var b=document.createElement('button'); b.type='button'; b.className='copybtn'; b.textContent='コピー';
+    b.addEventListener('click',function(){
+      var t=pre.innerText;
+      var done=function(){ b.textContent='コピーしました'; b.classList.add('done');
+        setTimeout(function(){ b.textContent='コピー'; b.classList.remove('done'); },1600); };
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(done,function(){fallback(t,done);});
+      } else { fallback(t,done); }
+    });
+    w.appendChild(b);
+  });
+  function fallback(t,cb){
+    var ta=document.createElement('textarea'); ta.value=t;
+    ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); cb(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  // --- チェックリストをクリックで消し込み ---
+  document.querySelectorAll('.checklist').forEach(function(cl){
+    var items=cl.querySelectorAll('li'), h4=cl.querySelector('h4');
+    var prog=document.createElement('span'); prog.className='ckprog';
+    if(h4) h4.appendChild(prog);
+    var hint=document.createElement('p'); hint.className='ckhint';
+    hint.textContent='※ クリックすると消し込みできます（保存はされません）';
+    if(h4) h4.insertAdjacentElement('afterend',hint);
+    function upd(){ prog.textContent=cl.querySelectorAll('li.done').length+' / '+items.length; }
+    items.forEach(function(li){
+      li.addEventListener('click',function(e){
+        if(e.target.closest('a')) return;
+        li.classList.toggle('done'); upd();
+      });
+    });
+    upd();
+  });
+
+  // --- 現在位置をナビに反映 ---
+  var links=[].slice.call(document.querySelectorAll('.topnav .links a'));
+  var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var idx=-1;
+    secs.forEach(function(s,i){ if(s && s.getBoundingClientRect().top<=96) idx=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i===idx); });
+    var on=links[idx];
+    if(on && on.parentNode.scrollWidth>on.parentNode.clientWidth){
+      var p=on.parentNode, l=on.offsetLeft-p.offsetLeft;
+      if(l<p.scrollLeft || l+on.offsetWidth>p.scrollLeft+p.clientWidth){
+        p.scrollTo({left:l-16,behavior:'smooth'});
+      }
+    }
+  }
+  window.addEventListener('scroll',spy,{passive:true});
+  window.addEventListener('resize',spy); spy();
+})();
+</script>
+</body></html>

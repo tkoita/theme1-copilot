@@ -183,6 +183,8 @@ ol.steps b{font-weight:700;}
 .roomnote code{background:#fff;border:1px solid #b9e4c8;border-radius:4px;padding:0 4px;}
 .roomtag{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:9px 14px;background:#dcf5e3;border:1px solid #7ccc95;border-left:6px solid #15803d;border-radius:8px;font-size:12.8px;color:#14532d;line-height:1.7;}
 .fwait{background:#fdecec;border:1px dashed #c0392b;border-radius:6px;padding:8px 14px;font-size:12.6px;color:#7a1f1f;font-weight:700;text-align:center;}
+/* ✗ は環境によって太い ✘ に見えるので、細い線で描く（文字はコピー用に残す） */
+.ng{display:inline-block;width:1em;height:1em;vertical-align:-.12em;overflow:hidden;text-indent:200%;white-space:nowrap;background:currentColor;-webkit-print-color-adjust:exact;print-color-adjust:exact;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.3 5.6 Q7.3 8.6 10.4 13.2 M13.2 2.6 Q8.6 7.8 4.4 13.9' stroke='%23000' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.3 5.6 Q7.3 8.6 10.4 13.2 M13.2 2.6 Q8.6 7.8 4.4 13.9' stroke='%23000' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;}
 @media print{html{scroll-behavior:auto;}body{background:#fff;padding:0;}.topnav,.copybtn,.ckprog,.ckhint{display:none!important;}a.ulink{border-bottom:none;}.sheet{box-shadow:none;border:none;border-radius:0;max-width:none;padding:24px 28px;margin:0;}.topnotice{box-shadow:none;max-width:none;margin:0 0 14px;}.sheet.i2,.sheet.k1,.sheet.k2,.sheet.k3,.sheet.k4,.sheet.k5,.sheet.k6{page-break-before:always;}.level,pre.code,.record,.card,.verify,.checklist,.ainote,.warn,.dayof,.idnote,.figure,table.levels{break-inside:avoid;}}
 @media (max-width:640px){.topnav .inner{height:50px;gap:9px;}.topnav .brand span{display:none;}.topnav .go{padding:6px 10px;font-size:11px;}.qrbox{width:100%;}.qrimg{margin:0 auto;}.sheet{padding:30px 22px 40px;}h1{font-size:23px;}pre.code{font-size:12px;padding:15px;}.record{flex-direction:column;align-items:flex-start;}.frow{flex-wrap:wrap;gap:7px;}}
 </style></head>
@@ -1104,7 +1106,7 @@ git push -u origin yamada-wip</pre>
   <table class="levels">
     <thead><tr><th style="width:170px;">書き方</th><th>例</th></tr></thead>
     <tbody>
-      <tr><td>✗　自分の要約・解釈</td><td>「操作が分かりにくそうだった」／「直感的に操作できることが大事だと分かった」</td></tr>
+      <tr><td><span class="ng">✗</span>　自分の要約・解釈</td><td>「操作が分かりにくそうだった」／「直感的に操作できることが大事だと分かった」</td></tr>
       <tr><td>○　相手が言った言葉</td><td>「これ、どこ押したらええの？」／「登録って、もう終わったん？」</td></tr>
     </tbody>
   </table>

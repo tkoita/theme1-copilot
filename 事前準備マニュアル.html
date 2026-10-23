@@ -170,6 +170,8 @@ ol.steps b{font-weight:700;}
 .roomnote code{background:#fff;border:1px solid #b9e4c8;border-radius:4px;padding:0 4px;}
 .roomtag{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:9px 14px;background:#dcf5e3;border:1px solid #7ccc95;border-left:6px solid #15803d;border-radius:8px;font-size:12.8px;color:#14532d;line-height:1.7;}
 .fwait{background:#fdecec;border:1px dashed #c0392b;border-radius:6px;padding:8px 14px;font-size:12.6px;color:#7a1f1f;font-weight:700;text-align:center;}
+/* ✗ は環境によって太い ✘ に見えるので、細い線で描く（文字はコピー用に残す） */
+.ng{display:inline-block;width:1em;height:1em;vertical-align:-.12em;overflow:hidden;text-indent:200%;white-space:nowrap;background:currentColor;-webkit-print-color-adjust:exact;print-color-adjust:exact;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.3 5.6 Q7.3 8.6 10.4 13.2 M13.2 2.6 Q8.6 7.8 4.4 13.9' stroke='%23000' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.3 5.6 Q7.3 8.6 10.4 13.2 M13.2 2.6 Q8.6 7.8 4.4 13.9' stroke='%23000' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;}
 @media print{html{scroll-behavior:auto;}body{background:#fff;padding:0;}.topnav,.copybtn,.ckprog,.ckhint{display:none!important;}a.ulink{border-bottom:none;}.sheet{box-shadow:none;border:none;border-radius:0;max-width:none;padding:24px 28px;margin:0;}.topnotice{box-shadow:none;max-width:none;margin:0 0 14px;}.sheet.i2,.sheet.k1,.sheet.k2,.sheet.k3,.sheet.k4,.sheet.k5,.sheet.k6{page-break-before:always;}.level,pre.code,.record,.card,.verify,.checklist,.ainote,.warn,.dayof,.idnote,.figure,table.levels{break-inside:avoid;}}
 @media (max-width:640px){.topnav .inner{height:50px;gap:9px;}.topnav .brand{display:none;}.topnav .go{padding:6px 10px;font-size:11px;}.qrbox{width:100%;}.qrimg{margin:0 auto;}.sheet{padding:30px 22px 40px;}h1{font-size:23px;}pre.code{font-size:12px;padding:15px;}.record{flex-direction:column;align-items:flex-start;}.frow{flex-wrap:wrap;gap:7px;}}
 </style></head><body>
@@ -515,17 +517,17 @@ ol.steps b{font-weight:700;}
   <h2>逆に、こう使うと失敗する</h2>
   <p class="note">以下は<b>毎年実際に起きている失敗</b>です。先に知っておいてください。</p>
 
-  <div class="warn"><b>✗ 失敗例1：Agent モードに丸投げする</b><br>
+  <div class="warn"><b><span class="ng">✗</span> 失敗例1：Agent モードに丸投げする</b><br>
   「社会課題を解決するアプリを作って」と頼む → <b>15個のファイルが自動生成される</b> → 一見それらしく動く → 1か所直したら全体が壊れる → <b>誰も直せない</b> → 最初からやり直し。<br><br>
   3週目にこれをやると、まず間に合いません。<b>速く進んでいるように見えて、いちばん遠回りです。</b><br>
   <b>→ 正しくは：</b>機能を1つずつ、<b>自分が読める大きさ</b>で頼む。生成された差分は必ず目を通す。</div>
 
-  <div class="warn"><b>✗ 失敗例2：<code>/fix</code> を連打する</b><br>
+  <div class="warn"><b><span class="ng">✗</span> 失敗例2：<code>/fix</code> を連打する</b><br>
   エラーが出る → <code>/fix</code> → 別のエラーが出る → <code>/fix</code> → また別のエラー…… これを30分繰り返し、<b>最初より状況が悪化する。</b><br><br>
   原因を理解しないまま直しているので、当然こうなります。<br>
   <b>→ 正しくは：</b>1回目の <code>/fix</code> の結果を <b><code>/explain</code> で確認してから</b>採用する。「なぜそれで直るのか」が言えない修正は、採用してはいけません。</div>
 
-  <div class="warn"><b>✗ 失敗例3：とりあえず <code>Tab</code> を押し続ける</b><br>
+  <div class="warn"><b><span class="ng">✗</span> 失敗例3：とりあえず <code>Tab</code> を押し続ける</b><br>
   提案が出るたびに内容を読まず採用 → 2週目には<b>自分のコードなのに何が書いてあるか分からない</b>状態になる → 修正できず、機能を足せなくなる。<br><br>
   <b>→ 正しくは：</b>読んで分からない提案が出たら、その場で <code>/explain</code>。ここを面倒がった班は、例外なく後半で止まります。</div>
 

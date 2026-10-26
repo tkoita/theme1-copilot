@@ -617,7 +617,7 @@ git branch</pre>
 
   <ol class="steps">
     <li><b>画面いちばん上の Copilot アイコンを押してチャットを開き、下の1行を書いて、続けて Issue の本文をそのまま貼って送る</b><br>
-      <span class="sub"><b>いきなり「直して」と頼まないのがコツです。</b>まず場所を探させ、直し方の候補を出させてから選ぶと、関係のない場所まで書き換えられずに済みます。<br><b><code>@workspace</code> は、JM教室のPCではエラーになるので付けません。</b></span></li>
+      <span class="sub"><b>いきなり「直して」と頼まないのがコツです。</b>まず場所を探させ、直し方の候補を出させてから選ぶと、関係のない場所まで書き換えられずに済みます。<br>チャット欄に「要求に失敗しました」「token expired or invalid: 401」と出たら、サインインの期限が切れています。左下のアカウントアイコンからサインアウトし、サインインし直してから、もう一度送ります（<a class="ulink" href="#s3-4">3-4</a>）</span></li>
   </ol>
 
   <pre class="code">この指摘を直すには、どのファイルのどこを変えればよいですか。まだ書き換えずに、直し方を3つ挙げてください</pre>
@@ -693,6 +693,7 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-fix<span
       <tr><td><code>push</code> したら <code>error: src refspec … does not match any</code> と出た／Pull Request の URL が出ない</td><td><code>push</code> で打ったブランチ名が、今いるブランチと違う</td><td><code>git branch</code> で <code>*</code> が付いた名前を確かめ、<b>その名前で</b> <code>push</code> し直す</td></tr>
       <tr><td><code>fatal: a branch named '…' already exists</code></td><td>前と同じ番号でブランチを作ろうとした（<a class="ulink" href="#s3-2">3-2</a> の欄の番号が、前の Issue のまま）</td><td><a class="ulink" href="#s3-2">3-2</a> の欄の番号を、今から直す Issue の番号に変えて、① からやり直す</td></tr>
       <tr><td><code>git commit</code> で <code>nothing to commit</code> と出た</td><td>保存していない／<code>git add</code> のファイル名が違う</td><td><code>Ctrl + S</code> で保存し、<code>git status</code> で変わったファイルの名前を確かめてから、<code>git add</code> し直す</td></tr>
+      <tr><td>チャット欄に「要求に失敗しました」「token expired or invalid: 401」と出た</td><td>サインインの期限が切れた</td><td>左下のアカウントアイコンからサインアウトし、Copilot アイコンからサインインし直して、もう一度送る（<a class="ulink" href="#s1-1">1-1</a> の囲みの ① と同じ手順）</td></tr>
       <tr><td><code>warning: auto-detection of host provider took too long (&gt;2000ms)</code>（<code>git pull</code>・<code>git push</code> のとき）</td><td>エラーではない。Git の認証の仕組み（Git Credential Manager）が、接続先を調べるのに時間がかかったという知らせ</td><td><b>そのまま待つ。</b>最後に <code>Already up to date.</code> や Pull Request の URL などが出ていれば、終わっている</td></tr>
       <tr><td>直したはずなのに、画面が変わらない</td><td>保存していない／<code>main</code> にマージしていない／再読み込みしていない</td><td><code>Ctrl + S</code> → <a class="ulink" href="#s3-2-3">3-2 の ③</a>（add・commit・push）→ ④（Pull Request・マージ）→ 数分待って公開URLを再読み込み。手元のブラウザなら、保存してすぐ再読み込み</td></tr>
       <tr><td>Pull Request がマージできない（コンフリクト）</td><td>2人が同じ場所を書き換えた</td><td>第2週目の 2-4 ③ と同じ手順で直す。分からなければ手を挙げる</td></tr>

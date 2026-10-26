@@ -296,7 +296,7 @@ ol.steps b{font-weight:700;}
   <table class="levels">
     <thead><tr><th style="width:120px;">時刻</th><th>内容</th><th style="width:70px;">下の図</th><th style="width:56px;">分</th></tr></thead>
     <tbody>
-      <tr><td>13:10〜13:25</td><td><b>PART 1</b>　<b>eclass で出席送信</b> ＋ 準備（サインイン・<code>git</code>・クローン） ＋ 再訪の約束の確認</td><td>点線</td><td>15</td></tr>
+      <tr><td>13:10〜13:25</td><td><b>PART 1</b>　<b>eclass で出席送信</b> ＋ 準備（サインイン・<code>git</code>・クローン・<code>main</code> を守る設定） ＋ 再訪の約束の確認</td><td>点線</td><td>15</td></tr>
       <tr><td>13:25〜13:55</td><td><b>PART 2</b>　「直す3つ」を選んで Issue にする → チームどうしの相互チェック</td><td>① ②</td><td>30</td></tr>
       <tr><td>13:55〜14:40</td><td><b>PART 3</b>　改善実装①</td><td>③ ④ ⑤</td><td>45</td></tr>
       <tr><td>14:40〜14:55</td><td>休憩（<b>目安</b>。チームごとに、区切りのよいところで取ってよい → <a class="ulink" href="#s3-5">3-5</a>）</td><td></td><td>15</td></tr>
@@ -389,6 +389,31 @@ git config --global http.proxy http://<span class="nm" data-k="userid">【同志
   <div class="verify"><b>ここで確認</b>　<code>* main</code> と表示されれば、準備は完了です。<b><code>*</code> が付いている名前が、今いるブランチです。</b>今日はこのあと何度も、この1行で「今どこにいるか」を確かめます。<br>main とブランチの意味は、<a class="ulink" href="#s3-0">3-0</a> の図で説明します。</div>
 
   <div class="idnote"><b><code>Ctrl + I</code> で開いた欄に頼む文を書いて Enter を押したとき、「Auto mode failed: …」と赤いエラーが出たら</b><br><b>JM教室のPCでは、サインインしてから1回目の <code>Ctrl + I</code> は使えて、2回目からこのエラーが出ます。故障ではありません。</b>直し方は2つです。<br><b>①</b> 左下のアカウントアイコンからサインアウトし、Copilot アイコンからサインインし直す（第2週目の資料の <b>3-2 の最後</b>と同じ手順）。直したあとも使えるのは1回だけなので、<b>出るたびにくり返します。</b>サインインし直すと、次の <code>push</code> でまた2つの画面が出ます（<a class="ulink" href="#s3-2-3">3-2 の ③</a>）。<br><b>②</b> <b>右のチャット欄で頼む。</b>画面いちばん上の Copilot アイコンで開くチャット欄は、<b>続けて何回でも使えます。</b>直したいファイルを左に開いたまま、「左のプログラムの〇〇を直して」のように頼みます。左のファイルが書き換わり、変わったところに色が付きます。<b>読んでから「保持」を押します</b>（ファイルの右上や、チャット欄の下に出ます。英語表示では「Keep」）。取り消すときは「元に戻す」（「Undo」）です。</div>
+
+  <h3 class="sub3">★ <code>main</code> を守る設定をする（リポジトリ担当だけ。上の 1〜7 が終わったら）</h3>
+
+  <p class="note"><b>第2週目には、<code>main</code> にいるのに気づかずに、<code>main</code> に直接送ってしまう人がいました。</b>今日は GitHub の設定で、<b><code>main</code> には Pull Request のマージでしか入らない</b>ようにします。設定したあとは、<code>main</code> に直接 <code>push</code> しても GitHub が断るので、<b><code>main</code>（公開URL）は変わりません。</b><br><b>操作するのは、リポジトリ担当1人だけです</b>（Settings は、リポジトリを作った人にしか出ません）。ほかの人は <a class="ulink" href="#s1-2">1-2</a> へ進みます。<b>リポジトリ担当が休みのチームは、しなくて構いません。</b></p>
+
+  <ol class="steps">
+    <li>ブラウザでチームのリポジトリを開き、上に並んだタブから <b>「Settings」</b>を開く<br>
+      <span class="sub">開くアドレスは下のとおりです。<b>Settings が見つからなければ、ログインしているアカウントが違います</b></span></li>
+  </ol>
+
+  <pre class="code">https://github.com/<span class="nm" data-k="owner">【リポジトリ担当のユーザー名】</span>/<span class="nm" data-k="repo">【リポジトリ名】</span></pre>
+
+  <ol class="steps" start="2">
+    <li>左のメニューから <b>「Branches」</b>を開き、<b>「Add classic branch protection rule」</b>を押す<br>
+      <span class="sub">すぐ横に並ぶ「Add branch ruleset」ではありません。「Your GitHub Free plan can only enforce rules on its public repositories」と出ますが、チームのリポジトリは Public なので、そのまま進めます</span></li>
+    <li><b>「Branch name pattern」</b>に <code>main</code> と入れる</li>
+    <li><b>「Require a pull request before merging」</b>に印を入れる<br>
+      <span class="sub">下に「Require approvals」など4つが出ますが、<b>どれも入れません</b></span></li>
+    <li>下のほうの <b>「Do not allow bypassing the above settings」</b>に印を入れる<br>
+      <span class="sub">入れないと、リポジトリ担当だけは <code>main</code> に直接送れてしまいます</span></li>
+    <li>いちばん下の緑の <b>「Create」</b>を押す<br>
+      <span class="sub">「Confirm access」（本人確認）の画面が出たら、第2週目の 2-1 ② のときと同じように進めます。困ったら「Send a code via email」を押し、メールに届いたコードを入れます</span></li>
+  </ol>
+
+  <div class="verify"><b>ここで確認</b>　Branches の画面に戻り、「Branch protection rules」の下に <code>main</code> と「Currently applies to 1 branch」と出ていれば完了です。<b>チームのみんなに「設定した」と伝えます。</b></div>
 
   <h2 id="s1-2" style="scroll-margin-top:70px;">1-2　再テストで会う相手を確かめる（チームで）</h2>
 
@@ -689,7 +714,8 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-fix<span
     <thead><tr><th style="width:230px;">起きたこと</th><th style="width:170px;">原因</th><th>直し方</th></tr></thead>
     <tbody>
       <tr><td><code>'nutc': unknown terminal type.</code>（<code>git branch</code> のとき）</td><td>ターミナルの設定の問題（git の故障ではない）</td><td><code>$env:TERM = "xterm"</code> を一回打ってから、もう一度 <code>git branch</code> を打つ。ターミナルを新しく開いたら、もう一度打つ</td></tr>
-      <tr><td><code>git branch</code> で <code>*</code> が <code>main</code> に付いている</td><td>ブランチを作っていない／<code>main</code> に戻っている</td><td><b>まだ <code>commit</code> していなければ</b>、<code>git switch -c <span class="nm" data-k="myname">【名字】</span>-fix<span class="nm" data-k="issue">【Issue番号】</span></code> で、書き換えた内容ごとブランチに移れる。<b><code>commit</code> してしまったら手を挙げる</b></td></tr>
+      <tr><td><code>git branch</code> で <code>*</code> が <code>main</code> に付いている</td><td>ブランチを作っていない／<code>main</code> に戻っている</td><td><b>まだ <code>commit</code> していなければ</b>、<code>git switch -c <span class="nm" data-k="myname">【名字】</span>-fix<span class="nm" data-k="issue">【Issue番号】</span></code> で、書き換えた内容ごとブランチに移れる。<b><code>commit</code> してしまったら、すぐ下の行（<code>GH006</code>）の2行で移れる</b></td></tr>
+      <tr><td><code>push</code> したら <code>GH006: Protected branch update failed</code>・<code>protected branch hook declined</code> と出た</td><td><code>main</code> にいるまま送った（<a class="ulink" href="#s1-1">1-1</a> の最後の設定が止めた。<b><code>main</code> は変わっていない</b>）</td><td><code>git switch -c <span class="nm" data-k="myname">【名字】</span>-fix<span class="nm" data-k="issue">【Issue番号】</span></code> で <code>commit</code> ごと自分のブランチに移り、<code>git branch -f main origin/main</code> で手元の <code>main</code> を GitHub と同じに戻す。そのあと <a class="ulink" href="#s3-2-3">3-2 の ③</a> の <code>git push</code> を打つ。うまくいかなければ手を挙げる</td></tr>
       <tr><td><code>push</code> したら <code>error: src refspec … does not match any</code> と出た／Pull Request の URL が出ない</td><td><code>push</code> で打ったブランチ名が、今いるブランチと違う</td><td><code>git branch</code> で <code>*</code> が付いた名前を確かめ、<b>その名前で</b> <code>push</code> し直す</td></tr>
       <tr><td><code>fatal: a branch named '…' already exists</code></td><td>前と同じ番号でブランチを作ろうとした（<a class="ulink" href="#s3-2">3-2</a> の欄の番号が、前の Issue のまま）</td><td><a class="ulink" href="#s3-2">3-2</a> の欄の番号を、今から直す Issue の番号に変えて、① からやり直す</td></tr>
       <tr><td><code>git commit</code> で <code>nothing to commit</code> と出た</td><td>保存していない／<code>git add</code> のファイル名が違う</td><td><code>Ctrl + S</code> で保存し、<code>git status</code> で変わったファイルの名前を確かめてから、<code>git add</code> し直す</td></tr>

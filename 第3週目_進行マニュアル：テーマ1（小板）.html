@@ -699,7 +699,7 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-fix<span
       <tr><td><code>warning: auto-detection of host provider took too long (&gt;2000ms)</code>（<code>git pull</code>・<code>git push</code> のとき）</td><td>エラーではない。Git の認証の仕組み（Git Credential Manager）が、接続先を調べるのに時間がかかったという知らせ</td><td><b>そのまま待つ。</b>最後に <code>Already up to date.</code> や Pull Request の URL などが出ていれば、終わっている</td></tr>
       <tr><td>直したはずなのに、画面が変わらない</td><td>保存していない／<code>main</code> にマージしていない／再読み込みしていない</td><td><code>Ctrl + S</code> → <a class="ulink" href="#s3-2-3">3-2 の ③</a>（add・commit・push）→ ④（Pull Request・マージ）→ 数分待って公開URLを再読み込み。手元のブラウザなら、保存してすぐ再読み込み</td></tr>
       <tr><td>Pull Request がマージできない（コンフリクト）</td><td>2人が同じ場所を書き換えた</td><td>第2週目の 2-4 ③ と同じ手順で直す。分からなければ手を挙げる</td></tr>
-      <tr><td>マージしたのに Issue が閉じない／違う Issue が閉じた</td><td><code>closes #番号</code> を書き忘れた／番号が違う</td><td>直した Issue は、Issue の画面の下の「<b>Close issue</b>」で、手で閉じてよい。違って閉じた Issue は、その画面から開き直す</td></tr>
+      <tr><td>マージしたのに Issue が閉じない／違う Issue が閉じた</td><td><code>closes #番号</code> を書き忘れた／番号が違う</td><td>直した Issue は、Issue の画面の下の「<b>Close issue</b>」で、手で閉じてよい。違って閉じた Issue は、その画面の下の「<b>Reopen issue</b>」で開き直す</td></tr>
     </tbody>
   </table>
 

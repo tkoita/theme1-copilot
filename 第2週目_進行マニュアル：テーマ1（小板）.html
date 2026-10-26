@@ -1238,7 +1238,7 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-wip</pre
 (function(){
   var KEY='theme1-myinfo', OLD='theme1-myname';
   var PH={myname:'【名字】',fullname:'【自分の名前（ローマ字）】',noreply:'【noreply アドレス】',userid:'【同志社のユーザID】',
-          owner:'【リポジトリ担当のユーザー名】',repo:'【リポジトリ名】',app:'【アプリ名】',sid:'【学籍番号】',team:'【チーム番号】'};
+          owner:'【リポジトリ担当のユーザー名】',repo:'【リポジトリ名】',app:'【アプリ名】',sid:'【学籍番号】',team:'【チーム番号】',issue:'【Issue番号】'};
   function z2h(v){ return (v||'').replace(/[\uFF01-\uFF5E]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/\u3000/g,' '); }
   var C={
     myname:function(v){ v=z2h(v).toLowerCase().replace(/^-+/,''); var c=v.replace(/[^a-z0-9-]/g,''); return {v:c,bad:c!==v,msg:'ローマ字の半角小文字で入れてください（日本語・空白・記号は入りません）。'}; },
@@ -1249,7 +1249,8 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-wip</pre
       return m?{v:m[1]+'-'+m[2],bad:false}:{v:'',bad:false,fmt:v!=='',msg:'「A-3」のように、グループの英字とチーム番号で入れてください。'}; },
     owner:function(v){ v=z2h(v).trim().replace(/^@/,''); var c=v.replace(/[^A-Za-z0-9-]/g,''); return {v:c,bad:c!==v,msg:'GitHub のユーザー名を、半角で入れてください（英数字とハイフンだけです）。'}; },
     app:function(v){ return {v:(v||'').trim(),bad:false}; },
-    sid:function(v){ v=z2h(v).trim(); var c=v.replace(/[^0-9]/g,''); return {v:c,bad:c!==v,msg:'学籍番号を、半角の数字で入れてください。'}; }
+    sid:function(v){ v=z2h(v).trim(); var c=v.replace(/[^0-9]/g,''); return {v:c,bad:c!==v,msg:'学籍番号を、半角の数字で入れてください。'}; },
+    issue:function(v){ v=z2h(v).trim().replace(/^#/,'').replace(/^0+(?=\d)/,''); var c=v.replace(/[^0-9]/g,''); return {v:c,bad:c!==v,msg:'Issue の番号を、数字だけで入れてください（#12 なら 12）。'}; }
   };
   var inputs=[].slice.call(document.querySelectorAll('.namebox input[data-k]'));
   var spans=[].slice.call(document.querySelectorAll('.nm[data-k]'));
@@ -1270,6 +1271,7 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-wip</pre
   function show(){
     spans.forEach(function(s){ var k=s.getAttribute('data-k'); s.textContent=val(k)||PH[k]; });
     [].forEach.call(document.querySelectorAll('[data-show="repo"]'),function(e){ e.textContent=val('repo')?'→ リポジトリ名は '+val('repo')+' です。':''; });
+    [].forEach.call(document.querySelectorAll('[data-show="issue"]'),function(e){ var n=val('issue'); e.textContent=n?'→ ブランチ名は '+(val('myname')||'【名字】')+'-fix'+n+'、Pull Request の本文は closes #'+n+' になります。':''; });
     inputs.forEach(function(i){ if(!i.closest('.ibin')) msg(i,{bad:false},false); });
   }
   function onInput(e){

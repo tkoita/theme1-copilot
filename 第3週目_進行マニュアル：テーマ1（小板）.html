@@ -671,6 +671,7 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-fix1</pr
     <tbody>
       <tr><td><code>git branch</code> で <code>*</code> が <code>main</code> に付いている</td><td>ブランチを作っていない／<code>main</code> に戻っている</td><td><b>まだ <code>commit</code> していなければ</b>、<code>git switch -c <span class="nm" data-k="myname">【名字】</span>-fix1</code> で、書き換えた内容ごとブランチに移れる。<b><code>commit</code> してしまったら手を挙げる</b></td></tr>
       <tr><td><code>push</code> したのに Pull Request の URL が出ない／GitHub に思っていない名前のブランチができた</td><td><code>push</code> で打ったブランチ名が、今いるブランチと違う</td><td><code>git branch</code> で <code>*</code> が付いた名前を確かめ、<b>その名前で</b> <code>push</code> し直す</td></tr>
+      <tr><td><code>warning: auto-detection of host provider took too long (&gt;2000ms)</code></td><td>エラーではない。Git の認証の仕組み（Git Credential Manager）が、接続先を調べるのに時間がかかったという知らせ</td><td><b>そのまま待つ。</b>最後に Pull Request の URL などが出ていれば、送れている</td></tr>
       <tr><td>直したはずなのに、画面が変わらない</td><td>保存していない／<code>main</code> にマージしていない／再読み込みしていない</td><td><code>Ctrl + S</code> → マージ → 数分待って公開URLを再読み込み。手元のブラウザなら、保存してすぐ再読み込み</td></tr>
       <tr><td>Pull Request がマージできない（コンフリクト）</td><td>2人が同じ場所を書き換えた</td><td>第2週目の 2-4 ③ と同じ手順で直す。分からなければ手を挙げる</td></tr>
       <tr><td>マージしたのに Issue が閉じない</td><td><code>closes #番号</code> を書き忘れた／番号が違う</td><td>Issue の画面から、手で閉じてよい</td></tr>

@@ -681,6 +681,7 @@ git push</pre>
       <tr><td><code>Permission to … denied</code></td><td>招待を承諾していない</td><td><b><a class="ulink" href="#s2-1-3">2-1 の ③</a></b> で招待を承諾する</td></tr>
       <tr><td><code>push</code> したのに Pull Request の URL が出ない／GitHub に思っていない名前のブランチができた</td><td><code>push</code> で打ったブランチ名が、今いるブランチと違う</td><td><code>git branch</code> で <code>*</code> が付いた名前を確かめ、<b>その名前で</b> <code>push</code> し直す</td></tr>
       <tr><td><code>git branch</code> で <code>*</code> が <code>main</code> に付いている</td><td>ブランチを作っていない／<code>main</code> に戻っている</td><td><a class="ulink" href="#s2-0">2-0</a> の★の表のとおりにする。<b><code>main</code> のまま送らない</b></td></tr>
+      <tr><td><code>warning: auto-detection of host provider took too long (&gt;2000ms)</code></td><td>エラーではない。Git の認証の仕組み（Git Credential Manager）が、接続先を調べるのに時間がかかったという知らせ</td><td><b>そのまま待つ。</b>このあとに上の表のエラーが出なければ、問題ない（<code>push</code> なら、最後に Pull Request の URL などが出る）</td></tr>
     </tbody>
   </table>
 

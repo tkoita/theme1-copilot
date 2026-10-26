@@ -471,7 +471,7 @@ git config --global http.proxy http://<span class="nm" data-k="userid">【同志
 
   <ol class="steps" start="2">
     <li><b>「New issue」</b>（緑のボタン）を押す</li>
-    <li><b>タイトル</b>と<b>本文</b>を書いて、作成のボタン（緑）を押す<br>
+    <li><b>「Add a title」にタイトル、「Add a description」に本文</b>を書いて、緑の <b>「Create」</b>を押す<br>
       <span class="sub">タイトルと本文の書き方は、下の表と枠のとおりです</span></li>
     <li><b>3つ分くり返す</b></li>
   </ol>
@@ -517,7 +517,7 @@ git config --global http.proxy http://<span class="nm" data-k="userid">【同志
     </tbody>
   </table>
 
-  <div class="idnote"><b>相互チェックは、合否を決めるものではありません。</b>質問に<b>うまく答えられなかったら、それが書き直すところ</b>です。<b>新しい Issue は作らず、その Issue のタイトルと本文を書き換えます</b>（番号は変わりません）。直してから、PART 3 に入ってください。ここで新しい機能が紛れ込むと、改善のはずが作り直しになり、<b>16:20 になっても動かないままです。</b></div>
+  <div class="idnote"><b>相互チェックは、合否を決めるものではありません。</b>質問に<b>うまく答えられなかったら、それが書き直すところ</b>です。<b>新しい Issue は作らず、その Issue のタイトルと本文を書き換えます</b>（番号は変わりません）。タイトルは、Issue の画面でタイトルの横にある<b>鉛筆のマーク</b>から直せます。直してから、PART 3 に入ってください。ここで新しい機能が紛れ込むと、改善のはずが作り直しになり、<b>16:20 になっても動かないままです。</b></div>
 
   <h3 class="sub3">最後に、直す担当を決める</h3>
 
@@ -651,8 +651,8 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-fix<span
 
   <ol class="steps">
     <li>ターミナルに出た <b><code>https://github.com/…/pull/new/<span class="nm" data-k="myname">【名字】</span>-fix<span class="nm" data-k="issue">【Issue番号】</span></code></b> を、<b><code>Ctrl</code> を押しながらクリック</b>して開く</li>
-    <li><b>本文の欄に、次の1行を書く</b><br>
-      <span class="sub"><b>番号は、直した Issue の番号</b>です。<a class="ulink" href="#s3-2">3-2</a> の欄に入れていれば、その番号に変わっています</span></li>
+    <li><b>本文の欄（「Add a description」）に、次の1行を書く</b><br>
+      <span class="sub"><b>番号は、直した Issue の番号</b>です。<a class="ulink" href="#s3-2">3-2</a> の欄に入れていれば、その番号に変わっています。<br>本文の欄には、commit のメッセージなどが<b>最初から入っていることがあります。</b>消してから、この1行を書きます。タイトルも commit のメッセージが入っているので、そのままで構いません</span></li>
   </ol>
 
   <pre class="code">closes #<span class="nm" data-k="issue">【Issue番号】</span></pre>
@@ -699,7 +699,7 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-fix<span
       <tr><td><code>warning: auto-detection of host provider took too long (&gt;2000ms)</code>（<code>git pull</code>・<code>git push</code> のとき）</td><td>エラーではない。Git の認証の仕組み（Git Credential Manager）が、接続先を調べるのに時間がかかったという知らせ</td><td><b>そのまま待つ。</b>最後に <code>Already up to date.</code> や Pull Request の URL などが出ていれば、終わっている</td></tr>
       <tr><td>直したはずなのに、画面が変わらない</td><td>保存していない／<code>main</code> にマージしていない／再読み込みしていない</td><td><code>Ctrl + S</code> → <a class="ulink" href="#s3-2-3">3-2 の ③</a>（add・commit・push）→ ④（Pull Request・マージ）→ 数分待って公開URLを再読み込み。手元のブラウザなら、保存してすぐ再読み込み</td></tr>
       <tr><td>Pull Request がマージできない（コンフリクト）</td><td>2人が同じ場所を書き換えた</td><td>第2週目の 2-4 ③ と同じ手順で直す。分からなければ手を挙げる</td></tr>
-      <tr><td>マージしたのに Issue が閉じない／違う Issue が閉じた</td><td><code>closes #番号</code> を書き忘れた／番号が違う</td><td>直した Issue は、Issue の画面から手で閉じてよい。違って閉じた Issue は、その画面から開き直す</td></tr>
+      <tr><td>マージしたのに Issue が閉じない／違う Issue が閉じた</td><td><code>closes #番号</code> を書き忘れた／番号が違う</td><td>直した Issue は、Issue の画面の下の「<b>Close issue</b>」で、手で閉じてよい。違って閉じた Issue は、その画面から開き直す</td></tr>
     </tbody>
   </table>
 

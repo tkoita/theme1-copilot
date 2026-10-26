@@ -382,6 +382,10 @@ git config --global http.proxy http://<span class="nm" data-k="userid">【同志
 
   <pre class="code">git branch</pre>
 
+  <div class="idnote"><b><code>git branch</code> を打って <code>'nutc': unknown terminal type.</code> と出たら</b><br>git の故障ではなく、ターミナルの設定の問題です。<b>次の1行を一回打ってから、もう一度 <code>git branch</code> を打ちます。</b>この直しは、そのターミナルの中だけで効きます。<b>ターミナルを新しく開いたときは、もう一度打ちます。</b></div>
+
+  <pre class="code">$env:TERM = "xterm"</pre>
+
   <div class="verify"><b>ここで確認</b>　<code>* main</code> と表示されれば、準備は完了です。<b><code>*</code> が付いている名前が、今いるブランチです。</b>今日はこのあと何度も、この1行で「今どこにいるか」を確かめます。<br>main とブランチの意味は、<a class="ulink" href="#s3-0">3-0</a> の図で説明します。</div>
 
   <div class="idnote"><b><code>Ctrl + I</code> で開いた欄に頼む文を書いて Enter を押したとき、「Auto mode failed: …」と赤いエラーが出たら</b><br><b>JM教室のPCでは、サインインしてから1回目の <code>Ctrl + I</code> は使えて、2回目からこのエラーが出ます。故障ではありません。</b>直し方は2つです。<br><b>①</b> 左下のアカウントアイコンからサインアウトし、Copilot アイコンからサインインし直す（第2週目の資料の <b>3-2 の最後</b>と同じ手順）。直したあとも使えるのは1回だけなので、<b>出るたびにくり返します。</b><br><b>②</b> <b>右のチャット欄で頼む。</b>画面いちばん上の Copilot アイコンで開くチャット欄は、<b>続けて何回でも使えます。</b>直したいファイルを左に開いたまま、「左のプログラムの〇〇を直して」のように頼みます。左のファイルが書き換わり、変わったところに色が付きます。<b>読んでから「保持」を押します</b>（ファイルの右上や、チャット欄の下に出ます。英語表示では「Keep」）。取り消すときは「元に戻す」（「Undo」）です。</div>
@@ -563,6 +567,7 @@ git config --global http.proxy http://<span class="nm" data-k="userid">【同志
       <tr><td><code>git config --global …</code>（3行）</td><td>名前・noreply アドレス・大学の proxy を設定する。<b>ログオフで消えるので毎週</b></td><td><a class="ulink" href="#s1-1">1-1</a></td></tr>
       <tr><td><code>git clone URL</code></td><td>チームのリポジトリを、自分の PC に<b>丸ごとコピー</b>する。<b>ログオフで消えるので毎週</b></td><td><a class="ulink" href="#s1-1">1-1</a></td></tr>
       <tr><td><code>git branch</code></td><td><b>今いるブランチを確かめる。</b><code>*</code> が付いた名前が、今いるブランチ</td><td><a class="ulink" href="#s1-1">1-1</a>、<a class="ulink" href="#s3-2-1">3-2 の ①</a> と <a class="ulink" href="#s3-2-3">③</a>（ブランチを作った直後と、送る前）、<a class="ulink" href="#s4-4">4-4</a></td></tr>
+      <tr><td><code>$env:TERM = "xterm"</code></td><td><code>git branch</code> で <code>'nutc': unknown terminal type.</code> と出たときだけ打つ。<b>ターミナルを新しく開いたら、もう一度</b></td><td><a class="ulink" href="#s1-1">1-1</a>、<a class="ulink" href="#s3-4">3-4</a></td></tr>
       <tr><td><code>git switch main</code></td><td><code>main</code> に移る</td><td><a class="ulink" href="#s3-2-1">3-2 ①</a></td></tr>
       <tr><td><code>git pull</code></td><td>GitHub の最新を、自分の PC に取り込む（ほかの人がマージしたものを受け取る）</td><td><a class="ulink" href="#s3-2-1">3-2 ①</a></td></tr>
       <tr><td><code>git switch -c <span class="nm" data-k="myname">【名字】</span>-fix<span class="nm" data-k="issue">【Issue番号】</span></code></td><td>ブランチを<b>新しく作って</b>、そこに移る。<b>Issue 1つにつき1つ</b>作る</td><td><a class="ulink" href="#s3-2-1">3-2 ①</a></td></tr>
@@ -612,10 +617,10 @@ git branch</pre>
 
   <ol class="steps">
     <li><b>画面いちばん上の Copilot アイコンを押してチャットを開き、下の1行を書いて、続けて Issue の本文をそのまま貼って送る</b><br>
-      <span class="sub"><b>いきなり「直して」と頼まないのがコツです。</b>まず場所を探させ、直し方の候補を出させてから選ぶと、関係のない場所まで書き換えられずに済みます</span></li>
+      <span class="sub"><b>いきなり「直して」と頼まないのがコツです。</b>まず場所を探させ、直し方の候補を出させてから選ぶと、関係のない場所まで書き換えられずに済みます。<br><b><code>@workspace</code> は、JM教室のPCではエラーになるので付けません。</b></span></li>
   </ol>
 
-  <pre class="code">@workspace この指摘を直すには、どのファイルのどこを変えればよいですか。直し方を3つ挙げてください</pre>
+  <pre class="code">この指摘を直すには、どのファイルのどこを変えればよいですか。まだ書き換えずに、直し方を3つ挙げてください</pre>
 
   <ol class="steps" start="2">
     <li><b>担当の人が1つ選び（迷ったらチームに聞く）、そのファイルを開いて <code>Ctrl + I</code> で頼む</b><br>
@@ -683,11 +688,12 @@ git push -u origin <span class="nm" data-k="myname">【名字】</span>-fix<span
   <table class="levels">
     <thead><tr><th style="width:230px;">起きたこと</th><th style="width:170px;">原因</th><th>直し方</th></tr></thead>
     <tbody>
+      <tr><td><code>'nutc': unknown terminal type.</code>（<code>git branch</code> のとき）</td><td>ターミナルの設定の問題（git の故障ではない）</td><td><code>$env:TERM = "xterm"</code> を一回打ってから、もう一度 <code>git branch</code> を打つ。ターミナルを新しく開いたら、もう一度打つ</td></tr>
       <tr><td><code>git branch</code> で <code>*</code> が <code>main</code> に付いている</td><td>ブランチを作っていない／<code>main</code> に戻っている</td><td><b>まだ <code>commit</code> していなければ</b>、<code>git switch -c <span class="nm" data-k="myname">【名字】</span>-fix<span class="nm" data-k="issue">【Issue番号】</span></code> で、書き換えた内容ごとブランチに移れる。<b><code>commit</code> してしまったら手を挙げる</b></td></tr>
       <tr><td><code>push</code> したら <code>error: src refspec … does not match any</code> と出た／Pull Request の URL が出ない</td><td><code>push</code> で打ったブランチ名が、今いるブランチと違う</td><td><code>git branch</code> で <code>*</code> が付いた名前を確かめ、<b>その名前で</b> <code>push</code> し直す</td></tr>
       <tr><td><code>fatal: a branch named '…' already exists</code></td><td>前と同じ番号でブランチを作ろうとした（<a class="ulink" href="#s3-2">3-2</a> の欄の番号が、前の Issue のまま）</td><td><a class="ulink" href="#s3-2">3-2</a> の欄の番号を、今から直す Issue の番号に変えて、① からやり直す</td></tr>
       <tr><td><code>git commit</code> で <code>nothing to commit</code> と出た</td><td>保存していない／<code>git add</code> のファイル名が違う</td><td><code>Ctrl + S</code> で保存し、<code>git status</code> で変わったファイルの名前を確かめてから、<code>git add</code> し直す</td></tr>
-      <tr><td><code>warning: auto-detection of host provider took too long (&gt;2000ms)</code></td><td>エラーではない。Git の認証の仕組み（Git Credential Manager）が、接続先を調べるのに時間がかかったという知らせ</td><td><b>そのまま待つ。</b>最後に Pull Request の URL などが出ていれば、送れている</td></tr>
+      <tr><td><code>warning: auto-detection of host provider took too long (&gt;2000ms)</code>（<code>git pull</code>・<code>git push</code> のとき）</td><td>エラーではない。Git の認証の仕組み（Git Credential Manager）が、接続先を調べるのに時間がかかったという知らせ</td><td><b>そのまま待つ。</b>最後に <code>Already up to date.</code> や Pull Request の URL などが出ていれば、終わっている</td></tr>
       <tr><td>直したはずなのに、画面が変わらない</td><td>保存していない／<code>main</code> にマージしていない／再読み込みしていない</td><td><code>Ctrl + S</code> → <a class="ulink" href="#s3-2-3">3-2 の ③</a>（add・commit・push）→ ④（Pull Request・マージ）→ 数分待って公開URLを再読み込み。手元のブラウザなら、保存してすぐ再読み込み</td></tr>
       <tr><td>Pull Request がマージできない（コンフリクト）</td><td>2人が同じ場所を書き換えた</td><td>第2週目の 2-4 ③ と同じ手順で直す。分からなければ手を挙げる</td></tr>
       <tr><td>マージしたのに Issue が閉じない／違う Issue が閉じた</td><td><code>closes #番号</code> を書き忘れた／番号が違う</td><td>直した Issue は、Issue の画面から手で閉じてよい。違って閉じた Issue は、その画面から開き直す</td></tr>

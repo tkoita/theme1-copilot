@@ -8,6 +8,9 @@ body{background:#dce2e9;color:var(--ink);font-family:"Hiragino Kaku Gothic ProN"
 .topnav{position:sticky;top:0;z-index:60;margin:0 -16px 24px;padding:0 16px;background:rgba(220,226,233,.95);backdrop-filter:saturate(150%) blur(10px);-webkit-backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid #c2cbd6;}
 .topnav .inner{max-width:880px;margin:0 auto;display:flex;align-items:center;gap:14px;height:54px;}
 .topnav .brand{font-size:12.5px;font-weight:800;color:#1f2933;white-space:nowrap;letter-spacing:.02em;}
+/* 左上の名前は、資料一覧（index.html）へのリンク（2026-10-26） */
+.topnav a.brand{text-decoration:none;padding:0;background:none;}
+.topnav a.brand:hover{color:#0f766e;text-decoration:underline;text-underline-offset:3px;}
 .topnav .brand span{display:block;font-size:10.5px;font-weight:700;color:#7b8794;letter-spacing:.06em;}
 .topnav .links{display:flex;gap:3px;overflow-x:auto;flex:1;scrollbar-width:none;-ms-overflow-style:none;}
 .topnav .links::-webkit-scrollbar{display:none;}
@@ -218,7 +221,7 @@ ol.steps b{font-weight:700;}
 
 <header class="topnav">
   <div class="inner">
-    <div class="brand">第2週目 進行マニュアル：テーマ1（小板）<span>情報システム演習実験II</span></div>
+    <a class="brand" href="index.html" title="資料一覧（第1〜3週目）へ">第2週目 進行マニュアル：テーマ1（小板）<span>情報システム演習実験II</span></a>
     <div class="links">
       <a href="#overview">この日の全体像</a>
       <a href="#part1">PART 1</a>

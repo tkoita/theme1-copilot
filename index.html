@@ -19,10 +19,27 @@ h2::before{content:"";width:4px;height:18px;background:var(--accent);border-radi
 .doc.pre{--accent:#2f9e44;--accentbd:#b9e4c8;}
 .ainote{margin-top:20px;padding:13px 16px;background:#f0fdf9;border:1px solid #a8ded7;border-left:4px solid #0f766e;border-radius:8px;font-size:12.8px;color:#0b4a44;line-height:1.75;}
 .ainote b{font-weight:800;}
+.clover{display:flex;gap:18px;align-items:center;text-decoration:none;color:#f3f4f6;background:#0b0b0c;border:1px solid #2a2a2e;border-left:4px solid #dc2626;border-radius:8px;padding:14px 18px;margin:0 0 26px;transition:box-shadow .14s,transform .14s;}
+.clover:hover{box-shadow:0 6px 18px rgba(20,30,45,.25);transform:translateY(-1px);}
+.clover img{flex:0 0 auto;width:96px;height:auto;border-radius:4px;border:1px solid #2a2a2e;}
+.clover .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;color:#fff;background:#dc2626;border-radius:20px;padding:2px 10px;}
+.clover .t{font-size:16px;font-weight:800;margin:8px 0 4px;color:#fff;}
+.clover .d{font-size:12.8px;color:#c9ccd1;margin:0;line-height:1.7;}
+.clover .d b{color:#fff;}
+@media (max-width:640px){.clover{gap:12px;padding:12px 14px;}.clover img{width:72px;}}
 .foot{margin-top:30px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px;color:var(--soft);}
 @media (max-width:640px){.sheet{padding:30px 22px 40px;}h1{font-size:23px;}body{padding:20px 12px 60px;}}
 </style></head><body>
 <section class="sheet">
+  <a class="clover" id="clover" href="clover2026_poster.pdf" target="_blank" rel="noopener">
+    <img src="clover2026_poster.jpg" alt="ポスター「未返却 ― モバイルバッテリー返却ミステリー ―」">
+    <div>
+      <span class="tag">実装の例</span>
+      <div class="t">NISLab学生によるクローバー祭出し物：未返却 ― モバイルバッテリー返却ミステリー ―</div>
+      <p class="d"><b>10/31（土）〜11/1（日）・海王星エリア・参加無料</b>（第22回 同志社クローバー祭）。押すと、ポスター（PDF）が開きます。</p>
+    </div>
+  </a>
+  <script>(function(){var e=document.getElementById('clover');if(e&&Date.now()>Date.parse('2026-11-03T23:59:59+09:00'))e.parentNode.removeChild(e);})();</script>
   <div class="eyebrow">情報システム演習実験 II</div>
   <h1>テーマ1：GitHub Copilot による開発実習</h1>
   <p class="lead">同志社大学　京田辺校地 ／ 担当：小板<br><b>受講者向けの資料をここにまとめています。</b>スマホからも読めます。</p>

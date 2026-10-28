@@ -526,6 +526,21 @@ git config --global http.proxy http://<span class="nm" data-k="userid">【同志
 ## 詰まった場面
 「登録」を押したあと、一覧の画面で手が止まった</pre>
 
+  <h3 class="sub3">Issue の番号の見方（PART 3 のコマンドの【Issue番号】）</h3>
+
+  <p class="note"><b>Issue を作ると、番号が自動で付きます。</b>番号は、次の3か所のどこでも分かります（<code>#12</code> のとき）。</p>
+
+  <table class="levels">
+    <thead><tr><th style="width:230px;">見るところ</th><th>番号の出かた</th></tr></thead>
+    <tbody>
+      <tr><td><b>Issues タブの一覧</b></td><td>タイトルの下の小さい字。<code><span class="nm" data-k="owner">【リポジトリ担当のユーザー名】</span>/<span class="nm" data-k="repo">【リポジトリ名】</span>#12</code> のように、<b>最後の <code>#</code> のあとの数字</b></td></tr>
+      <tr><td><b>Issue の画面</b>（一覧でタイトルを押すと開く）</td><td>タイトルのすぐ後ろの、灰色の <b><code>#12</code></b>（その右に鉛筆のマーク）</td></tr>
+      <tr><td><b>ブラウザのアドレス欄</b>（Issue の画面を開いたとき）</td><td><code>https://github.com/…/issues/12</code> の、<b>最後の数字</b></td></tr>
+    </tbody>
+  </table>
+
+  <p class="note"><b>【Issue番号】に使うのは、<code>#</code> を除いた数字だけです</b>（<code>#12</code> なら <code>12</code>）。PART 3 では、この数字を <a class="ulink" href="#s3-2">3-2 の欄</a> に入れると、コマンドの【Issue番号】が変わります。</p>
+
   <div class="verify"><b>ここで確認</b>　Issues タブに3つ並び、それぞれに <b><code>#12</code></b> のような番号が付いていること。<b>番号は 1 から始まるとは限りません</b>（第2週目の Pull Request と同じ通し番号が付くためです）。<b>この番号を PART 3 で使うので、チームのメモに書いておきます。</b></div>
 
   <div class="design"><b>なぜ Issue にするのか。</b>第4週目のピッチでは、<b>「何を言われて、何をどう直したか」</b>を必ず話してもらいます。<b>Issue と Pull Request の履歴</b>が残っていれば、その場で画面を出して見せられます。<b>記憶で話すチームと、履歴で見せるチームでは、説得力がまったく違います。</b></div>
@@ -564,7 +579,7 @@ git config --global http.proxy http://<span class="nm" data-k="userid">【同志
   <p class="note"><b>今日打つコマンドは、第2週目と同じものだけです。</b>まずこの表と図に目を通してから進んでください。分からなくなったら、ここに戻ってきてください。</p>
 
   <div class="namebox">
-    <p><b>★ コマンドの【名字】は、自分の名字に変えて打ちます。</b><a class="ulink" href="#myinfo">1-1 の欄</a>と同じで、どこに入れても全部に入ります。<b>【Issue番号】は、<a class="ulink" href="#s3-2">3-2 の欄</a>に入れます。</b></p>
+    <p><b>★ コマンドの【名字】は、自分の名字に変えて打ちます。</b><a class="ulink" href="#myinfo">1-1 の欄</a>と同じで、どこに入れても全部に入ります。<b>【Issue番号】は、<a class="ulink" href="#s3-2">3-2 の欄</a>に入れます</b>（番号の見方は <a class="ulink" href="#s2-2">2-2</a> の表）。</p>
     <label class="nbrow"><span class="nblab">自分の名字（ローマ字の小文字）</span><input type="text" data-k="myname" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入れる" aria-label="自分の名字（ローマ字の半角小文字）"></label>
     <p class="nbstate" aria-live="polite">まだ入っていません。コマンドの【名字】は、自分で書き換えて打ちます。</p>
   </div>
@@ -626,7 +641,7 @@ git config --global http.proxy http://<span class="nm" data-k="userid">【同志
   <div class="namebox infobox">
     <p><b>★ 直す Issue の番号を、下の欄に入れます</b><br>このあとのコマンドの【名字】と【Issue番号】が、入れたものに変わります。名字は <a class="ulink" href="#myinfo">1-1 の欄</a>と同じで、どこに入れても全部に入ります。</p>
     <div class="ibrow"><label class="iblab" for="fb-myname">自分の名字（ローマ字の小文字）</label><div class="ibin"><input type="text" data-k="myname" id="fb-myname" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入れる"><span class="ibhint">ブランチ名に使います。<b>すべて小文字</b>で入れます（例：佐藤さんなら sato）</span><span class="ibmsg" aria-live="polite"></span></div></div>
-    <div class="ibrow"><label class="iblab" for="fb-issue">直す Issue の番号</label><div class="ibin"><input type="text" inputmode="numeric" data-k="issue" id="fb-issue" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入れる"><span class="ibhint"><a class="ulink" href="#s2-2">2-2</a> で付いた番号を、<b>数字だけ</b>入れます（<code>#12</code> なら <code>12</code>）</span><span class="ibderived" data-show="issue"></span><span class="ibmsg" aria-live="polite"></span></div></div>
+    <div class="ibrow"><label class="iblab" for="fb-issue">直す Issue の番号</label><div class="ibin"><input type="text" inputmode="numeric" data-k="issue" id="fb-issue" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入れる"><span class="ibhint"><a class="ulink" href="#s2-2">2-2</a> で付いた番号を、<b><code>#</code> を付けずに数字だけ</b>入れます（<code>#12</code> なら <code>12</code>）。<b>番号の見方は <a class="ulink" href="#s2-2">2-2</a> の表</b>（Issues タブの一覧ではタイトルの下、Issue の画面ではタイトルのすぐ後ろ）</span><span class="ibderived" data-show="issue"></span><span class="ibmsg" aria-live="polite"></span></div></div>
   </div>
 
   <h3 class="sub3" id="s3-2-1" style="scroll-margin-top:70px;">① 最新を取り、ブランチを作る</h3>

@@ -194,8 +194,8 @@ ol.steps b{font-weight:700;}
 </header>
 
 <section class="topnotice" id="top">
-  <h2>★ 第1回の授業までに必ず終わらせること</h2>
-  <p>この演習では <b>GitHub Copilot</b> を使います。しかし <b>使える状態にするまでに、最短でも数日、長いと数週間かかります</b>（GitHub 側の審査があるため）。<b>第1回の当日にセットアップを始めると、その日は何もできません。</b></p>
+  <h2>★ 第1週目の授業までに必ず終わらせること</h2>
+  <p>この演習では <b>GitHub Copilot</b> を使います。しかし <b>使える状態にするまでに、最短でも数日、長いと数週間かかります</b>（GitHub 側の審査があるため）。<b>第1週目の当日にセットアップを始めると、その日は何もできません。</b></p>
   <ul>
     <li>手を動かす時間そのものは、<b>待ち時間を除けば40分程度</b>です。</li>
     <li><b>STEP 2 の審査を待っている間に、STEP 3 を必ず進めてください。</b>審査結果を待ってから始めると間に合いません。</li>
@@ -218,7 +218,7 @@ ol.steps b{font-weight:700;}
     </div>
   </div>
   <div class="roomnote"><span class="rt">■ STEP 3・STEP 4 は、全員がやる必要はありません</span>
-  <b>情報メディア教室（JM）の PC を使う場合、STEP 3・STEP 4 の環境はすでに準備済みです。</b>これらを自分で行う必要はありません。<br>
+  <b>JM教室の PC を使う場合、STEP 3・STEP 4 の環境はすでに準備済みです。</b>これらを自分で行う必要はありません。<br>
   <b>自宅の PC で環境を作る場合だけ</b>、STEP 3・STEP 4 を実施してください。<br><br>
   <b>ただし STEP 1・STEP 2・STEP 5 は、どこで作業する人も全員必須です。</b>STEP 1（アカウント）と STEP 2（学生認証）は<b>あなた個人のアカウントに対する手続き</b>なので、教室の PC が準備済みであることとは関係ありません。</div>
 </section>
@@ -388,10 +388,10 @@ ol.steps b{font-weight:700;}
   <b>2. Copilot は「考えて」いない。</b>もっともらしい続きを<b>確率的に予測</b>しているだけです。だから、<b>平気で間違えます</b>。これは故障ではなく、仕組み上そういうものです。</div>
 
   <h2>4つの使い方</h2>
-  <p class="note">Copilot には大きく4つの使い方があります。<b>第1回のハンズオンで全部試します</b>ので、ここでは「そういうものがある」と分かれば十分です。暗記する必要はありません。</p>
+  <p class="note">Copilot には大きく4つの使い方があります。<b>第1週目のハンズオンでは、このうち ①〜③ を試します</b>（③ は <code>/explain</code> と <code>/fix</code>。<code>/tests</code>・<code>@workspace</code> と ④ は使いません）ので、ここでは「そういうものがある」と分かれば十分です。暗記する必要はありません。</p>
 
   <div class="design"><b>「ハンズオン」とは</b><br>
-  <b>hands-on ＝「手を動かす」</b>という意味です。講義を聞いて終わりではなく、<b>受講者全員がその場で自分のパソコンを操作して、実際に機能を試す形式</b>の授業を指します。第1回の前半（およそ90分）がこれにあたります。<br>
+  <b>hands-on ＝「手を動かす」</b>という意味です。講義を聞いて終わりではなく、<b>受講者全員がその場で自分のパソコンを操作して、実際に機能を試す形式</b>の授業を指します。第1週目の前半（およそ70分）がこれにあたります。<br>
   進め方は次のとおりです。教員が前で1つの操作を示す → <b>全員が同じ操作を自分の画面で再現する</b> → できたことを確認して次へ進む、の繰り返しです。分からなくなったらその場で手を挙げてください。全員が同じ画面を出している前提で進むので、黙って置いていかれるのがいちばん困ります。<br>
   この形式をとるのは、<b>Copilot は「聞いて分かったつもり」になりやすい道具だから</b>です。説明を聞けば簡単そうに思えますが、実際に自分で打ってみると「提案が出ない」「思ったのと違うコードが出る」といったことが必ず起きます。その最初のつまずきを、教員がいる場で済ませてしまうのが狙いです。</div>
 
@@ -410,7 +410,7 @@ ol.steps b{font-weight:700;}
       <div class="cmd">
         <div class="cmdhead"><span class="cmdname">/explain</span><span class="cmdtag">最重要</span><span style="font-size:12px;font-weight:700;color:#3a4654;">コードの意味を説明させる</span></div>
         <p><span class="lbl">何をする</span>エディタでコードを<b>選択してから</b> <code>/explain</code> と入力すると、そのコードが何をしているかを日本語で説明してくれます。1行ずつの動作だけでなく、<b>使われている文法の名前、なぜその書き方をするのか、どんなときに壊れるのか</b>まで聞き出せます。</p>
-        <p><span class="lbl">使う場面</span>Copilot の提案を採用したものの、中身が分からないとき。班の他のメンバーが書いた部分を読むとき。授業で習っていない書き方に出会ったとき。</p>
+        <p><span class="lbl">使う場面</span>Copilot の提案を採用したものの、中身が分からないとき。チームの他のメンバーが書いた部分を読むとき。授業で習っていない書き方に出会ったとき。</p>
         <div class="ex"><b>入力例</b>（コードを選択した状態で）
           <span class="q">/explain 初心者にも分かるように、1行ずつ日本語で説明して</span>
           <span class="q">/explain この書き方をする理由は？もっと簡単な書き方はある？</span>
@@ -443,7 +443,7 @@ ol.steps b{font-weight:700;}
       <div class="cmd">
         <div class="cmdhead"><span class="cmdname">@workspace</span><span class="cmdtag">範囲指定</span><span style="font-size:12px;font-weight:700;color:#3a4654;">プロジェクト全体を見て答えさせる</span></div>
         <p><span class="lbl">何をする</span>これだけは他の3つと性質が違い、<b>命令ではなく「見る範囲の指定」</b>です。質問の先頭に付けると、いま開いている1つのファイルだけでなく、<b>プロジェクトの中のファイル全部</b>を見たうえで答えてくれます。</p>
-        <p><span class="lbl">使う場面</span>ファイルが増えてきて「あの処理、どこに書いたっけ」となったとき。班のメンバーが書いた部分も含めて全体像を知りたいとき。新しい機能をどのファイルに足すべきか相談したいとき。</p>
+        <p><span class="lbl">使う場面</span>ファイルが増えてきて「あの処理、どこに書いたっけ」となったとき。チームのメンバーが書いた部分も含めて全体像を知りたいとき。新しい機能をどのファイルに足すべきか相談したいとき。</p>
         <div class="ex"><b>入力例</b>（コードの選択は不要）
           <span class="q">@workspace ログイン処理はどのファイルに書かれている？</span>
           <span class="q">@workspace この機能を追加するなら、どのファイルを直すべき？</span>
@@ -481,17 +481,17 @@ ol.steps b{font-weight:700;}
 
   <div class="dayof"><b>★ この2つの数字の組み合わせが、すべてを物語っています。</b><br>
   <b>使用率は過去最高、信頼度は過去最低。</b>そして開発者の最大の不満が「<b>ほぼ正しいが、微妙に違う</b>」であることに注目してください。<br><br>
-  これは、このマニュアルの「はじめに2」で挙げる落とし穴①──<b>「動かないコードより、動くけれど間違っているコードのほうが危険」</b>──とまったく同じことです。世界中のプロが、いま全員そこで困っています。<br><br>
+  これは、この資料の「はじめに2」で挙げる落とし穴①──<b>「動かないコードより、動くけれど間違っているコードのほうが危険」</b>──とまったく同じことです。世界中のプロが、いま全員そこで困っています。<br><br>
   つまり現場が求めているのは <b>「AI を使える人」ではなく「AI の出力を検証できる人」</b>です。前者は誰でも数分でなれます。後者になるには訓練が要ります。<b>この演習で訓練するのは、後者です。</b></div>
 
   <h2>この4週間で、実際にこういう場面が来る</h2>
   <p class="note">抽象的な話ではありません。以下は、この演習で<b>ほぼ確実に起きる場面</b>です。</p>
 
   <div class="level"><div class="lvhead"><span class="chip c-mid">場面 1</span><span class="t">使ったことのないライブラリを使うことになる</span></div>
-    <p><span class="lbl">状況</span>「お店の位置を地図に表示したい」。地図を出すには専用のライブラリが必要だが、<b>班の誰も触ったことがない。</b></p>
+    <p><span class="lbl">状況</span>「お店の位置を地図に表示したい」。地図を出すには専用のライブラリが必要だが、<b>チームの誰も触ったことがない。</b></p>
     <p><span class="lbl">従来</span>英語の公式ドキュメントを読み、サンプルを探し、動かない原因を調べる。<b>ここだけで半日から1日</b>が消えます。</p>
     <p><span class="lbl">Copilot</span>「地図を表示して、指定した緯度経度にピンを立てるコードを書いて」と頼めば、<b>動く土台が数分で出ます。</b>あとは自分たちのデータに合わせて直すだけ。</p>
-    <p><span class="lbl">意味</span>この演習は授業時間が<b>合計20時間しかありません</b>。この差は致命的です。Copilot を使う本当の狙いは、<b>「調べる時間」を「何を作るか考える時間」と「ユーザーに聞きに行く時間」に振り替えること</b>にあります。</p>
+    <p><span class="lbl">意味</span>この演習は授業時間が<b>合計15時間ほどしかありません</b>。この差は致命的です。Copilot を使う本当の狙いは、<b>「調べる時間」を「何を作るか考える時間」と「ユーザーに聞きに行く時間」に振り替えること</b>にあります。</p>
   </div>
 
   <div class="level"><div class="lvhead"><span class="chip c-mid">場面 2</span><span class="t">公開したら動かない</span></div>
@@ -501,11 +501,11 @@ ol.steps b{font-weight:700;}
     <p><span class="lbl">意味</span>1回の授業は5時間弱です。この種の詰まりで2時間溶かすと、<b>その週の実装は終わりません。</b>調べ物の速度が、そのまま成果物の完成度に直結します。</p>
   </div>
 
-  <div class="level"><div class="lvhead"><span class="chip c-mid">場面 3</span><span class="t">班のメンバーが書いたコードが読めない</span></div>
+  <div class="level"><div class="lvhead"><span class="chip c-mid">場面 3</span><span class="t">チームのメンバーが書いたコードが読めない</span></div>
     <p><span class="lbl">状況</span>2週目、他のメンバーが書いた画面を自分が修正することになった。<b>150行あって、どこから読めばいいのか分からない。</b></p>
     <p><span class="lbl">やること</span>全部選択して <code>/explain 全体の構造を初心者向けに説明して</code>。</p>
     <p><span class="lbl">結果</span>5分で全体像がつかめ、直すべき箇所が特定できます。</p>
-    <p><span class="lbl">意味</span>チーム開発でいちばん時間を食うのは、実は<b>「他人のコードを読む時間」</b>です。ここが速くなると、班の中で担当を融通できるようになり、<b>1人が詰まっても全体が止まらなくなります。</b></p>
+    <p><span class="lbl">意味</span>チーム開発でいちばん時間を食うのは、実は<b>「他人のコードを読む時間」</b>です。ここが速くなると、チームの中で担当を融通できるようになり、<b>1人が詰まっても全体が止まらなくなります。</b></p>
   </div>
 
   <div class="level"><div class="lvhead"><span class="chip c-mid">場面 4</span><span class="t">使ってもらった人の指摘を、その場で直す</span></div>
@@ -515,7 +515,7 @@ ol.steps b{font-weight:700;}
   </div>
 
   <h2>逆に、こう使うと失敗する</h2>
-  <p class="note">以下は<b>毎年実際に起きている失敗</b>です。先に知っておいてください。</p>
+  <p class="note">以下は<b>よく起きる失敗</b>です。先に知っておいてください。</p>
 
   <div class="warn"><b><span class="ng">✗</span> 失敗例1：Agent モードに丸投げする</b><br>
   「社会課題を解決するアプリを作って」と頼む → <b>15個のファイルが自動生成される</b> → 一見それらしく動く → 1か所直したら全体が壊れる → <b>誰も直せない</b> → 最初からやり直し。<br><br>
@@ -529,7 +529,7 @@ ol.steps b{font-weight:700;}
 
   <div class="warn"><b><span class="ng">✗</span> 失敗例3：とりあえず <code>Tab</code> を押し続ける</b><br>
   提案が出るたびに内容を読まず採用 → 2週目には<b>自分のコードなのに何が書いてあるか分からない</b>状態になる → 修正できず、機能を足せなくなる。<br><br>
-  <b>→ 正しくは：</b>読んで分からない提案が出たら、その場で <code>/explain</code>。ここを面倒がった班は、例外なく後半で止まります。</div>
+  <b>→ 正しくは：</b>読んで分からない提案が出たら、その場で <code>/explain</code>。ここを面倒がったチームは、例外なく後半で止まります。</div>
 
   <h2>この演習で身につけてほしい3つの力</h2>
   <div class="grid2">
@@ -541,17 +541,17 @@ ol.steps b{font-weight:700;}
     <div class="card"><h3>② 疑う力</h3><ul>
       <li><b>「ほぼ正しい」を見抜く</b></li>
       <li>世界中のプロの66%が困っているのがここ</li>
-      <li>テストを書いて確かめる習慣</li>
+      <li>期待する結果を自分で決めて、試す習慣</li>
     </ul></div>
     <div class="card"><h3>③ 説明する力</h3><ul>
       <li>自分のコードを1行残らず説明できる</li>
-      <li>班の他の人に引き継げる</li>
+      <li>チームの他の人に引き継げる</li>
       <li><b>この演習の評価軸そのもの</b></li>
     </ul></div>
   </div>
   <div class="ainote"><b>まとめると。</b>この演習は「Copilot の使い方講座」ではありません。<b>AI を道具として制御する側に立つ訓練</b>です。制御される側になると、開発はむしろ遅くなります──失敗例1〜3が、まさにそれです。<b>4週間後に「AI に書かせたけれど、全部説明できる」状態になっていれば成功</b>だと考えてください。</div>
 
-  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
 
 <!-- ============================ はじめに 2 ============================ -->
@@ -598,7 +598,7 @@ ol.steps b{font-weight:700;}
   そして<b>いちばん危険なのは「動かないコード」ではなく「動くけれど間違っているコード」</b>です。動かなければすぐ気づきますが、動いてしまうと最後まで気づきません。<b>提案されたコードは必ず自分で読んでください。</b></div>
 
   <div class="idnote">★ <b>② 何も考えずに <code>Tab</code> を押し続けると、力がつきません。</b><br>
-  これは実際に毎年起こります。「動いたからヨシ」で進むと、2週目に必ず詰みます。自分のコードなのに、どこを直せばいいのか分からなくなるからです。<br>
+  「動いたからヨシ」で進むと、2週目に必ず詰みます。自分のコードなのに、どこを直せばいいのか分からなくなるからです。<br>
   <b>対策は簡単で、意味の分からないコードを見たらすぐ <code>/explain</code> に投げる</b>、それだけです。習慣にしてください。</div>
 
   <div class="warn"><b>③ 入力してはいけないものがあります。</b><br>
@@ -616,7 +616,7 @@ ol.steps b{font-weight:700;}
   <b>動くことより、理解していることのほうが重要です。</b>この演習の評価はその方針で行います。</div>
 
   <h2>用語集</h2>
-  <p class="note">この先のマニュアルや演習中に出てくる言葉です。分からなくなったらここに戻ってください。</p>
+  <p class="note">この先の資料や演習中に出てくる言葉です。分からなくなったらここに戻ってください。</p>
   <table class="levels">
     <thead><tr><th style="width:30%;">用語</th><th>意味</th></tr></thead>
     <tbody>
@@ -632,13 +632,13 @@ ol.steps b{font-weight:700;}
       <tr><td><b>Copilot Student</b></td><td>学生認証が通った人が使える無料プラン。制限がゆるい</td></tr>
       <tr><td><b>リポジトリ</b></td><td>GitHub 上のプロジェクトの保管場所。コードとその変更履歴が入っている</td></tr>
       <tr><td><b>スラッシュコマンド</b></td><td>Copilot Chat で <code>/</code> から始まる命令。<code>/explain</code>・<code>/fix</code>・<code>/tests</code> など</td></tr>
-      <tr><td><b>ハンズオン</b></td><td>hands-on ＝「手を動かす」。聞くだけでなく、<b>全員がその場で自分の PC を操作して試す形式</b>の授業。第1回の前半がこれにあたる</td></tr>
+      <tr><td><b>ハンズオン</b></td><td>hands-on ＝「手を動かす」。聞くだけでなく、<b>全員がその場で自分の PC を操作して試す形式</b>の授業。第1週目の前半がこれにあたる</td></tr>
     </tbody>
   </table>
 
   <div class="verify"><b>ここまで読めたら</b>　次のページから実際の設定作業に入ります。<b>STEP 1 → 2 →（審査待ちの間に）3 → 4 → 5</b> の順に進めてください。<b>STEP 2 の申請だけは、実験ガイダンス終了後すぐに出してしまうこと。</b></div>
 
-  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
 
 <!-- ============================ STEP 1 ============================ -->
@@ -682,7 +682,7 @@ ol.steps b{font-weight:700;}
   <div class="idnote">★ <b>空のプロフィールは審査で落ちる原因になります。</b>「アカウントを作っただけ」の状態では通りません。</div>
   <ol class="steps">
     <li>Settings → <b>Public profile</b>。</li>
-    <li><b>Name</b>：本名をアルファベット表記で（例：<code>Taro Yamada</code>）。<b>学生証の氏名と一致させてください。</b></li>
+    <li><b>Name</b>：本名をアルファベット表記で（名・名字の順）。<b>学生証の氏名と一致させてください。</b></li>
     <li><b>Bio</b>：一言でよいので入れる（例：<code>Student at Doshisha University, studying information systems.</code>）。</li>
     <li>アイコン画像も設定しておくと通りやすくなります。</li>
   </ol>
@@ -710,7 +710,7 @@ ol.steps b{font-weight:700;}
     <li>スマホに認証アプリ（Microsoft Authenticator / Google Authenticator など）を入れて設定。</li>
   </ol>
   <div class="warn"><b>⚠ リカバリコードを必ず保存してください。</b><br>
-  スマホを機種変更・紛失すると、リカバリコードがない限り<b>アカウントに二度と入れなくなります</b>。表示されたコードをスクリーンショットし、<b>クラウドと紙の両方</b>に残してください。毎年これで詰む人がいます。</div>
+  スマホを機種変更・紛失すると、リカバリコードがない限り<b>アカウントに二度と入れなくなります</b>。表示されたコードをスクリーンショットし、<b>クラウドと紙の両方</b>に残してください。</div>
 
   <h2>1-5　メールアドレスを非公開にする（全員必須）</h2>
   <div class="warn"><b>⚠ 何もしないと、あなたのメールアドレスが全世界に公開されます。</b><br>
@@ -719,7 +719,7 @@ ol.steps b{font-weight:700;}
   <ol class="steps">
     <li><a class="ulink" href="https://github.com/settings/emails" target="_blank" rel="noopener"><code>https://github.com/settings/emails</code></a> にアクセス。</li>
     <li><b>Keep my email addresses private</b> にチェックを入れる。<br>
-        → メールアドレスが非公開になり、その下に <code>1234567+ユーザー名@users.noreply.github.com</code> という形式のアドレスが表示されます。</li>
+        → メールアドレスが非公開になり、その下に <code>（数字）+（ユーザー名）@users.noreply.github.com</code> という形式のアドレスが表示されます。</li>
     <li><b>Block command line pushes that expose my email</b> にも<b>必ず</b>チェックを入れる。<br>
         → こちらは保険です。万一 STEP 3 の設定を忘れても、<b>GitHub 側がアップロードを拒否してくれる</b>ので事故を防げます。</li>
     <li>表示された <b>noreply アドレスをコピーして控えておく</b>。<b>STEP 3 で使います。</b></li>
@@ -736,7 +736,7 @@ ol.steps b{font-weight:700;}
     <li><b>noreply アドレスを控えた</b>（STEP 3 で使います）<br><span style="font-size:11.5px;color:#8a97a3;">→ <span class="fill" style="min-width:230px;">&nbsp;</span>@users.noreply.github.com</span></li>
   </ul></div>
 
-  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
 
 <!-- ============================ STEP 2 ============================ -->
@@ -787,14 +787,14 @@ I will use GitHub and Copilot for version control and coding practice.</pre>
     <li>申請日をメモした　→　申請日：<span class="fill">&nbsp;</span> 月 <span class="fill">&nbsp;</span> 日</li>
   </ul></div>
 
-  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
 
 <!-- ============================ STEP 3 ============================ -->
 <section class="sheet k3" id="step3">
   <div class="eyebrow">STEP <span class="no">3</span><span class="badge">約20分</span><span class="badge alt">自宅で作業する人のみ</span></div>
   <h1>Visual Studio Code と Git の準備</h1>
-  <div class="roomnote"><span class="rt">■ 情報メディア教室（JM）の PC を使う人は、この STEP は不要です</span>
+  <div class="roomnote"><span class="rt">■ JM教室の PC を使う人は、この STEP は不要です</span>
   教室の PC には <b>Visual Studio Code・Copilot 拡張機能・Git がすでに導入済み</b>です。読み飛ばして <b>STEP 5</b> に進んでください。<br>
   <b>自宅の PC でも作業したい人だけ</b>、以下を実施してください。</div>
   <p class="lead" style="margin-top:16px;"><b>STEP 2 の審査を待っている間に進められます。</b>審査結果とは関係ありません。自宅の環境が整っていれば、演習時間外でも作業を進められるようになります。</p>
@@ -830,11 +830,11 @@ I will use GitHub and Copilot for version control and coding practice.</pre>
   <div class="idnote">★ <b>メールアドレスには、STEP 1-5 で控えた noreply アドレスを使ってください。</b>ここで大学のメールアドレスを設定すると、それが全コミットに埋め込まれ、公開リポジトリでは誰でも読める状態になります。</div>
   <div class="plabel">実行するコマンド（自分の情報に書き換えること）</div>
 <pre class="code"><span class="cmt"># ★ 名前：公開されます。本名でも、ニックネームでも構いません</span>
-git config --global user.name <span class="str">"Taro Yamada"</span>
+git config --global user.name <span class="str">"【自分の名前（ローマ字）】"</span>
 
 <span class="cmt"># ★ メール：STEP 1-5 で控えた noreply アドレスに書き換える</span>
 <span class="cmt">#   （大学のメールアドレスは使わないこと）</span>
-git config --global user.email <span class="str">"1234567+yourname@users.noreply.github.com"</span>
+git config --global user.email <span class="str">"【noreply アドレス】"</span>
 
 <span class="cmt"># 設定できたか確認する</span>
 git config --global --list</pre>
@@ -850,14 +850,14 @@ git config --global --list</pre>
     <li>そのメールが <b><code>@users.noreply.github.com</code></b> で終わっている</li>
   </ul></div>
 
-  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
 
 <!-- ============================ STEP 4 ============================ -->
 <section class="sheet k4" id="step4">
   <div class="eyebrow">STEP <span class="no">4</span><span class="badge">約5分</span><span class="badge alt">自宅で作業する人のみ</span></div>
   <h1>Copilot を有効にする</h1>
-  <div class="roomnote"><span class="rt">■ 情報メディア教室（JM）の PC を使う人は、この STEP は不要です</span>
+  <div class="roomnote"><span class="rt">■ JM教室の PC を使う人は、この STEP は不要です</span>
   教室の PC では <b>Copilot が利用できる状態に準備済み</b>です。読み飛ばして <b>STEP 5</b> に進んでください。<br>
   <b>自宅の PC でも Copilot を使いたい人だけ</b>、以下を実施してください。</div>
   <p class="lead" style="margin-top:16px;">Copilot には無料で使える <b>Copilot Free</b> と、学生認証が通った人が使える <b>Copilot Student</b> があります。<b>まず Copilot Free を有効にしてください。</b>この演習は Copilot Free で完走できるように設計してあります。</p>
@@ -898,7 +898,7 @@ git config --global --list</pre>
     <li>Visual Studio Code でサインインし直す。</li>
   </ol>
 
-  <div class="warn"><b>⚠ ここを勘違いする人が毎年います。</b><br>
+  <div class="warn"><b>⚠ ここは勘違いしやすいので注意してください。</b><br>
   <b>承認メールが届いただけでは、利用上限は解除されません。</b>上記の有効化操作が<b>別途必要</b>です。</div>
 
   <div class="dayof"><b>★ 有効化できなくても心配しなくてよい理由</b><br>
@@ -916,7 +916,7 @@ git config --global --list</pre>
     <li>（学生認証が通った人のみ）Copilot Student を有効化した</li>
   </ul></div>
 
-  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
 
 <!-- ============================ STEP 5 ============================ -->
@@ -950,7 +950,7 @@ git config --global --list</pre>
   <div class="idnote">★ この確認だけで<b>プレミアムリクエストを1回消費</b>します（月50回のうちの1回）。動作確認のために何度も送らないでください。</div>
 
   <h2>5-3　完了報告フォームから提出する</h2>
-  <p class="note">動作確認ができたら、<b>Microsoft Forms</b> から報告してください。<b>この提出をもって事前準備の完了とします。</b></p>
+  <p class="note">動作確認ができたら、<b>Microsoft Forms</b> から報告してください。<b>この提出をもって、この事前課題の完了とします。</b></p>
 
   <div class="record"><div class="txt">
     <div class="rh"><span class="ic">&#10003;</span>完了報告フォーム（全員必須）</div>
@@ -972,7 +972,7 @@ git config --global --list</pre>
     <p class="qrcap"><b>スマホのカメラで<br>読み取ってください</b></p>
   </div></div>
 
-  <div class="idnote">★ <b>学生ID・氏名・GitHub アカウント名は必ず正確に入力してください。</b>GitHub アカウント名は、第2回でリポジトリに追加するために使います。この提出状況をもとに、第1回の冒頭で個別サポートが必要な人を把握します。入力ミスがあると「未提出」として扱われます。</div>
+  <div class="idnote">★ <b>学生ID・氏名・GitHub アカウント名は必ず正確に入力してください。</b>この提出状況をもとに、第1週目の冒頭で個別サポートが必要な人を把握します。入力ミスがあると「未提出」として扱われます。</div>
   <div class="ainote"><b>ファイルのアップロードでサインインを求められた場合</b>は、<b>大学のアカウント</b>（<code>〜@doshisha.ac.jp</code>）でサインインしてください。個人の Microsoft アカウントでは提出できないことがあります。</div>
 
   <div class="checklist"><h4>STEP 5 完了チェック</h4><ul>
@@ -981,7 +981,7 @@ git config --global --list</pre>
     <li><b>完了報告フォーム</b>から提出した（学生ID・氏名・GitHub アカウント名・スクリーンショット2枚）</li>
   </ul></div>
 
-  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
 
 <!-- ============================ 付録 ============================ -->
@@ -1006,8 +1006,8 @@ git config --global --list</pre>
   </table>
 
   <h2>最終チェックリスト</h2>
-  <p class="note">期限までに、以下がすべて埋まっている状態にしてください。<b><span style="color:#8a6200;">自宅のみ</span></b> の印がある項目は、<b>自宅の PC で環境を作る人だけ</b>が対象です。情報メディア教室（JM）の PC を使う人は不要です。</p>
-  <div class="checklist"><h4>事前準備 総合チェック</h4><ul>
+  <p class="note">期限までに、以下がすべて埋まっている状態にしてください。<b><span style="color:#8a6200;">自宅のみ</span></b> の印がある項目は、<b>自宅の PC で環境を作る人だけ</b>が対象です。JM教室の PC を使う人は不要です。</p>
+  <div class="checklist"><h4>総合チェック</h4><ul>
     <li>GitHub アカウントを作った</li>
     <li>大学メールを登録し、<b>認証済み（Verified）</b>になっている</li>
     <li>プロフィールの <b>Name</b> の方針を決めた／<b>Bio</b> を入れた</li>
@@ -1032,9 +1032,9 @@ git config --global --list</pre>
       <tr><td>Git ダウンロード</td><td><a class="ulink" href="https://git-scm.com/" target="_blank" rel="noopener"><code>https://git-scm.com/</code></a></td></tr>
     </tbody>
   </table>
-  <div class="design"><b>※ GitHub の仕様は頻繁に変わります。</b>画面が本マニュアルの記載と異なる場合は、<b>公式ドキュメントの記載を優先</b>してください。それでも判断がつかない場合は担当教員に確認すること。</div>
+  <div class="design"><b>※ GitHub の仕様は頻繁に変わります。</b>画面がこの資料の記載と異なる場合は、<b>公式ドキュメントの記載を優先</b>してください。それでも判断がつかない場合は担当教員に確認すること。</div>
 
-  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前準備</div>
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
 
 <script>

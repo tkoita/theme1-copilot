@@ -470,9 +470,11 @@ ol.steps b{font-weight:700;}
 
   <p class="note">いちばんよく使う機能です。コメントを日本語で書いて改行すると、続きのコードが提案されます。</p>
 
-  <p><code>janken.py</code> に、次の4つのコメントを上から順に、同じファイルの中に続けて打ってください。1つ打つごとに Enter を押し、提案が出たら中身を読んでから <code>Tab</code> で採用します。前に書いたものは消しません。4つで1つのプログラムになります。</p>
+  <p><code>janken.py</code> に、次の5つのコメントを上から順に、同じファイルの中に続けて打ってください。1つ打つごとに Enter を押し、提案が出たら中身を読んでから <code>Tab</code> で採用します。前に書いたものは消しません。5つで1つのプログラムになります。</p>
 
-  <pre class="code"><span class="cmt"># じゃんけんの手を「グー」「チョキ」「パー」の3つで表すリストを作る</span>
+  <pre class="code"><span class="cmt"># ランダムに選ぶための random を読み込む</span>
+
+<span class="cmt"># じゃんけんの手を「グー」「チョキ」「パー」の3つで表すリストを作る</span>
 
 <span class="cmt"># 上のリストからランダムに1つ選んで返す関数を作る</span>
 
@@ -482,7 +484,11 @@ ol.steps b{font-weight:700;}
 <span class="cmt"># 上の関数を使って自分と相手の手をランダムに決め、</span>
 <span class="cmt"># 両方の手と勝敗を print で表示する</span></pre>
 
-  <div class="verify"><b>ここで確認</b>　右上の ▷ を押して実行し、手と勝敗が出れば成功です。4つ目のコメントを省くと、関数を定義しただけのプログラムになり、<a class="ulink" href="#s2-5">2-5</a> で実行してもエラーが出ません。</div>
+  <div class="verify"><b>ここで確認</b>　右上の ▷ を押して実行し、手と勝敗が出れば成功です。最後のコメントを省くと、関数を定義しただけのプログラムになり、<a class="ulink" href="#s2-5">2-5</a> で実行してもエラーが出ません。</div>
+
+  <div class="warn"><b><code>NameError: name 'random' is not defined</code> と出たとき</b><br><code>import random</code> の行が入っていません。Copilot は、使うものを読み込む行（<code>import</code>）を書き忘れることがあります。ファイルの1行目に次の1行を足して、もう一度 ▷ で実行してください。この場合のように、提案を1つずつ採用していくと、全体として足りないところが出ることがあります。</div>
+
+  <pre class="code">import random</pre>
 
   <p>操作は、<code>Tab</code> で採用、<code>Esc</code> で却下、<code>Alt + ]</code> で別の候補を見る、の3つです。提案は1つではないので、<code>Alt + ]</code> は一度押してみてください。</p>
 
@@ -555,7 +561,7 @@ ol.steps b{font-weight:700;}
 
   <ol class="steps">
     <li><code>janken.py</code>（<a class="ulink" href="#s2-4">2-4</a> で直したもの）に、バグを1つだけ入れる<br>
-      <span class="sub">まず①だけを入れて手順2・3を行い、直してから②だけを入れて、もう一度手順2・3を行います。2つ同時には入れません。<br>① じゃんけんの手のリストを入れた変数の名前を1文字削る（例：<code>hands</code> → <code>hand</code>）。変数名は人によって違うので、自分のコードの1行目あたりを見てください<br>② 勝敗を判定している <code>==</code> のうち、どれか1つだけを <code>!=</code> に変える</span></li>
+      <span class="sub">まず①だけを入れて手順2・3を行い、直してから②だけを入れて、もう一度手順2・3を行います。2つ同時には入れません。<br>① じゃんけんの手のリストを入れた変数の名前を1文字削る（例：<code>hands</code> → <code>hand</code>）。変数名は人によって違うので、自分のコードの上のほうを見てください<br>② 勝敗を判定している <code>==</code> のうち、どれか1つだけを <code>!=</code> に変える</span></li>
     <li>右上の ▷ を押して実行し、エラーを出す</li>
     <li>エラーメッセージを全文コピーして、右のチャット欄に次のように貼る</li>
   </ol>

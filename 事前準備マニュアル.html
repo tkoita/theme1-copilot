@@ -381,17 +381,17 @@ ol.steps b{font-weight:700;}
     <p class="cap">図2：「文脈（コンテキスト）」として送られているもの。AI はこれらだけを手がかりに予測している</p>
   </div>
 
-  <div class="idnote">★ <b>図2から分かる、いちばん実用的なこと。</b>AI に渡っているのは、この5つ<b>だけ</b>です。つまり<b>「Copilot の性能」より「あなたの伝え方」で結果が決まります。</b>コメントを丁寧に書く、変数名をきちんと付ける、関係ないファイルは閉じる──たったこれだけで提案の質は目に見えて変わります。</div>
+  <div class="idnote">★ <b>図2から分かる、いちばん実用的なこと。</b>AI に渡っているのは、この5つ<b>だけ</b>です。つまり<b>「Copilot の性能」より「あなたの伝え方」で結果が決まります。</b></div>
 
-  <div class="dayof"><b>★ この図から読み取ってほしい2つのこと</b><br>
+  <div class="dayof"><b>★ 図2から読み取ってほしい2つのこと</b><br>
   <b>1. 提案の質は「文脈」で決まる。</b>コメントを丁寧に書く、変数名をきちんと付ける、関係ないファイルを閉じる。それだけで提案の質が目に見えて変わります。「Copilot が使えない」と言う人の大半は、文脈の与え方が雑なだけです。<br>
   <b>2. Copilot は「考えて」いない。</b>もっともらしい続きを<b>確率的に予測</b>しているだけです。だから、<b>平気で間違えます</b>。これは故障ではなく、仕組み上そういうものです。</div>
 
-  <h2>4つの使い方</h2>
-  <p class="note">Copilot には大きく4つの使い方があります。<b>第1週目のハンズオンでは、このうち ①〜③ を試します</b>（③ は <code>/explain</code> と <code>/fix</code>。<code>/tests</code>・<code>@workspace</code> と ④ は使いません）ので、ここでは「そういうものがある」と分かれば十分です。暗記する必要はありません。</p>
+  <h2>4つの機能</h2>
+  <p class="note">Copilot には大きく4つの機能があります。<b>第1週目のハンズオンでは、このうち ① と ③ を試します</b>（③ は <code>/explain</code>・<code>/fix</code> と、チャット欄で頼んでコードを直させる使い方。② は JM教室のPCでは2回目からエラーが出るので、チャット欄で頼みます。<code>/tests</code>・<code>@workspace</code> と ④ は使いません）ので、ここでは「そういうものがある」と分かれば十分です。暗記する必要はありません。</p>
 
   <div class="design"><b>「ハンズオン」とは</b><br>
-  <b>hands-on ＝「手を動かす」</b>という意味です。講義を聞いて終わりではなく、<b>受講者全員がその場で自分のパソコンを操作して、実際に機能を試す形式</b>の授業を指します。第1週目の前半（およそ70分）がこれにあたります。<br>
+  <b>hands-on ＝「手を動かす」</b>という意味です。講義を聞いて終わりではなく、<b>受講者全員がその場で自分のパソコンを操作して、実際に機能を試す形式</b>の授業を指します。第1週目の PART 2（70分）と PART 3（30分）がこれにあたります。<br>
   進め方は次のとおりです。教員が前で1つの操作を示す → <b>全員が同じ操作を自分の画面で再現する</b> → できたことを確認して次へ進む、の繰り返しです。分からなくなったらその場で手を挙げてください。全員が同じ画面を出している前提で進むので、黙って置いていかれるのがいちばん困ります。<br>
   この形式をとるのは、<b>Copilot は「聞いて分かったつもり」になりやすい道具だから</b>です。説明を聞けば簡単そうに思えますが、実際に自分で打ってみると「提案が出ない」「思ったのと違うコードが出る」といったことが必ず起きます。その最初のつまずきを、教員がいる場で済ませてしまうのが狙いです。</div>
 
@@ -459,7 +459,7 @@ ol.steps b{font-weight:700;}
     <p>Chat の上部でモードを <b>Agent</b> に切り替えると、ファイルの作成・複数ファイルの同時編集・コマンド実行まで<b>まとめて自動でやってくれます</b>。非常に強力ですが、その分<b>何をされたか把握しにくく</b>、後で自分のコードが分からなくなる原因にもなります。使うときは必ず差分を確認してください。</p>
   </div>
 
-  <div class="idnote">★ <b>③と④は「プレミアムリクエスト」を消費します。</b>無料枠では<b>月50回</b>しか使えません（①と②の補完は月2,000回で実質使い放題）。詳しくは STEP 4 で説明します。<b>Agent モードを気軽に回していると、2回目の演習日で枯れます。</b></div>
+  <div class="idnote">★ <b>②〜④は「プレミアムリクエスト」を消費します。</b>無料枠では<b>月50回</b>しか使えません（① の補完は月2,000回で実質使い放題）。詳しくは STEP 4 で説明します。<b>Agent モードを気軽に回していると、第2週目で使い切ってしまいます。</b></div>
 
   <h2>なぜこの演習で使うのか</h2>
   <p class="note" style="font-size:13px;color:var(--ink);line-height:1.85;">理由は3つあります。<b>①現場ではすでに標準装備になっている</b>、<b>②しかし現場は AI を信用していない</b>、<b>③だから求められているのは「使える人」ではなく「検証できる人」だから</b>です。順に見ていきます。</p>
@@ -477,7 +477,7 @@ ol.steps b{font-weight:700;}
     <div class="stat bad"><div class="n">3<small>%</small></div><div class="l">「強く信頼している」と<br>答えた割合</div></div>
     <div class="stat bad"><div class="n">66<small>%</small></div><div class="l">最大の不満は<br><b>「ほぼ正しいが、微妙に違う」</b></div></div>
   </div>
-  <p class="statsrc">出典：Stack Overflow 開発者調査（世界177か国・49,000人以上が回答）。数値は調査結果から抜粋。</p>
+  <p class="statsrc">出典：Stack Overflow 開発者調査 2025（世界177か国・49,000人以上が回答）。数値は調査結果から抜粋。</p>
 
   <div class="dayof"><b>★ この2つの数字の組み合わせが、すべてを物語っています。</b><br>
   <b>使用率は過去最高、信頼度は過去最低。</b>そして開発者の最大の不満が「<b>ほぼ正しいが、微妙に違う</b>」であることに注目してください。<br><br>
@@ -509,7 +509,7 @@ ol.steps b{font-weight:700;}
   </div>
 
   <div class="level"><div class="lvhead"><span class="chip c-mid">場面 4</span><span class="t">使ってもらった人の指摘を、その場で直す</span></div>
-    <p><span class="lbl">状況</span>第3週目、実際に触ってもらったら「ボタンが小さくて押せない」「文字が読めない」と言われた。</p>
+    <p><span class="lbl">状況</span>第2週目、テスト協力者に触ってもらったら「ボタンが小さくて押せない」「文字が読めない」と言われた。</p>
     <p><span class="lbl">やること</span>その場で修正して、<b>次の人にもう一度試してもらう。</b></p>
     <p><span class="lbl">意味</span>この演習の肝は「作って終わり」ではなく、<b>「言われたことを直して、もう一度試してもらう」往復</b>にあります。修正が速いほど、この往復を多く回せます。<b>Copilot は、往復の回数を増やすための道具</b>だと考えてください。</p>
   </div>
@@ -632,11 +632,11 @@ ol.steps b{font-weight:700;}
       <tr><td><b>Copilot Student</b></td><td>学生認証が通った人が使える無料プラン。制限がゆるい</td></tr>
       <tr><td><b>リポジトリ</b></td><td>GitHub 上のプロジェクトの保管場所。コードとその変更履歴が入っている</td></tr>
       <tr><td><b>スラッシュコマンド</b></td><td>Copilot Chat で <code>/</code> から始まる命令。<code>/explain</code>・<code>/fix</code>・<code>/tests</code> など</td></tr>
-      <tr><td><b>ハンズオン</b></td><td>hands-on ＝「手を動かす」。聞くだけでなく、<b>全員がその場で自分の PC を操作して試す形式</b>の授業。第1週目の前半がこれにあたる</td></tr>
+      <tr><td><b>ハンズオン</b></td><td>hands-on ＝「手を動かす」。聞くだけでなく、<b>全員がその場で自分の PC を操作して試す形式</b>の授業。第1週目の PART 2・PART 3 がこれにあたる</td></tr>
     </tbody>
   </table>
 
-  <div class="verify"><b>ここまで読めたら</b>　次のページから実際の設定作業に入ります。<b>STEP 1 → 2 →（審査待ちの間に）3 → 4 → 5</b> の順に進めてください。<b>STEP 2 の申請だけは、実験ガイダンス終了後すぐに出してしまうこと。</b></div>
+  <div class="verify"><b>ここまで読めたら</b>　次の STEP 1 から実際の設定作業に入ります。<b>STEP 1 → 2 →（審査待ちの間に）3 → 4 → 5</b> の順に進めてください。<b>STEP 2 の申請だけは、実験ガイダンス終了後すぐに出してしまうこと。</b></div>
 
   <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 事前課題</div>
 </section>
@@ -645,7 +645,7 @@ ol.steps b{font-weight:700;}
 <section class="sheet k1" id="step1">
   <div class="eyebrow">STEP <span class="no">1</span><span class="badge">約20分</span></div>
   <h1>GitHub アカウントの準備</h1>
-  <p class="lead">学生認証は<b>審査</b>です。アカウントの情報が不十分だと落とされます。ここでの作業が STEP 2 の合否をほぼ決めるので、<b>5項目すべて</b>を確実に済ませてください。</p>
+  <p class="lead">学生認証は<b>審査</b>です。アカウントの情報が不十分だと落とされます。ここでの作業が STEP 2 の合否をほぼ決めるので、<b>1-1〜1-5 のすべて</b>を確実に済ませてください。</p>
   <div class="meta"><span>所要 <b>約20分</b></span><span>使うもの <b>PC・スマホ</b></span><span>この STEP の到達点 <b>審査に出せるアカウント</b></span></div>
 
   <div class="grid2">
@@ -808,7 +808,7 @@ I will use GitHub and Copilot for version control and coding practice.</pre>
       <ul style="margin:5px 0 0;padding-left:18px;">
         <li><code>GitHub Copilot</code></li>
         <li><code>GitHub Copilot Chat</code></li>
-        <li><code>Japanese Language Pack for Visual Studio Code</code>（日本語にしたい人）</li>
+        <li><code>Japanese Language Pack for Visual Studio Code</code>（必ず入れる。この資料と授業の画面は日本語表示に合わせています）</li>
       </ul>
     </li>
     <li>画面いちばん上の Copilot のアイコンを押し、「GitHub で続行する」で <b>GitHub アカウントでサインイン</b>（第1週目 PART 1 ② と同じ）。</li>
@@ -819,6 +819,7 @@ I will use GitHub and Copilot for version control and coding practice.</pre>
     <li><a class="ulink" href="https://git-scm.com/" target="_blank" rel="noopener"><code>https://git-scm.com/</code></a> からダウンロード。</li>
     <li>インストーラは基本的に「Next」を押し続けて構いません。</li>
     <li>インストール後、<b>PC を再起動</b>すると確実です。</li>
+    <li>Visual Studio Code の上部メニュー → <b>ターミナル</b> → <b>新しいターミナル</b> を開き、<code>git --version</code> と打って、バージョンが表示されるか確かめる。</li>
   </ol></div>
   <div class="level"><div class="lvhead"><span class="chip c-beg">Mac</span><span class="t">ターミナルから</span></div><ol>
     <li>ターミナルを開いて <code>git --version</code> と入力。</li>
@@ -830,6 +831,7 @@ I will use GitHub and Copilot for version control and coding practice.</pre>
   <div class="idnote">★ <b>メールアドレスには、STEP 1-5 で控えた noreply アドレスを使ってください。</b>ここで大学のメールアドレスを設定すると、それが全コミットに埋め込まれ、公開リポジトリでは誰でも読める状態になります。</div>
   <div class="plabel">実行するコマンド（自分の情報に書き換えること）</div>
 <pre class="code"><span class="cmt"># ★ 名前：公開されます。本名でも、ニックネームでも構いません</span>
+<span class="cmt">#   名・名字の順に、それぞれ最初の1文字だけ大文字、あいだに半角の空白1つ</span>
 git config --global user.name <span class="str">"【自分の名前（ローマ字）】"</span>
 
 <span class="cmt"># ★ メール：STEP 1-5 で控えた noreply アドレスに書き換える</span>
@@ -867,7 +869,7 @@ git config --global --list</pre>
   <div class="idnote">★ <b>学生認証の結果を待たずに、先にこちらをやってください。</b>学生プランが取れなくても、この演習は Copilot Free で完走できます。</div>
   <ol class="steps">
     <li><a class="ulink" href="https://github.com/settings/copilot" target="_blank" rel="noopener"><code>https://github.com/settings/copilot</code></a> にアクセス。</li>
-    <li><b>Copilot Free</b> を有効化する。</li>
+    <li><b>Copilot Free</b> を有効化する（すでに有効になっていれば、そのままでかまいません）。</li>
     <li>Visual Studio Code に戻り、GitHub アカウントで<b>サインインし直す</b>。</li>
   </ol>
 
@@ -878,12 +880,12 @@ git config --global --list</pre>
     </ul></div>
     <div class="card"><h3>消費するもの／しないもの</h3><ul>
       <li><b>消費しない</b>：コメント → <code>Tab</code> の補完</li>
-      <li><b>消費する</b>：Chat の1往復、Agent モード、コミットメッセージ自動生成</li>
+      <li><b>消費する</b>：Chat の1往復、<code>Ctrl + I</code> の頼みごと、Agent モード、コミットメッセージ自動生成</li>
     </ul></div>
   </div>
 
   <div class="timerule"><span class="big">⚠ 演習中の利用ルール</span>
-  <b>プレミアムリクエスト（Chat・Agent モード）は月50回しかありません。</b>何も考えずに Agent モードを回すと、2回目の演習日で枯れます。<br>
+  <b>プレミアムリクエスト（Chat・Agent モード）は月50回しかありません。</b>何も考えずに Agent モードを回すと、第2週目で使い切ってしまいます。<br>
   ・<b>インライン補完（コメント→Tab）と <code>/explain</code> を主戦力にする</b><br>
   ・<b>Agent モードは1日3回まで</b>を目安に、ここぞという場面で使う<br>
   ・使用量は <a class="ulink" href="https://github.com/settings/copilot" target="_blank" rel="noopener"><code>https://github.com/settings/copilot</code></a> で確認できる<br>
@@ -929,8 +931,10 @@ git config --global --list</pre>
 
   <h2>5-1　コード補完の動作確認</h2>
   <ol class="steps">
+    <li>JM教室のPCで Visual Studio Code が英語表示だったら、一度閉じてもう一度起動する（日本語表示に戻ります）。</li>
     <li>デスクトップに <code>copilot-test</code> というフォルダを作る。</li>
     <li>Visual Studio Code で <b>ファイル → フォルダーを開く</b> から、そのフォルダを開く。</li>
+    <li>画面いちばん上の Copilot のアイコンを押し、「GitHub で続行する」でサインインする（3-1 の 4 と同じ。JM教室のPCでは毎回必要です）。</li>
     <li>新しいファイル <code>test.py</code> を作る（<b>拡張子 <code>.py</code> を必ず付ける</b>）。</li>
     <li>下の1行を入力し、<b>Enter で改行して2〜3秒待つ</b>。</li>
     <li><b>グレーの薄い文字</b>でコードが提案されたら、<code>Tab</code> キーを押す。</li>
@@ -1012,6 +1016,7 @@ git config --global --list</pre>
     <li>大学メールを登録し、<b>認証済み（Verified）</b>になっている</li>
     <li>プロフィールの <b>Name</b> の方針を決めた／<b>Bio</b> を入れた</li>
     <li>二段階認証を設定し、<b>リカバリコードを保存した</b></li>
+    <li><b>メールアドレスを非公開</b>にした</li>
     <li>学生認証（GitHub Education）を申請した　→　申請日：<span class="fill">&nbsp;</span> 月 <span class="fill">&nbsp;</span> 日</li>
     <li><span style="font-size:10.5px;font-weight:800;color:#8a6200;background:#fff7e0;border:1px solid #f0d68a;border-radius:3px;padding:0 6px;margin-right:6px;">自宅のみ</span>Visual Studio Code と Copilot 拡張機能をインストールした</li>
     <li><span style="font-size:10.5px;font-weight:800;color:#8a6200;background:#fff7e0;border:1px solid #f0d68a;border-radius:3px;padding:0 6px;margin-right:6px;">自宅のみ</span>Git をインストールし、<code>user.name</code> / <code>user.email</code>（<b>noreply アドレス</b>）を設定した</li>
@@ -1025,8 +1030,10 @@ git config --global --list</pre>
   <table class="levels">
     <thead><tr><th style="width:34%;">用途</th><th>URL</th></tr></thead>
     <tbody>
+      <tr><td><b>完了報告フォーム</b></td><td><a class="ulink" href="https://forms.cloud.microsoft/r/Wa8w8CFkXs" target="_blank" rel="noopener"><code>https://forms.cloud.microsoft/r/Wa8w8CFkXs</code></a></td></tr>
       <tr><td>学生認証の申請・確認</td><td><a class="ulink" href="https://github.com/settings/education/benefits" target="_blank" rel="noopener"><code>https://github.com/settings/education/benefits</code></a></td></tr>
       <tr><td>Copilot のプラン確認・有効化</td><td><a class="ulink" href="https://github.com/settings/copilot" target="_blank" rel="noopener"><code>https://github.com/settings/copilot</code></a></td></tr>
+      <tr><td>メールアドレスの非公開設定</td><td><a class="ulink" href="https://github.com/settings/emails" target="_blank" rel="noopener"><code>https://github.com/settings/emails</code></a></td></tr>
       <tr><td>GitHub 公式ドキュメント（学生向け）</td><td><a class="ulink" href="https://docs.github.com/ja/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students" target="_blank" rel="noopener"><code>https://docs.github.com/ja/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students</code></a></td></tr>
       <tr><td>Visual Studio Code ダウンロード</td><td><a class="ulink" href="https://code.visualstudio.com/" target="_blank" rel="noopener"><code>https://code.visualstudio.com/</code></a></td></tr>
       <tr><td>Git ダウンロード</td><td><a class="ulink" href="https://git-scm.com/" target="_blank" rel="noopener"><code>https://git-scm.com/</code></a></td></tr>

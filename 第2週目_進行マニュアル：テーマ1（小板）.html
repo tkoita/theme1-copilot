@@ -704,7 +704,7 @@ git push</pre>
       <tr><td><code>Failed to connect to github.com port 443</code></td><td>大学の proxy の設定がない</td><td><b><a class="ulink" href="#s1-2">1-2</a></b> の proxy の1行を打つ</td></tr>
       <tr><td><code>CONNECT tunnel failed, response 407</code>／<code>(407) プロキシ認証が必要です</code></td><td>proxy の設定に、同志社のユーザID と <code>@</code> がない／① の画面でボタンを押した</td><td><b><a class="ulink" href="#s1-2">1-2</a></b> の proxy の1行を確かめる／<code>push</code> をやり直し、① は <b>×</b> で閉じる。<b>① を × で閉じたときにも出ますが、そのあとに <code>… -&gt; …</code> の行が出ていれば送れています</b></td></tr>
       <tr><td><code>askpass.sh: Permission denied</code></td><td>Visual Studio Code を開き直していない</td><td>Visual Studio Code を閉じて起動し直し、<b><a class="ulink" href="#s1-1">1-1</a> からやり直す</b>（サインインも）</td></tr>
-      <tr><td><code>No anonymous write access</code></td><td>Visual Studio Code のサインインが、開き直す前のもの</td><td>左下のアカウントアイコンから<b>サインアウト → サインインし直し</b>（手順は <a class="ulink" href="#s3-2">3-2</a> の「<code>Ctrl + I</code> で…と出たとき」と同じです）、<b>新しいターミナル</b>（<code>Ctrl + Shift + @</code>）で <code>push</code> をやり直す</td></tr>
+      <tr><td><code>No anonymous write access</code></td><td>Visual Studio Code のサインインが、開き直す前のもの</td><td>左下のアカウントアイコンから<b>サインアウト → サインインし直し</b>（手順は <a class="ulink" href="#s3-2">3-2</a> の最後と同じです）、<b>新しいターミナル</b>（<code>Ctrl + Shift + @</code>）で <code>push</code> をやり直す</td></tr>
       <tr><td><code>Permission to … denied</code></td><td>招待を承諾していない</td><td><b><a class="ulink" href="#s2-1-3">2-1 の ③</a></b> で招待を承諾する</td></tr>
       <tr><td><code>push</code> したのに Pull Request の URL が出ない（<code>… -&gt; 前の作業のブランチ名</code> と出た）</td><td>前の作業のブランチにいるまま送った（新しいブランチを作っていない）。送れてはいるが、前のブランチに足されただけ</td><td><code>git branch</code> で <code>*</code> の名前を確かめる。前の作業のブランチなら、手を挙げる</td></tr>
       <tr><td><code>'nutc': unknown terminal type.</code>（<code>git branch</code> のとき）</td><td>ターミナルの設定の問題（git の故障ではない）</td><td><code>$env:TERM = "xterm"</code> を一回打ってから、もう一度 <code>git branch</code> を打つ。ターミナルを新しく開いたら、もう一度打つ</td></tr>
@@ -848,12 +848,12 @@ git switch -c <span class="nm" data-k="myname">【名字】</span>-hello
 git branch
 New-Item index.html</pre>
 
-  <p class="note"><b>左のエクスプローラーに出た <code>index.html</code> をクリックして開き、<code>Ctrl + I</code></b> を押して、次のように頼みます（<a class="ulink" href="#s1-2">1-2</a> の欄にアプリ名を入れていれば、【アプリ名】はもう変わっています。【アプリ名】のままなら、自分たちのアプリ名に書き換えます）。<b>書き足されたら、読んでから右上の ✓ で採用し、<code>Ctrl + S</code> で保存</b>します（✓ と × の図は <a class="ulink" href="#s3-2">3-2</a> にあります）。</p>
+  <p class="note"><b>左のエクスプローラーに出た <code>index.html</code> をクリックして開いたまま、画面いちばん上の Copilot アイコンで右のチャット欄を開き</b>、次のように頼みます（<a class="ulink" href="#s1-2">1-2</a> の欄にアプリ名を入れていれば、【アプリ名】はもう変わっています。【アプリ名】のままなら、自分たちのアプリ名に書き換えます）。<b>左の <code>index.html</code> が書き換わったら、読んでから「保持」で採用し、<code>Ctrl + S</code> で保存</b>します（「保持」の図は <a class="ulink" href="#s3-2">3-2</a> にあります）。</p>
 
-  <pre class="code">「<span class="nm" data-k="app">【アプリ名】</span>」と見出しが1つだけ表示される index.html を作って。
+  <pre class="code">左の index.html を、「<span class="nm" data-k="app">【アプリ名】</span>」と見出しが1つだけ表示されるページにして。
 CSS と JavaScript は、あとで style.css と app.js に分けて読み込めるようにしておいて</pre>
 
-  <div class="idnote"><b><code>Ctrl + I</code> で開いた欄に頼む文を書いて Enter を押したとき、「Auto mode failed: …」と赤いエラーが出たら</b>、<a class="ulink" href="#s3-2"><b>3-2 の最後</b></a>の説明のとおりに直してください（サインアウト → サインインし直す。または右のチャット欄で頼む）。<b>2回目の <code>Ctrl + I</code> から出ます。</b>故障ではありません。</div>
+  <div class="idnote"><b>チャット欄に「要求に失敗しました」「token expired or invalid: 401」と出たら</b>、<a class="ulink" href="#s3-2"><b>3-2 の最後</b></a>の説明のとおりに、サインアウト → サインインし直してください。故障ではありません。</div>
 
   <p class="note">保存したら、<b><code>git branch</code> で <code>*</code> が <code><span class="nm" data-k="myname">【名字】</span>-hello</code> に付いていることを確かめてから</b>、記録して送り、<a class="ulink" href="#s2-3">2-3</a> と同じように Pull Request を出してマージしてもらいます。</p>
 

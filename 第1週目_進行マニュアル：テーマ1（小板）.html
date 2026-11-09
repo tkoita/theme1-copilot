@@ -210,6 +210,11 @@ ol.steps b{font-weight:700;}
 .infobox .ibderived{display:block;font-weight:800;color:#14532d;font-size:12.6px;}
 .infobox .ibmsg{display:block;font-weight:800;color:#b91c1c;font-size:12.6px;}
 .infobox .ibafter{margin-top:8px;}
+.fbpicks{display:flex;flex-wrap:wrap;gap:8px;}
+.fbpick{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:16px;font-weight:700;padding:6px 14px;border:2px solid #c99000;border-radius:6px;background:#fff;color:#111827;cursor:pointer;}
+.fbpick.on{background:#c99000;color:#fff;}
+.lkgo{font-size:16px;font-weight:700;padding:8px 18px;border:0;border-radius:8px;background:#c99000;color:#fff;cursor:pointer;}
+.lkgo:disabled{background:#94a3b8;}
 .infobox details.ibfig{margin-top:4px;}
 .infobox details.ibfig summary{cursor:pointer;font-weight:800;color:#0b5cad;font-size:12.6px;}
 .infobox details.ibfig img{background:#fff;}
@@ -570,6 +575,8 @@ ol.steps b{font-weight:700;}
       <span class="sub">画面いちばん上の Copilot アイコン →「GitHub で続行する」。左下のアカウントアイコンは、サインアウトにだけ使います</span></li>
   </ol>
 
+  <p>Copilot に頼んだ文と、返ってきた答えの要点は、そのつどメモに残してください。第4週目の個人レポートで、頼んだ文の原文を使います。エラーが出たときに打ったコマンドも同じです。</p>
+
   <h2 id="s2-5" style="scroll-margin-top:70px;">2-5　<code>/fix</code> ── わざと壊して直させる（12分）</h2>
 
   <ol class="steps">
@@ -808,12 +815,13 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   <div class="idnote">「この辺には大学と学生しかいない」と感じたら、次の3つを見てください。<br>① 学内には、学生ではない人が大勢働いています。生協・食堂・売店の方、事務職員、図書館、清掃、警備、教職員です。業務上の具体的な困りごとがあり、毎日同じ場所にいて、お金を払う主体（大学・生協・店舗）も名指しできます。条件1と条件3を同時に満たしやすい相手です。<br>② 「学生」は1つの集団ではありません。留学生、下宿生、通学に2時間かかる人、車を持たない人、実験で夜まで残る学部の人、朝練のある人で、困りごとはまったく違います。「学生向けアプリ」は失敗しますが、「車を持たない下宿生の、まとめ買いと運搬」なら成り立ちます。<br>③ アルバイト先と実家は、週に1回以上必ず行く場所で、学生ではない大人がいます。</div>
 
   <div class="level"><div class="lvhead"><span class="chip c-mid">条件 2</span><span class="t">コア機能は1つ。1画面でデモできる</span></div>
-    <p>授業時間は合計15時間ほどです。思いついた機能を紙に全部書き出し、1つだけ丸を付けて、残りを線で消すところまでこの時間にやってください。</p>
+    <p>授業時間は合計15時間ほどです。思いついた機能を紙に全部書き出し、1つだけ丸を付けて、残りを線で消すところまでこの時間にやってください。第3週目・第4週目は直す時間で、新しい機能は足しません。第2週目の 17:15 までに、コア機能を最初から最後まで一度通せる大きさにします。相手（誰に向けたものか）は1種類に絞ります。</p>
   </div>
 
   <div class="level"><div class="lvhead"><span class="chip c-adv">条件 3</span><span class="t">「誰が・いくら・なぜ払うか」を一文で言える</span></div>
     <p>例：「生協の店舗が、昼のレジ待ちの行列が減るので月1,000円払う」／「バイト先の店長が、シフト調整の電話が減るので月500円払う」。</p>
     <p>「広告収入で」「利用者が増えれば」は答えになりません。払う人を名指しできない企画は、条件1も満たしていないことが多いです。</p>
+    <p>いくらかは、<a class="ulink" href="#s6-2">6-2</a> の Q4 で聞いた「今使っている時間・お金」から考えます。</p>
   </div>
 
   <h2 id="s5-3" style="scroll-margin-top:70px;">5-3　進め方</h2>
@@ -941,7 +949,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
       <li>断られたら、すぐに引く</li>
       <li>氏名・連絡先などの個人情報は記録しない。「食堂で働く方・50代」のような属性だけにする。部署名・年代・性別などを組み合わせると1人に絞れてしまうことがあるので、属性は大まかに書く</li>
       <li>録音・撮影をするときは、必ず先に許可を取る</li>
-      <li>終わったらお礼を言う。第2週目にまた頼むかもしれない相手です</li>
+      <li>終わったらお礼を言い、第2週目に作ったものを5分ほど触ってもらえるか（第3週目にもう一度）を聞いておく</li>
     </ul>
   </div>
 
@@ -1038,7 +1046,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
       <li>誰の何の課題か（人物を具体的に。PART 5 の一文をそのまま使ってよい）</li>
       <li>コア機能1つ（増えていたら、ここで減らす）</li>
       <li>誰が・いくら・なぜ払うか（PART 5 の条件3）</li>
-      <li>画面のラフスケッチ（手描きでよい。1画面だけ）</li>
+      <li>画面のラフスケッチ（手描きでよい。1画面だけ）。画面のどこに何を出すか、押したら何が起きるかまで書く。第2週目に html・css・js を分担するとき、全員のイメージをそろえるため</li>
       <li>アプリ名（仮でよい）。第2週目に README の1行目に書きます</li>
     </ul>
   </div>
@@ -1090,6 +1098,8 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
 
   <p>第2週目の宿題は「テスト協力者5人に、実際に触ってもらう」です。説明はせず、URL を渡して黙って観察します。そのつもりで②の候補リストを作っておいてください。</p>
 
+  <p>時間があれば、第2週目の資料の <a class="ulink" href="第2週目_進行マニュアル：テーマ1（小板）.html#s2-0">2-0 にある main とブランチの図</a>を読んでおいてください。</p>
+
   <h2>最後に</h2>
 
   <p>これから4週間、Copilot はたくさんのコードを書きますが、そのほとんどは「だいたい正しい」程度です。自分のリポジトリにあるコードは、すべて説明できる状態にしておいてください。第4週目のピッチと個人レポートでも、そこを聞きます。</p>
@@ -1103,7 +1113,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
 (function(){
   var KEY='theme1-myinfo', OLD='theme1-myname';
   var PH={myname:'【名字】',fullname:'【自分の名前（ローマ字）】',noreply:'【noreply アドレス】',userid:'【同志社のユーザID】',
-          owner:'【リポジトリ担当のユーザー名】',repo:'【リポジトリ名】',app:'【アプリ名】',sid:'【学籍番号】',team:'【チーム番号】',issue:'【Issue番号】'};
+          owner:'【リポジトリ担当のユーザー名】',repo:'【リポジトリ名】',app:'【アプリ名】',sid:'【学籍番号】',team:'【チーム番号】',issue:'【Issue番号】',file:'【直したファイル】'};
   function z2h(v){ return (v||'').replace(/[\uFF01-\uFF5E]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/\u3000/g,' '); }
   var C={
     myname:function(v){ v=z2h(v).toLowerCase().replace(/^-+/,''); var c=v.replace(/[^a-z0-9-]/g,''); return {v:c,bad:c!==v,msg:'ローマ字の半角小文字で入れてください（日本語・空白・記号は入りません）。'}; },
@@ -1112,9 +1122,13 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     userid:function(v){ v=z2h(v).trim(); var c=v.replace(/[^A-Za-z0-9._-]/g,''); return {v:c,bad:c!==v,msg:'同志社のユーザID を、半角で入れてください（@ や空白は入りません）。'}; },
     team:function(v){ v=z2h(v).toUpperCase().replace(/\s/g,'').replace(/[\u30FC\u2010-\u2015\u2212]/g,'-'); var m=v.match(/^([ABC])-?0*([1-9][0-9]?)$/);
       return m?{v:m[1]+'-'+m[2],bad:false}:{v:'',bad:false,fmt:v!=='',msg:'「A-3」のように、グループの英字とチーム番号で入れてください。'}; },
-    owner:function(v){ v=z2h(v).trim().replace(/^@/,''); var c=v.replace(/[^A-Za-z0-9-]/g,''); return {v:c,bad:c!==v,msg:'GitHub のユーザー名を、半角で入れてください（英数字とハイフンだけです）。'}; },
+    owner:function(v){ v=z2h(v).trim().replace(/^@/,'');
+      // 公開URL（https://〇〇.github.io/リポジトリ名/）やリポジトリの URL をそのまま貼ってもよい（2026-10-31）
+      var u=v.match(/([A-Za-z0-9-]+)\.github\.io\/([A-Za-z0-9._-]*)/i)||v.match(/github\.com\/([A-Za-z0-9-]+)\/([A-Za-z0-9._-]*)/i);
+      if(u) return {v:u[1],bad:false,repo:u[2].replace(/\.git$/,'')}; var c=v.replace(/[^A-Za-z0-9-]/g,''); return {v:c,bad:c!==v,msg:'GitHub のユーザー名を、半角で入れてください（英数字とハイフンだけです）。'}; },
     app:function(v){ return {v:(v||'').trim(),bad:false}; },
     sid:function(v){ v=z2h(v).trim(); var c=v.replace(/[^0-9]/g,''); return {v:c,bad:c!==v,msg:'学籍番号を、半角の数字で入れてください。'}; },
+    file:function(v){ v=(v||'').trim(); return {v:v,bad:false}; },
     issue:function(v){ v=z2h(v).trim().replace(/^#/,'').replace(/^0+(?=\d)/,''); var c=v.replace(/[^0-9]/g,''); return {v:c,bad:c!==v,msg:'Issue の番号を、数字だけで入れてください（#12 なら 12）。'}; }
   };
   var inputs=[].slice.call(document.querySelectorAll('.namebox input[data-k]'));
@@ -1122,7 +1136,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   if(!inputs.length) return;
   var data={};
   try{ data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; if(!data.myname){ var o=localStorage.getItem(OLD); if(o) data.myname=o; } }catch(e){ data={}; }
-  function val(k){ if(k==='repo') return data.team?'theme1-'+data.team.toLowerCase():''; return data[k]||''; }
+  function val(k){ if(k==='repo') return data.repo||(data.team?'theme1-'+data.team.toLowerCase():''); return data[k]||''; }
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(data)); localStorage.setItem(OLD,data.myname||''); }catch(e){} }
   function msg(inp,r,full){
     var box=inp.closest('.ibin'), show=r.bad||(full&&r.fmt);
@@ -1138,11 +1152,14 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     [].forEach.call(document.querySelectorAll('[data-show="repo"]'),function(e){ e.textContent=val('repo')?'→ リポジトリ名は '+val('repo')+' です。':''; });
     [].forEach.call(document.querySelectorAll('[data-show="issue"]'),function(e){ var n=val('issue'); e.textContent=n?'→ ブランチ名は '+(val('myname')||'【名字】')+'-fix'+n+'、Pull Request の本文は closes #'+n+' になります。':''; });
     inputs.forEach(function(i){ if(!i.closest('.ibin')) msg(i,{bad:false},false); });
+    [].forEach.call(document.querySelectorAll('.fbpick'),function(b){ b.className='fbpick'+(b.getAttribute('data-v')===val('file')?' on':''); });
   }
   function onInput(e){
     if(e && e.isComposing) return;
     var me=this, k=me.getAttribute('data-k'), r=C[k](me.value);
-    data[k]=r.v; save();
+    data[k]=r.v; if(k==='team') delete data.repo;
+    if(k==='owner' && r.repo){ var std=data.team?'theme1-'+data.team.toLowerCase():''; if(r.repo.toLowerCase()!==std) data.repo=r.repo; else delete data.repo; }
+    save();
     inputs.forEach(function(i){ if(i!==me && i.getAttribute('data-k')===k) i.value=r.v; });
     show(); msg(me,r,false);
   }
@@ -1151,6 +1168,11 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     i.addEventListener('compositionend',onInput);
     i.addEventListener('change',function(){ var k=i.getAttribute('data-k'), r=C[k](i.value); if(!r.fmt) i.value=r.v; show(); msg(i,r,true); });
   });
+  // 名簿から入れる（1-1 の lookup）。repo は決まりと違うチームだけ来る
+  window.theme1SetInfo=function(o){ Object.keys(o).forEach(function(k){ if(o[k]) data[k]=o[k]; else delete data[k]; }); save();
+    inputs.forEach(function(i){ var k=i.getAttribute('data-k'); if(k in o) i.value=o[k]||''; if(i.closest('.ibin')&&i.value) msg(i,C[k](i.value),true); }); show(); };
+  [].forEach.call(document.querySelectorAll('.fbpick'),function(b){ b.addEventListener('click',function(){
+    var i=b.parentNode.parentNode.querySelector('input[data-k="file"]'); i.value=b.getAttribute('data-v'); onInput.call(i); }); });
   inputs.forEach(function(i){ var k=i.getAttribute('data-k'); i.value=data[k]||''; });
   show();
   inputs.forEach(function(i){ var k=i.getAttribute('data-k'); if(i.value && i.closest('.ibin')) msg(i,C[k](i.value),true); });

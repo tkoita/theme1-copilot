@@ -238,6 +238,9 @@ ol.steps b{font-weight:700;}
 .me .msg.ok{color:#0f6b60;font-weight:800;margin-left:8px;} .me .msg.bad{color:#b91c1c;font-weight:800;margin-left:8px;}
 .me .passrow{display:none;margin-top:8px;}
 .topnotice .me p.hint{margin:6px 0 0;font-size:12.2px;line-height:1.7;color:#3d4957;}
+.me .myteam{margin:8px 0 2px;font-size:15px;font-weight:700;color:#0b4f49;}
+.me .myteam b{font-size:22px;color:#1565c0;margin:0 4px;}
+.me .myteam.none{font-size:13px;color:#8a5a00;font-weight:600;}
 .me .mer{flex:0 0 auto;min-width:150px;text-align:center;background:#e6f6f4;border:1px solid #9fd5cd;border-radius:10px;padding:8px 14px;color:#0b4f49;font-size:12.5px;font-weight:700;line-height:1.5;}
 .me .mer .bignum{font-size:26px;}
 .me .mer .t{display:block;font-size:11px;font-weight:600;color:#5a6a7a;}
@@ -388,6 +391,7 @@ ol.steps b{font-weight:700;}
   <div class="me">
     <div class="mel">
     <label for="me-sid">自分の学籍番号</label><input id="me-sid" name="sid" inputmode="numeric" autocomplete="off" placeholder="半角の数字"><span class="ok"></span>
+    <p class="myteam" hidden></p>
     <div class="passrow"><label for="me-pass">合言葉</label><input id="me-pass" name="pass" autocomplete="off"> <span class="hint">教室で伝えます</span></div>
     <p class="hint">最初に1回だけ入れてください。このブラウザが覚えます（JM教室のPCは、ログオフすると消えます）。手順が1つ終わるたびに「できた」を押してください。止まったら「ここで止まった」を、TA に来てほしいときは右下の「TA HELP!」を押します。<b>状態が変わったら（直った・また止まった）、そのたびにボタンを押し直してください。</b>押した人数は、1人目が押したときから教室の全員に見えます。誰が押したかは出ません。</p>
     </div>
@@ -1224,7 +1228,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   </div>
 
   <div class="namebox infobox" id="myinfo" style="scroll-margin-top:70px;">
-    <p>ファイル名の【学籍番号】【チーム番号】と、インタビュー掲示板のタイトルの【チーム番号】は、下の欄に入れると自分のものに変わります（コピーボタンでも同じです）。このページのいちばん上に自分の学籍番号を入れてあれば、学籍番号とチーム番号は自動で入り、青い色で出ます。違っていたら、欄を直してください。</p>
+    <p>ファイル名の【学籍番号】【チーム番号】と、インタビュー掲示板のタイトルの【チーム番号】は、下の欄に入れると自分のものに変わります（コピーボタンでも同じです）。最初に入れた学籍番号から、学籍番号とチーム番号は自動で入り、青い色で出ます。違っていたときだけ、欄を直してください。</p>
     <div class="ibrow"><label class="iblab" for="ib-sid">学籍番号</label><div class="ibin"><input type="text" data-k="sid" id="ib-sid" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入れる"><span class="ibhint">半角の数字で入れます</span><span class="ibmsg" aria-live="polite"></span></div></div>
     <div class="ibrow"><label class="iblab" for="ib-team">チーム番号</label><div class="ibin"><input type="text" data-k="team" id="ib-team" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入れる"><span class="ibhint">「A-3」のように入れます。eclass「テーマ1（小板）：チーム分け・座席表」に出ています</span><span class="ibderived" data-show="repo"></span><span class="ibmsg" aria-live="polite"></span></div></div>
     <p class="ibafter">欄に入れたものは、この PC のブラウザの中だけに残ります。JM教室のPCは、ログオフすると消えます。</p>
@@ -1304,7 +1308,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     <div class="live"><h4>みんなの結果</h4><div class="lstat" data-show="time"></div><div data-show="quiz"></div></div>
   </div>
 
-  <p>参考：もっと知りたい人は、次の3つが分かりやすいです（読まなくてもかまいません）。</p>
+  <p>参考：もっと知りたい人は、次の3つが分かりやすいです（是非読んでおいてください）。</p>
 
   <ul style="font-size:13.3px;line-height:1.85;">
     <li><a class="ulink" href="https://docs.github.com/ja/get-started/start-your-journey/hello-world" target="_blank" rel="noopener">Hello World（GitHub ドキュメント）</a>　ブラウザの画面だけで、リポジトリ・ブランチ・Pull Request・マージをひととおり試す手順です。コマンドは使いません。</li>
@@ -1450,6 +1454,14 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   function say(el, t, ok){ if (!el) return; el.textContent = t; el.className = 'msg ' + (ok ? 'ok' : 'bad'); }
   // 宿題の欄（【学籍番号】）と同じ番号にする
   // いちばん上の学籍番号（と、名簿にあればチーム番号）を、宿題の欄に自動で入れる。TA の番号（T001 など）は入れない
+  // 1枚目（いちばん上の欄の下）に、自分のチーム番号を出す。名簿にないとき（TA の番号など）は案内だけ
+  function showTeam(team){
+    var el = me && me.querySelector('.myteam'); if (!el) return;
+    var d = sid().replace(/[^0-9]/g, '');
+    if (team) { el.className = 'myteam'; el.innerHTML = 'あなたのチーム番号は <b>' + String(team).replace(/[<>&"]/g, '') + '</b> です'; el.hidden = false; }
+    else if (d.length >= 8) { el.className = 'myteam none'; el.textContent = 'チーム番号は名簿から見つかりませんでした。eclass「テーマ1（小板）：チーム分け・座席表」で確かめてください'; el.hidden = false; }
+    else el.hidden = true;
+  }
   function shareSid(team){ var d = sid().replace(/[^0-9]/g, ''); if (d.length >= 8 && window.theme1SetInfo) { var o = {sid: d}; if (team) o.team = team; try{ window.theme1SetInfo(o, true); }catch(e){} } }
 
   if (sidIn){
@@ -1463,13 +1475,16 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     var join = function(){   // 入れた人数に数えてもらう（1つの番号につき1回）
       if (!URL || !sid() || joinedSid === sid()) return;
       joinedSid = sid();
-      post({act:'join'}, okm, null, function(r){ say(okm, '受け付けました。下4桁 ' + r.last4 + ' で送ります', true); shareSid(r.team); });
+      post({act:'join'}, okm, null, function(r){ say(okm, '受け付けました。下4桁 ' + r.last4 + ' で送ります', true); shareSid(r.team); showTeam(r.team); });
     };
     sidIn.addEventListener('input', function(){
       store(KEY, sid()); upd(); markSteps();
+      var mt = me.querySelector('.myteam'); if (mt) mt.hidden = true;   // 番号を変えたら、前のチーム番号は消す
       clearTimeout(jt); if (sid().length >= 8) jt = setTimeout(join, 1200);
       clearTimeout(lt); lt = setTimeout(load, 1500);   // 番号を入れたらすぐ読み直す（TA の帯・自分の呼び出しの状態）
     });
+    // 合言葉をあとから入れたときも、入れた人数に数え直す（チーム番号もそこで出る）
+    if (passIn) passIn.addEventListener('input', function(){ clearTimeout(jt); if (sid().length >= 8) { joinedSid = ''; jt = setTimeout(join, 1200); } });
     upd();
     if (sid()) setTimeout(join, 300);
   }

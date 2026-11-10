@@ -327,8 +327,9 @@ ol.steps b{font-weight:700;}
       <a href="#part6">PART 6</a>
       <a href="#hw">宿題</a>
     </div>
+    <style>.gostack{position:relative;}.nowclock{position:absolute;right:0;top:calc(100% + 9px);z-index:5;font-size:12px;font-weight:800;color:#3d4957;background:#fff;border:1px solid #c2cbd6;box-shadow:0 2px 6px rgba(20,30,45,.12);white-space:nowrap;line-height:1.3;font-variant-numeric:tabular-nums;border-radius:6px;padding:2px 8px;}.nowclock .ncm{font-weight:700;margin-left:5px;}.nowclock.soon{background:#fde68a;border-color:#d39e1c;color:#7c4a00;}.nowclock.over{background:#fee2e2;border-color:#dc2626;color:#b91c1c;}@media (max-width:640px){.nowclock .ncm{display:block;margin-left:0;text-align:right;}}@media print{.nowclock{display:none!important;}}</style>
     <style>.gostack{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:3px;}.gostack .next{font-size:11.5px;font-weight:800;color:#0f766e;text-decoration:none;white-space:nowrap;line-height:1.2;}.gostack .next:hover{text-decoration:underline;text-underline-offset:3px;}@media print{.gostack{display:none!important;}}</style>
-    <div class="gostack"><a class="go" href="#hw">宿題を見る</a><a class="next" href="第2週目_進行マニュアル：テーマ1（小板）.html">第2週授業資料 →</a></div>
+    <div class="gostack"><a class="go" href="#hw">宿題を見る</a><a class="next" href="第2週目_進行マニュアル：テーマ1（小板）.html">第2週授業資料 →</a><span class="nowclock" aria-live="off"><b class="nct">--:--</b><span class="ncm"></span></span></div>
   </div>
 </header>
 
@@ -445,7 +446,7 @@ ol.steps b{font-weight:700;}
 </section>
 
 <!-- ============================ PART 1 ============================ -->
-<section class="sheet k1" id="part1">
+<section class="sheet k1" id="part1" data-start="13:10" data-end="13:30" data-label="PART 1">
   <div class="eyebrow">PART <span class="no">1</span><span class="badge">13:10〜13:30</span></div>
   <h1>スタートアップ確認</h1>
   <p class="lead">最初の20分で、全員が Copilot を使える状態にします。このあとの70分は全員が同じ画面で進むので、動かない人はこの時間のうちに手を挙げてください。</p>
@@ -562,7 +563,7 @@ ol.steps b{font-weight:700;}
 </section>
 
 <!-- ============================ PART 2 ============================ -->
-<section class="sheet k2" id="part2">
+<section class="sheet k2" id="part2" data-start="13:30" data-end="14:40" data-label="PART 2">
   <div class="eyebrow">PART <span class="no">2</span><span class="badge">13:30〜14:40</span></div>
   <h1>ハンズオン①　Copilot の4つの使い方</h1>
   <p class="lead">インライン補完（<a class="ulink" href="#s2-2">2-2</a>）、<code>/explain</code>（<a class="ulink" href="#s2-3">2-3</a>）、チャット欄で直させる（<a class="ulink" href="#s2-4">2-4</a>）、<code>/fix</code>（<a class="ulink" href="#s2-5">2-5</a>）の4つを、その場で手を動かして試します。題材はターミナルで動くじゃんけんゲームです。小さく、全員が仕様を知っていて、すぐ動かせるので選びました。（<code>@workspace</code> は、チームのコードが増える第2週目から使います。）</p>
@@ -741,7 +742,7 @@ ol.steps b{font-weight:700;}
 </section>
 
 <!-- ============================ PART 3 ============================ -->
-<section class="sheet k3" id="part3">
+<section class="sheet k3" id="part3" data-start="14:55" data-end="15:25" data-label="PART 3">
   <div class="eyebrow">PART <span class="no">3</span><span class="badge">14:55〜15:25</span></div>
   <h1>ハンズオン②　「疑う力」演習</h1>
   <p class="lead">エラーは出ず、動くけれど間違っているコードを扱います。Copilot が書いたコードが正しいかを、自分で確かめる練習です。</p>
@@ -821,7 +822,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
 </section>
 
 <!-- ============================ PART 4 ============================ -->
-<section class="sheet k4" id="part4">
+<section class="sheet k4" id="part4" data-start="15:25" data-end="15:40" data-label="PART 4">
   <div class="eyebrow">PART <span class="no">4</span><span class="badge">15:25〜15:40</span></div>
   <h1>チームの確認と役割決め</h1>
   <p class="lead">チームと座る島は、eclass「テーマ1（小板）：チーム分け・座席表」で決まっています（変更はできません）。この時間にチームで集まり、役割を決めます。第4週目まで同じチーム・同じ島で進みます。</p>
@@ -868,7 +869,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
 </section>
 
 <!-- ============================ PART 5 ============================ -->
-<section class="sheet k5" id="part5">
+<section class="sheet k5" id="part5" data-start="15:40" data-end="16:25" data-label="PART 5">
   <div class="eyebrow">PART <span class="no">5</span><span class="badge">15:40〜16:25</span></div>
   <h1>テーマ決定</h1>
   <p class="lead">この45分で、4週間かけて作るものをいったん決めます。PART 6 のインタビューで分かったことを優先し、相手・場面・コア機能・誰が・いくら・なぜ払うかは、聴いたあとで変えてかまいません。変えるときも、<a class="ulink" href="#s5-2">5-2</a> の3つの条件は満たしてください。迷ったら、小さいほうを選んでください。15:40 になったら、まず <a class="ulink" href="#s5-3">5-3</a> の表のとおりに名簿を並べて読み上げます。<a class="ulink" href="#s5-1">5-1</a>・<a class="ulink" href="#s5-2">5-2</a> は、そのあとの絞り込み（15:55〜）で使います。</p>
@@ -999,7 +1000,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
 </section>
 
 <!-- ============================ PART 6 ============================ -->
-<section class="sheet k6" id="part6">
+<section class="sheet k6" id="part6" data-start="16:45" data-end="17:40" data-label="PART 6">
   <div class="eyebrow">PART <span class="no">6</span><span class="badge">16:45〜17:40</span></div>
   <h1>予備インタビュー ── 作る前に聞く</h1>
   <p class="lead">16:45 に教室を出て、PART 5（16:05〜）で決めた2人に話を聴きます（1人5〜10分）。今日は学内の相手だけで、チーム全員で同席し、分かれずに回ります。学外の相手は宿題で回ります。休憩のうちに荷物をまとめておいてください。</p>
@@ -1489,6 +1490,31 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   load();
   setInterval(function(){ if (document.visibilityState !== 'hidden') load(); }, 10000);
   setInterval(tick, 1000);
+})();
+</script>
+<script>
+// ---- 右上の現在時刻：いま見ている PART の予定の終わりの5分前から黄色、過ぎたら赤（授業の日＝水曜の 13:00〜18:10 だけ色を付ける）
+(function(){
+  var el = document.querySelector('.nowclock'); if (!el) return;
+  var t = el.querySelector('.nct'), m = el.querySelector('.ncm');
+  var secs = [].slice.call(document.querySelectorAll('section.sheet'));
+  function min(s){ var p = s.split(':'); return +p[0] * 60 + +p[1]; }
+  function cur(){ var c = null; secs.forEach(function(s){ if (s.getBoundingClientRect().top <= 120) c = s; }); return c; }
+  function draw(){
+    var d = window.NOWCLOCK_TEST ? new Date(window.NOWCLOCK_TEST) : new Date();
+    var hm = d.getHours() * 60 + d.getMinutes();
+    t.textContent = d.getHours() + ':' + ('0' + d.getMinutes()).slice(-2);
+    var s = cur(), cls = '', msg = '';
+    if (s && s.dataset.end && d.getDay() === 3 && hm >= 780 && hm <= 1090){
+      var e = min(s.dataset.end), left = e - hm;
+      msg = s.dataset.label + ' は ' + s.dataset.end + ' まで';
+      if (left <= 0){ cls = 'over'; msg += left < 0 ? '（' + (-left) + '分オーバー）' : '（時間です）'; }
+      else if (left <= 5){ cls = 'soon'; msg += '（あと' + left + '分）'; }
+    }
+    el.className = 'nowclock' + (cls ? ' ' + cls : ''); m.textContent = msg;
+  }
+  draw(); setInterval(draw, 1000);
+  window.addEventListener('scroll', draw, {passive:true});
 })();
 </script><script>
 (function(){

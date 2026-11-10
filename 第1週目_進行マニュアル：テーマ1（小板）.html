@@ -209,6 +209,9 @@ ol.steps b{font-weight:700;}
 .infobox .ibhint code{font-family:"SFMono-Regular",Consolas,Menlo,monospace;background:#fff;border:1px solid #f0d68a;border-radius:4px;padding:0 4px;}
 .infobox .ibderived{display:block;font-weight:800;color:#14532d;font-size:12.6px;}
 .infobox .ibmsg{display:block;font-weight:800;color:#b91c1c;font-size:12.6px;}
+.infobox .ibmsg.auto{color:#075985;}
+.infobox input.auto{background:#e0f2fe;border-color:#0284c7;color:#075985;font-weight:800;}
+.nm.auto{background:#bae6fd;color:#075985;}
 .infobox .ibafter{margin-top:8px;}
 .fbpicks{display:flex;flex-wrap:wrap;gap:8px;}
 .fbpick{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:16px;font-weight:700;padding:6px 14px;border:2px solid #c99000;border-radius:6px;background:#fff;color:#111827;cursor:pointer;}
@@ -333,7 +336,22 @@ ol.steps b{font-weight:700;}
 .tabar button:disabled{opacity:.6;}
 .tabar .tmsg{flex-basis:100%;font-weight:800;}
 .tabar .tmsg:empty{display:none;}
-@media print{.help,.send,.me,.stepcheck,.live,.tabar{display:none!important;}}
+/* 役割のボタン（PART 4） */
+.rolepick{margin:16px 0 18px;padding:12px 16px 12px;border:1.5px solid #0f766e;border-left-width:6px;border-radius:10px;background:#f0fdfa;font-size:13.5px;}
+.rolepick .rlead{margin:0 0 8px;font-size:13.4px;line-height:1.75;}
+.rolepick .rrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:8px 0;border-top:1px dashed #5eaaa2;}
+.rolepick .rn{font-weight:800;min-width:9em;color:#134e4a;}
+.rolepick button{font:inherit;font-weight:800;font-size:13.5px;padding:6px 16px;border-radius:8px;cursor:pointer;}
+.rolepick .rtake{border:0;background:#0f766e;color:#fff;}
+.rolepick .rtake:disabled{background:#cbd5e1;color:#64748b;cursor:not-allowed;}
+.rolepick .rdrop{border:1.5px solid #94a3b8;background:#fff;color:#334155;font-size:12.6px;padding:4px 12px;}
+.rolepick .rwho{font-weight:700;color:#475569;}
+.rolepick .rrow.taken .rwho{color:#0f172a;font-weight:800;}
+.rolepick .rrow.mine{background:#ccfbf1;margin:0 -8px;padding:8px;border-radius:8px;}
+.rolepick .rrow.mine .rwho{color:#115e59;font-weight:900;}
+.rolepick .rstate{display:block;margin-top:8px;font-size:12.4px;color:#475569;}
+.rolepick .msg{display:block;font-weight:800;font-size:12.8px;}
+@media print{.help,.send,.me,.stepcheck,.live,.tabar,.rolepick{display:none!important;}}
 </style>
 </head>
 <body>
@@ -628,16 +646,36 @@ ol.steps b{font-weight:700;}
 
   <p><code>janken.py</code> に、次の5つのコメントを上から順に、同じファイルの中に続けて打ってください。1つ打つごとに Enter を押し（2行のコメントは2行とも打ってから）、提案が出たら中身を読んでから <code>Tab</code> で採用します。前に書いたものは消しません。5つで1つのプログラムになります。</p>
 
-  <pre class="code"><span class="cmt"># ランダムに選ぶための random を読み込む</span>
+  <ol class="steps">
+    <li>1つ目のコメント</li>
+  </ol>
 
-<span class="cmt"># じゃんけんの手を「グー」「チョキ」「パー」の3つで表すリストを作る</span>
+  <pre class="code"><span class="cmt"># ランダムに選ぶための random を読み込む</span></pre>
 
-<span class="cmt"># 上のリストからランダムに1つ選んで返す関数を作る</span>
+  <ol class="steps" start="2">
+    <li>2つ目のコメント</li>
+  </ol>
 
-<span class="cmt"># 自分の手と相手の手を受け取り、自分から見た結果を</span>
-<span class="cmt"># 「勝ち」「負け」「あいこ」の文字列で返す関数を作る</span>
+  <pre class="code"><span class="cmt"># じゃんけんの手を「グー」「チョキ」「パー」の3つで表すリストを作る</span></pre>
 
-<span class="cmt"># 上の関数を使って自分と相手の手をランダムに決め、</span>
+  <ol class="steps" start="3">
+    <li>3つ目のコメント</li>
+  </ol>
+
+  <pre class="code"><span class="cmt"># 上のリストからランダムに1つ選んで返す関数を作る</span></pre>
+
+  <ol class="steps" start="4">
+    <li>4つ目のコメント</li>
+  </ol>
+
+  <pre class="code"><span class="cmt"># 自分の手と相手の手を受け取り、自分から見た結果を</span>
+<span class="cmt"># 「勝ち」「負け」「あいこ」の文字列で返す関数を作る</span></pre>
+
+  <ol class="steps" start="5">
+    <li>5つ目のコメント</li>
+  </ol>
+
+  <pre class="code"><span class="cmt"># 上の関数を使って自分と相手の手をランダムに決め、</span>
 <span class="cmt"># 両方の手と勝敗を print で表示する</span></pre>
 
   <p>5つのコメントに出た提案を順に採用し、<code>Ctrl + S</code> で保存してから右上の ▷ で実行すると、たとえば次のようになります。出てくるコードは、人によって違うことがあります。</p>
@@ -899,6 +937,8 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   </div>
 
   <div class="idnote">この演習には、相手が2種類います。<br>・インタビュー相手：話を聴く人。第1週目に3人（PART 6 と宿題②）<br>・テスト協力者：できたものを実際に触ってもらう人。第2週目以降に5人（宿題②で候補リストを作る）<br>同じ人が両方を兼ねてもかまいませんが、人数も時期も別なので、混ぜて数えないでください。</div>
+
+  <div class="rolepick"><p class="rlead">役割が決まったら、担当する人が、自分の画面で下のボタンを押してください。押すと、同じチームの人の画面に「下4桁 ◯◯◯◯ が リポジトリ担当 です」と出て、ほかの人はその役割を押せなくなります。2人チームは、1人が2つ押します。ここで押した担当は記録に残し、第2週目にも使います。</p><div class="rrow" data-role="repo" data-name="リポジトリ担当"><span class="rn">リポジトリ担当</span><button type="button" class="rtake">自分が担当する</button><span class="rwho">まだ決まっていません</span><button type="button" class="rdrop" hidden>取り消す</button></div><div class="rrow" data-role="user" data-name="ユーザー担当"><span class="rn">ユーザー担当</span><button type="button" class="rtake">自分が担当する</button><span class="rwho">まだ決まっていません</span><button type="button" class="rdrop" hidden>取り消す</button></div><div class="rrow" data-role="rec" data-name="記録担当"><span class="rn">記録担当</span><button type="button" class="rtake">自分が担当する</button><span class="rwho">まだ決まっていません</span><button type="button" class="rdrop" hidden>取り消す</button></div><span class="rstate">いちばん上の欄に学籍番号を入れると、押せるようになります。</span><span class="msg"></span></div>
 
   <div class="stepcheck" data-step="p4"><span class="sl">4 役割を決めた</span><button type="button" class="sdone">できた</button><button type="button" class="sstuck">ここで止まった</button><span class="scount" data-show="step-p4">できた <b>0</b>人 ／ 止まっている <b>0</b>人</span><span class="shint">状態が変わったら押し直す</span><span class="selapsed" data-first="p4">最初の1人が押してから <b>--分--秒</b>（まだ誰も押していません）</span><span class="msg"></span></div>
 
@@ -1176,7 +1216,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   </div>
 
   <div class="namebox infobox" id="myinfo" style="scroll-margin-top:70px;">
-    <p>ファイル名の【学籍番号】【チーム番号】と、インタビュー掲示板のタイトルの【チーム番号】は、下の欄に入れると自分のものに変わります（コピーボタンでも同じです）。</p>
+    <p>ファイル名の【学籍番号】【チーム番号】と、インタビュー掲示板のタイトルの【チーム番号】は、下の欄に入れると自分のものに変わります（コピーボタンでも同じです）。このページのいちばん上に自分の学籍番号を入れてあれば、学籍番号とチーム番号は自動で入り、青い色で出ます。違っていたら、欄を直してください。</p>
     <div class="ibrow"><label class="iblab" for="ib-sid">学籍番号</label><div class="ibin"><input type="text" data-k="sid" id="ib-sid" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入れる"><span class="ibhint">半角の数字で入れます</span><span class="ibmsg" aria-live="polite"></span></div></div>
     <div class="ibrow"><label class="iblab" for="ib-team">チーム番号</label><div class="ibin"><input type="text" data-k="team" id="ib-team" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ここに入れる"><span class="ibhint">「A-3」のように入れます。eclass「テーマ1（小板）：チーム分け・座席表」に出ています</span><span class="ibderived" data-show="repo"></span><span class="ibmsg" aria-live="polite"></span></div></div>
     <p class="ibafter">欄に入れたものは、この PC のブラウザの中だけに残ります。JM教室のPCは、ログオフすると消えます。</p>
@@ -1315,15 +1355,15 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     issue:function(v){ v=z2h(v).trim().replace(/^#/,'').replace(/^0+(?=\d)/,''); var c=v.replace(/[^0-9]/g,''); return {v:c,bad:c!==v,msg:'Issue の番号を、数字だけで入れてください（#12 なら 12）。'}; }
   };
   var inputs=[].slice.call(document.querySelectorAll('.namebox input[data-k]'));
-  var spans=[].slice.call(document.querySelectorAll('.nm[data-k]'));
+  var spans=[].slice.call(document.querySelectorAll('.nm[data-k]')), AUTO={};
   if(!inputs.length) return;
   var data={};
   try{ data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; if(!data.myname){ var o=localStorage.getItem(OLD); if(o) data.myname=o; } }catch(e){ data={}; }
   function val(k){ if(k==='repo') return data.repo||(data.team?'theme1-'+data.team.toLowerCase():''); return data[k]||''; }
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(data)); localStorage.setItem(OLD,data.myname||''); }catch(e){} }
   function msg(inp,r,full){
-    var box=inp.closest('.ibin'), show=r.bad||(full&&r.fmt);
-    if(box){ var m=box.querySelector('.ibmsg'); if(m) m.textContent=show?r.msg:''; }
+    var box=inp.closest('.ibin'), show=r.bad||(full&&r.fmt), au=!show&&AUTO[inp.getAttribute('data-k')]&&inp.value;
+    if(box){ var m=box.querySelector('.ibmsg'); if(m){ m.textContent=show?r.msg:(au?'← いちばん上の学籍番号から自動で入れました（違っていたら直してください）':''); m.className='ibmsg'+(au?' auto':''); } }
     else {
       var nb=inp.closest('.namebox'), p=nb&&nb.querySelector('.nbstate'), name=val('myname');
       if(p){ p.className='nbstate'+(r.bad?' bad':(name?' ok':''));
@@ -1331,7 +1371,8 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     }
   }
   function show(){
-    spans.forEach(function(s){ var k=s.getAttribute('data-k'); s.textContent=val(k)||PH[k]; });
+    spans.forEach(function(s){ var k=s.getAttribute('data-k'); s.textContent=val(k)||PH[k]; s.classList.toggle('auto',!!(AUTO[k]&&val(k))); });
+    inputs.forEach(function(i){ i.classList.toggle('auto',!!(AUTO[i.getAttribute('data-k')]&&i.value)); });
     [].forEach.call(document.querySelectorAll('[data-show="repo"]'),function(e){ e.textContent=val('repo')?'→ リポジトリ名は '+val('repo')+' です。':''; });
     [].forEach.call(document.querySelectorAll('[data-show="issue"]'),function(e){ var n=val('issue'); e.textContent=n?'→ ブランチ名は '+(val('myname')||'【名字】')+'-fix'+n+'、Pull Request の本文は closes #'+n+' になります。':''; });
     inputs.forEach(function(i){ if(!i.closest('.ibin')) msg(i,{bad:false},false); });
@@ -1340,7 +1381,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   function onInput(e){
     if(e && e.isComposing) return;
     var me=this, k=me.getAttribute('data-k'), r=C[k](me.value);
-    data[k]=r.v; if(k==='team') delete data.repo;
+    data[k]=r.v; delete AUTO[k]; if(k==='team') delete data.repo;
     if(k==='owner' && r.repo){ var std=data.team?'theme1-'+data.team.toLowerCase():''; if(r.repo.toLowerCase()!==std) data.repo=r.repo; else delete data.repo; }
     save();
     inputs.forEach(function(i){ if(i!==me && i.getAttribute('data-k')===k) i.value=r.v; });
@@ -1352,8 +1393,10 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     i.addEventListener('change',function(){ var k=i.getAttribute('data-k'), r=C[k](i.value); if(!r.fmt) i.value=r.v; show(); msg(i,r,true); });
   });
   // 名簿から入れる（1-1 の lookup）。repo は決まりと違うチームだけ来る
-  window.theme1SetInfo=function(o){ Object.keys(o).forEach(function(k){ if(o[k]) data[k]=o[k]; else delete data[k]; }); save();
-    inputs.forEach(function(i){ var k=i.getAttribute('data-k'); if(k in o) i.value=o[k]||''; if(i.closest('.ibin')&&i.value) msg(i,C[k](i.value),true); }); show(); };
+  // auto＝いちばん上の学籍番号から自動で入れたもの（欄と、置き換えた【 】の色を青にする。手で直すと元の色に戻る）
+  window.theme1SetInfo=function(o,auto){ Object.keys(o).forEach(function(k){ if(auto&&k!=='sid'&&data[k]&&data[k]!==o[k]&&!AUTO[k]) return;   // 手で直したものは、自動では上書きしない
+      if(o[k]){ data[k]=o[k]; if(auto) AUTO[k]=1; } else delete data[k]; }); save();
+    inputs.forEach(function(i){ var k=i.getAttribute('data-k'); if(k in o) i.value=data[k]||''; if(i.closest('.ibin')&&i.value) msg(i,C[k](i.value),true); }); show(); };
   [].forEach.call(document.querySelectorAll('.fbpick'),function(b){ b.addEventListener('click',function(){
     var i=b.parentNode.parentNode.querySelector('input[data-k="file"]'); i.value=b.getAttribute('data-v'); onInput.call(i); }); });
   inputs.forEach(function(i){ var k=i.getAttribute('data-k'); i.value=data[k]||''; });
@@ -1376,7 +1419,8 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   function sid(){ return sidIn ? sidIn.value.trim() : ''; }
   function say(el, t, ok){ if (!el) return; el.textContent = t; el.className = 'msg ' + (ok ? 'ok' : 'bad'); }
   // 宿題の欄（【学籍番号】）と同じ番号にする
-  function shareSid(){ var d = sid().replace(/[^0-9]/g, ''); if (d && window.theme1SetInfo) { try{ window.theme1SetInfo({sid: d}); }catch(e){} } }
+  // いちばん上の学籍番号（と、名簿にあればチーム番号）を、宿題の欄に自動で入れる。TA の番号（T001 など）は入れない
+  function shareSid(team){ var d = sid().replace(/[^0-9]/g, ''); if (d.length >= 8 && window.theme1SetInfo) { var o = {sid: d}; if (team) o.team = team; try{ window.theme1SetInfo(o, true); }catch(e){} } }
 
   if (sidIn){
     var first = store(KEY);
@@ -1389,7 +1433,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     var join = function(){   // 入れた人数に数えてもらう（1つの番号につき1回）
       if (!URL || !sid() || joinedSid === sid()) return;
       joinedSid = sid();
-      post({act:'join'}, okm, null, function(r){ say(okm, '受け付けました。下4桁 ' + r.last4 + ' で送ります', true); shareSid(); });
+      post({act:'join'}, okm, null, function(r){ say(okm, '受け付けました。下4桁 ' + r.last4 + ' で送ります', true); shareSid(r.team); });
     };
     sidIn.addEventListener('input', function(){
       store(KEY, sid()); upd(); markSteps();
@@ -1416,7 +1460,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
       .then(function(x){ return x.json(); })
       .then(function(r){
         if (btn) btn.disabled = false;
-        if (!r.ok){ say(msg, r.msg || '受け付けられませんでした', false); if (d.act === 'join') joinedSid = ''; return; }
+        if (!r.ok){ say(msg, r.msg || '受け付けられませんでした', false); if (d.act === 'join') joinedSid = ''; if (d.act === 'role') drawRoles(r.roles); return; }
         if (done) done(r); else say(msg, '受け付けました（下4桁 ' + r.last4 + '）。もう一度送ると書き換わります。', true);
         load().then(function(){ flash(d.act); });
       })
@@ -1530,6 +1574,30 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     post({act:b.getAttribute('data-act'), k:b.getAttribute('data-k')}, b.parentNode.querySelector('.tmsg'), b, function(){});
   });
 
+  // 役割のボタン（PART 4）：押した人の下4桁を、同じチームの人の画面に出す。ほかの人はその役割を押せない
+  var rp = document.querySelector('.rolepick');
+  function drawRoles(list){
+    if (!rp) return;
+    var st = rp.querySelector('.rstate'), by = {};
+    (list || []).forEach(function(x){ by[x.id] = x; });
+    rp.querySelectorAll('.rrow').forEach(function(row){
+      var x = by[row.getAttribute('data-role')], name = row.getAttribute('data-name');
+      var take = row.querySelector('.rtake'), drop = row.querySelector('.rdrop'), who = row.querySelector('.rwho');
+      row.className = 'rrow' + (x && x.mine ? ' mine' : (x && x.by4 ? ' taken' : ''));
+      take.hidden = !!(x && x.mine); take.disabled = !list || !!(x && x.by4);
+      drop.hidden = !(x && x.mine);
+      who.textContent = !x || !x.by4 ? 'まだ決まっていません' : (x.mine ? 'あなた（下4桁 ' + x.by4 + '）が ' + name + ' です' : '下4桁 ' + x.by4 + ' が ' + name + ' です');
+    });
+    st.textContent = list ? '同じチームの人の画面には、10秒ほどで出ます。押し間違えたら、押した本人が「取り消す」を押します。'
+      : (sid() ? 'チーム番号が分からないので、まだ押せません（学籍番号の打ち間違いがないか確かめ、だめなら教員か TA へ）。' : 'いちばん上の欄に学籍番号を入れると、押せるようになります。');
+  }
+  if (rp) rp.addEventListener('click', function(ev){
+    var b = ev.target.closest('button'); if (!b) return;
+    var row = b.closest('.rrow'), on = b.classList.contains('rtake') ? 1 : 0, m = rp.querySelector('.msg');
+    post({act:'role', role:row.getAttribute('data-role'), on:on}, m, b, function(r){
+      drawRoles(r.roles); say(m, on ? row.getAttribute('data-name') + ' として記録しました。' : '取り消しました。', true); });
+  });
+
   // みんなの結果
   function bars(rows, cls){
     var max = 1; rows.forEach(function(r){ if (r.n > max) max = r.n; });
@@ -1583,7 +1651,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
       + '<p class="lstat">時間が足りなかった所</p>' + bars(q.short));
     if (passIn) me.querySelector('.passrow').style.display = r.pass ? 'block' : 'none';
     if (r.me && !BUSY){ CALL = !!r.me.help; CALLBY = r.me.by || ''; showHelp(); }
-    drawTa(r);
+    drawTa(r); drawRoles(r.roles);
   }
   function load(){
     if (!URL){ fill('joined', 'まだ準備中です'); fill('steps', '<p class="wait">まだ準備中です。</p>'); fill('survey', '<p class="wait">まだ準備中です。</p>'); return Promise.resolve(); }

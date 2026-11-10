@@ -352,9 +352,9 @@ ol.steps b{font-weight:700;}
       <a href="#part6">PART 6</a>
       <a href="#hw">宿題</a>
     </div>
-    <style>.gostack{position:relative;}.nowclock{position:absolute;right:0;top:calc(100% + 9px);z-index:5;font-size:12px;font-weight:800;color:#3d4957;background:#fff;border:1px solid #c2cbd6;box-shadow:0 2px 6px rgba(20,30,45,.12);white-space:nowrap;line-height:1.3;font-variant-numeric:tabular-nums;border-radius:6px;padding:2px 8px;}.nowclock .ncm{font-weight:700;margin-left:5px;}.nowclock .ncd{display:block;text-align:right;font-weight:800;color:#14532d;}.nowclock .ncd:empty{display:none;}.nowclock.soon{background:#fde68a;border-color:#d39e1c;color:#7c4a00;}.nowclock.over{background:#fee2e2;border-color:#dc2626;color:#b91c1c;}@media (max-width:640px){.nowclock .ncm{display:block;margin-left:0;text-align:right;}}@media print{.nowclock{display:none!important;}}</style>
+    <style>.gostack{position:relative;}.nowclock{position:absolute;right:0;top:calc(100% + 9px);z-index:5;font-size:12px;font-weight:800;color:#3d4957;background:#fff;border:1px solid #c2cbd6;box-shadow:0 2px 6px rgba(20,30,45,.12);white-space:nowrap;line-height:1.3;font-variant-numeric:tabular-nums;border-radius:6px;padding:2px 8px;}.nowclock .ncm{font-weight:700;margin-left:5px;}.nowclock .ncd{display:block;text-align:right;font-weight:800;color:#14532d;}.nowclock .ncd:empty{display:none;}.nowclock .ncb{display:block;min-width:132px;height:7px;margin:3px 0 3px;border-radius:4px;background:#e2e8f0;overflow:hidden;}.nowclock .ncb i{display:block;height:100%;width:100%;border-radius:4px;background:#94a3b8;transition:width .6s linear;}.nowclock .ncb.run i{background:#0f766e;}.nowclock .ncb.soon i{background:#d39e1c;}.nowclock .ncb.over i{background:#dc2626;}.nowclock.over .ncb{background:#fecaca;}.nowclock.soon{background:#fde68a;border-color:#d39e1c;color:#7c4a00;}.nowclock.over{background:#fee2e2;border-color:#dc2626;color:#b91c1c;}@media (max-width:640px){.nowclock .ncm{display:block;margin-left:0;text-align:right;}}@media print{.nowclock{display:none!important;}}</style>
     <style>.gostack{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:3px;}.gostack .next{font-size:11.5px;font-weight:800;color:#0f766e;text-decoration:none;white-space:nowrap;line-height:1.2;}.gostack .next:hover{text-decoration:underline;text-underline-offset:3px;}@media print{.gostack{display:none!important;}}</style>
-    <div class="gostack"><a class="go" href="#hw">宿題を見る</a><a class="next" href="第2週目_進行マニュアル：テーマ1（小板）.html">第2週授業資料 →</a><span class="nowclock" aria-live="off"><b class="nct">--:--</b><span class="ncm"></span><span class="ncd"></span></span></div>
+    <div class="gostack"><a class="go" href="#hw">宿題を見る</a><a class="next" href="第2週目_進行マニュアル：テーマ1（小板）.html">第2週授業資料 →</a><span class="nowclock" aria-live="off"><span class="ncb" title="いま見ている PART の残り時間"><i></i></span><b class="nct">--:--</b><span class="ncm"></span><span class="ncd"></span></span></div>
   </div>
 </header>
 
@@ -1601,7 +1601,7 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
 // ---- 右上の現在時刻：いま見ている PART の予定の終わりの5分前から黄色、過ぎたら赤（授業の日＝水曜の 13:00〜18:10 だけ色を付ける）
 (function(){
   var el = document.querySelector('.nowclock'); if (!el) return;
-  var t = el.querySelector('.nct'), m = el.querySelector('.ncm');
+  var t = el.querySelector('.nct'), m = el.querySelector('.ncm'), bar = el.querySelector('.ncb'), fill = bar && bar.querySelector('i');
   var secs = [].slice.call(document.querySelectorAll('section.sheet'));
   function min(s){ var p = s.split(':'); return +p[0] * 60 + +p[1]; }
   function cur(){ var c = null; secs.forEach(function(s){ if (s.getBoundingClientRect().top <= 120) c = s; }); return c; }
@@ -1609,14 +1609,19 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
     var d = window.NOWCLOCK_TEST ? new Date(window.NOWCLOCK_TEST) : new Date();
     var hm = d.getHours() * 60 + d.getMinutes();
     t.textContent = d.getHours() + ':' + ('0' + d.getMinutes()).slice(-2);
-    var s = cur(), cls = '', msg = '';
+    var s = cur(), cls = '', msg = '', bcls = '', pct = 100;   // 横棒＝その PART の残り時間（始まる前は 100%、過ぎたら赤）
     if (s && s.dataset.end && d.getDay() === 3 && hm >= 780 && hm <= 1090){
       var e = min(s.dataset.end), left = e - hm;
+      var st = s.dataset.start ? min(s.dataset.start) : e, now = hm + d.getSeconds() / 60;
+      bcls = 'run';
+      if (now >= e){ bcls = 'over'; pct = 100; }
+      else if (now > st){ pct = Math.max(2, 100 * (e - now) / (e - st)); if (e - now <= 5) bcls = 'soon'; }
       msg = s.dataset.label + ' は ' + s.dataset.end + ' まで';
       if (left <= 0){ cls = 'over'; msg += left < 0 ? '（' + (-left) + '分オーバー）' : '（時間です）'; }
       else if (left <= 5){ cls = 'soon'; msg += '（あと' + left + '分）'; }
     }
     el.className = 'nowclock' + (cls ? ' ' + cls : ''); m.textContent = msg;
+    if (bar){ bar.className = 'ncb' + (bcls ? ' ' + bcls : ''); fill.style.width = pct + '%'; }
   }
   draw(); setInterval(draw, 1000);
   window.addEventListener('scroll', draw, {passive:true});

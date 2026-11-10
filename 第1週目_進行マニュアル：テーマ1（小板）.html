@@ -371,6 +371,8 @@ ol.steps b{font-weight:700;}
   <div class="inner">
     <style>.topnav .inner{height:auto;min-height:54px;padding:5px 0;}.brandstack{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:2px;}.brandstack .prev{font-size:11.5px;font-weight:800;color:#0f766e;text-decoration:none;white-space:nowrap;line-height:1.2;}.brandstack .prev:hover{text-decoration:underline;text-underline-offset:3px;}@media (max-width:640px){.brandstack{flex:0 1 auto;min-width:0;}.brandstack .prev{font-size:11px;}.brandstack .brand{white-space:normal;font-size:11.5px;line-height:1.35;}}@media print{.brandstack .prev{display:none!important;}}</style>
     <div class="brandstack"><a class="brand" href="index.html" title="資料一覧（第1〜3週目）へ">第1週目 進行マニュアル：テーマ1（小板）<span>情報システム演習実験II</span></a><a class="prev" href="事前課題_会える人をさがす：テーマ1（小板）.html">← 事前課題</a></div>
+    <style>.midstack{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:2px;}.midstack .links{width:100%;}.midstack .mid{font-size:11.5px;font-weight:800;color:#0f766e;text-decoration:none;white-space:nowrap;line-height:1.2;}.midstack .mid:hover{text-decoration:underline;text-underline-offset:3px;}@media print{.midstack .mid{display:none!important;}}</style>
+    <div class="midstack">
     <div class="links">
       <a href="#overview">この日の全体像</a>
       <a href="#part1">PART 1</a>
@@ -380,6 +382,8 @@ ol.steps b{font-weight:700;}
       <a href="#part5">PART 5</a>
       <a href="#part6">PART 6</a>
       <a href="#hw">宿題</a>
+    </div>
+    <a class="mid" href="#progress">みんなの進み具合 ↓</a>
     </div>
     <style>.gostack{position:relative;}.nowclock{position:absolute;right:0;top:calc(100% + 9px);z-index:5;font-size:12px;font-weight:800;color:#3d4957;background:#fff;border:1px solid #c2cbd6;box-shadow:0 2px 6px rgba(20,30,45,.12);white-space:nowrap;line-height:1.3;font-variant-numeric:tabular-nums;border-radius:6px;padding:2px 8px;}.nowclock .ncm{font-weight:700;margin-left:5px;}.nowclock .ncd{display:block;text-align:right;font-weight:800;color:#14532d;}.nowclock .ncd:empty{display:none;}.nowclock .ncb{display:block;min-width:132px;height:7px;margin:3px 0 3px;border-radius:4px;background:#e2e8f0;overflow:hidden;}.nowclock .ncb i{display:block;height:100%;width:100%;border-radius:4px;background:#94a3b8;transition:width .6s linear;}.nowclock .ncb.run i{background:#0f766e;}.nowclock .ncb.soon i{background:#d39e1c;}.nowclock .ncb.over i{background:#dc2626;}.nowclock.over .ncb{background:#fecaca;}.nowclock.soon{background:#fde68a;border-color:#d39e1c;color:#7c4a00;}.nowclock.over{background:#fee2e2;border-color:#dc2626;color:#b91c1c;}@media (max-width:640px){.nowclock .ncm{display:block;margin-left:0;text-align:right;}}@media print{.nowclock{display:none!important;}}</style>
     <style>.gostack{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:3px;}.gostack .next{font-size:11.5px;font-weight:800;color:#0f766e;text-decoration:none;white-space:nowrap;line-height:1.2;}.gostack .next:hover{text-decoration:underline;text-underline-offset:3px;}@media print{.gostack{display:none!important;}}</style>
@@ -474,12 +478,6 @@ ol.steps b{font-weight:700;}
   </table>
 
   <p>テーマを決めてから道具を覚えるのではなく、道具を先に触ってからテーマを決めます。Copilot で何ができて何ができないかを知ってからのほうが、4週間で作れる大きさを選びやすいためです。</p>
-
-  <h2>みんなの進み具合</h2>
-
-  <p>手順が1つ終わるたびに、その手順の下の「できた」を押してください。止まったら「ここで止まった」を押すと、教員と TA に届きます。下の数は、1人目が押したときから教室の全員に見えます。出るのは人数だけで、誰が押したかは出ません。</p>
-
-  <div class="live"><h4>手順ごとの「できた」の人数</h4><div class="lstat" data-show="time"></div><div data-show="steps"></div><div data-show="stuck"></div></div>
 
   <h2>参考図書</h2>
 
@@ -1354,6 +1352,17 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 第1週目</div>
 </section>
 
+<!-- ============================ みんなの進み具合 ============================ -->
+<section class="sheet i1" id="progress">
+  <div class="eyebrow">みんなの進み具合 <span class="badge alt">授業中</span></div>
+  <h1>みんなの進み具合</h1>
+  <p class="lead">手順が1つ終わるたびに、その手順の下の「できた」を押してください。止まったら「ここで止まった」を押すと、教員と TA に届きます。下の数は、1人目が押したときから教室の全員に見えます。出るのは人数だけで、誰が押したかは出ません。</p>
+
+  <div class="live"><h4>手順ごとの「できた」の人数</h4><div class="lstat" data-show="time"></div><div data-show="steps"></div><div data-show="stuck"></div></div>
+
+  <div class="foot">同志社大学　情報システム演習実験II ／ テーマ1：GitHub Copilot による開発実習 ／ 第1週目</div>
+</section>
+
 
 <div class="tabar" hidden aria-live="polite"></div>
 <div class="help">
@@ -1751,6 +1760,40 @@ print(average_price([]))      # 参加者ゼロ。どうなる？</pre>
   }
   draw(); setInterval(draw, 1000);
   window.addEventListener('scroll', draw, {passive:true});
+})();
+</script>
+<script>
+// ---- 休憩時間の表示：BREAKS のあいだだけ、右側の中ほどに残り時間を出す（授業の日＝水曜だけ）
+(function(){
+  var B = [["14:40", "14:55"], ["16:25", "16:40"]];
+  if (!B.length) return;
+  var st = document.createElement('style');
+  st.textContent = '.breakbox{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:79;background:#0f766e;color:#fff;border-radius:16px;padding:14px 22px;box-shadow:0 4px 14px rgba(0,0,0,.25);text-align:center;font-weight:800;line-height:1.35;}'
+    + '.breakbox .bh{display:block;font-size:15px;letter-spacing:.03em;}'
+    + '.breakbox .bt{display:block;font-size:34px;font-variant-numeric:tabular-nums;margin:2px 0;}'
+    + '.breakbox .be{display:block;font-size:12px;font-weight:700;opacity:.9;}'
+    + '.breakbox.soon{background:#b45309;}'
+    + '@media (max-width:640px){.breakbox{padding:10px 14px;}.breakbox .bt{font-size:26px;}}'
+    + '@media print{.breakbox{display:none!important;}}';
+  document.head.appendChild(st);
+  var el = document.createElement('div');
+  el.className = 'breakbox'; el.hidden = true; el.setAttribute('aria-live', 'polite');
+  el.innerHTML = '<span class="bh">休憩時間です：</span><span class="bt">--:--</span><span class="be"></span>';
+  document.body.appendChild(el);
+  var bt = el.querySelector('.bt'), be = el.querySelector('.be');
+  function sec(s){ var p = s.split(':'); return (+p[0] * 60 + +p[1]) * 60; }
+  function draw(){
+    var d = window.NOWCLOCK_TEST ? new Date(window.NOWCLOCK_TEST) : new Date();
+    var now = d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds(), hit = null;
+    if (d.getDay() === 3) B.forEach(function(b){ if (now >= sec(b[0]) && now < sec(b[1])) hit = b; });
+    if (!hit){ el.hidden = true; return; }
+    var left = sec(hit[1]) - now, m = Math.floor(left / 60), s = left % 60;
+    bt.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+    be.textContent = hit[1] + ' に再開します';
+    el.className = 'breakbox' + (left <= 60 ? ' soon' : '');
+    el.hidden = false;
+  }
+  draw(); setInterval(draw, 1000);
 })();
 </script><script>
 (function(){

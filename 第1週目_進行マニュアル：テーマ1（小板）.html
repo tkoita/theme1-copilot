@@ -2075,8 +2075,17 @@ html.vg-locked, html.vg-locked body{overflow:hidden;}
 .vg-badge{position:fixed;left:10px;bottom:10px;z-index:75;padding:4px 8px;font-size:11.5px;color:#52606d;background:rgba(255,255,255,.92);border:1px solid #d3d9e0;border-radius:6px;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;}
 .vg-badge button{margin-left:4px;font-size:11px;padding:1px 6px;border:1px solid #9aa5b1;background:#fff;border-radius:4px;cursor:pointer;}
 @media print{.vg-gate,.vg-badge{display:none!important;}html.vg-locked body > *{filter:none!important;}}
+/* ヘッダの左に、入れた学籍番号をいつも出す。ページの上の「自分の学籍番号」の欄は隠す（2026-11-14、小板） */
+.vg-sid{display:block;font-style:normal;font-size:11.5px;font-weight:700;color:#52606d;white-space:nowrap;line-height:1.3;letter-spacing:0;}
+.vg-sid b{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:12.5px;font-weight:800;color:#1f2933;letter-spacing:.04em;}
+.vg-hide{display:none!important;}
+.me.vg-me{border:0;padding:0;background:none;}
+.me.vg-me .ok{display:none;}
+.me.vg-me .msg.bad{display:inline;margin-left:0;}
+.me.vg-me .mer:empty{display:none;}
+@media print{.vg-sid{display:none!important;}}
 </style>
-<script>window.VIEWLOG = {"url": "https://script.google.com/macros/s/AKfycbwDugtsYOtdKCJQwJ9KpZZKmOQKCDgSzKESiyQ4wHjwEfk3x0e3iHWS0mTARFZb5ueO/exec", "course": "exp", "page": "第1週目_進行マニュアル：テーマ1（小板）"};</script>
+<script>window.VIEWLOG = {"url": "https://script.google.com/macros/s/AKfycbwDugtsYOtdKCJQwJ9KpZZKmOQKCDgSzKESiyQ4wHjwEfk3x0e3iHWS0mTARFZb5ueO/exec", "course": "exp", "page": "第1週目_進行マニュアル：テーマ1（小板）", "noPhone": false};</script>
 <script>// ---- 学籍番号の入口と、資料を見ていた時間の記録（3科目共通。2026-11-11、小板）-----------------
 // 原本は tkoita/Net の 共通/live/viewgate.js。Syspro・Exp へは 共通/tools/sync_viewlog.py で写す。
 // ページには 共通/tools/inject_viewlog.py が、この中身と viewgate.css と設定（window.VIEWLOG）を差し込む。
@@ -2086,7 +2095,11 @@ html.vg-locked, html.vg-locked body{overflow:hidden;}
 //   つながらないときは、番号の形だけ確かめて開く（教室の外や、つながらない場所でも読めるように）
 // ・ページが画面に出ていて、5分以内に操作（スクロール・クリック・キー）があった時間だけを数え、
 //   1分たまるごとに送る。ページを隠す・閉じるときは、たまった分を送る
+// ・携帯（スマートフォン）では開かない科目がある（設定 noPhone。Net・Syspro。2026-11-12、小板）。
+//   入口に「パソコンで開いてください」と出し、番号の欄を出さない。タブレットとパソコンは開ける
 // ・ページに「学籍番号」の欄（Net・Syspro の .me input[name=sid]、Exp の input[data-k=sid]）があれば、同じ番号を入れておく
+// ・入れた学籍番号は、ヘッダの左（資料の名前と「← 前の回の資料」の下）にいつも出す。ページのいちばん上の
+//   「自分の学籍番号」の欄（.me）は隠す（番号は入口で入れる。名簿に無いときの文だけ出す）（2026-11-14、小板。3科目共通）
 // ★ このファイルに閉じタグの文字列を書かないこと（HTML に埋め込むと、そこで script が終わる）
 (function(){
   var C = window.VIEWLOG || {};
@@ -2114,10 +2127,43 @@ html.vg-locked, html.vg-locked body{overflow:hidden;}
       try { inp.dispatchEvent(new Event('input', {bubbles:true})); } catch(e) {}
     });
   }
+  // ヘッダの左に、入れた学籍番号をいつも出す。「← 前の回の資料」のある形（.brandstack）ならその下、無ければ資料の名前（.brand）の中の最後
+  function headSid(){
+    var e = document.querySelector('.vg-sid');
+    if (!sid){ if (e) e.parentNode.removeChild(e); return; }
+    if (!e){
+      var host = document.querySelector('.topnav .brandstack') || document.querySelector('.topnav .brand');
+      if (!host) return;
+      e = document.createElement('i');
+      e.className = 'vg-sid';
+      e.appendChild(document.createTextNode('学籍番号 '));
+      e.appendChild(document.createElement('b'));
+      host.appendChild(e);
+    }
+    e.querySelector('b').textContent = sid;
+  }
+  // ページのいちばん上の「自分の学籍番号」の欄を隠す（欄そのものは残す。送る欄の仕組みがここから番号を読むため）
+  function hidePageSid(){
+    document.querySelectorAll('.me input[name=sid]').forEach(function(inp){
+      var me = inp.closest ? inp.closest('.me') : null;
+      if (!me) return;
+      me.classList.add('vg-me');
+      inp.classList.add('vg-hide');
+      var lab = inp.previousElementSibling;
+      if (lab && lab.tagName === 'LABEL') lab.classList.add('vg-hide');
+      var p = inp.parentNode;
+      for (var i = 0; i < p.children.length; i++){
+        var c = p.children[i];
+        if (c.tagName === 'P' && /hint/.test(c.className)) c.classList.add('vg-hide');
+      }
+    });
+  }
   function open_(){
     document.documentElement.classList.remove('vg-locked');
     if (gate){ gate.parentNode.removeChild(gate); gate = null; }
     syncPageSid();
+    hidePageSid();
+    headSid();
     badge();
   }
   function lock(msg){
@@ -2167,6 +2213,7 @@ html.vg-locked, html.vg-locked body{overflow:hidden;}
         inp.value = ''; try { inp.dispatchEvent(new Event('input', {bubbles:true})); } catch(x) {}
       });
       e.parentNode.removeChild(e);
+      headSid();
       lock();
     });
     document.body.appendChild(e);
@@ -2193,7 +2240,27 @@ html.vg-locked, html.vg-locked body{overflow:hidden;}
   document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'hidden') flush(); lastTick = Date.now(); });
   window.addEventListener('pagehide', flush);
 
+  // 携帯かどうか。UA が携帯か、触って使う画面で短い辺が 600px より小さい（iPhone の「PC 版サイト」も含める）
+  function isPhone(){
+    var ua = navigator.userAgent || '';
+    if (navigator.userAgentData && navigator.userAgentData.mobile) return true;
+    if (/iPhone|iPod|Android.+Mobile|Windows Phone|Mobile.+Firefox|BlackBerry|Opera Mini/i.test(ua)) return true;
+    var w = Math.min(screen.width || 0, screen.height || 0);
+    return (navigator.maxTouchPoints || 0) > 0 && w > 0 && w < 600;
+  }
+  function lockPhone(){
+    document.documentElement.classList.add('vg-locked');
+    gate = document.createElement('div');
+    gate.className = 'vg-gate';
+    gate.innerHTML =
+      '<div class="vg-card">' +
+      '<div class="vg-t">パソコンで開いてください</div>' +
+      '<p class="vg-d">この資料は、携帯（スマートフォン）では開けません。教室のパソコンか、自分のパソコンで開いてください。</p>' +
+      '</div>';
+    document.body.appendChild(gate);
+  }
   function start(){
+    if (C.noPhone && isPhone()) { lockPhone(); return; }
     if (okForm(sid)) open_(); else { sid = ''; lock(); }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();

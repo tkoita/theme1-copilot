@@ -1638,6 +1638,8 @@ git push -u origin HEAD</pre>
   if(!inputs.length) return;
   var data={};
   try{ data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; if(!data.myname){ var o=localStorage.getItem(OLD); if(o) data.myname=o; } }catch(e){ data={}; }
+  // 前に、TA の番号（T001）が「001」として残っていたことがある。学籍番号の形でないものは捨てる（2026-11-17）
+  if(data.sid&&!/^\d{8,10}$/.test(data.sid)){ delete data.sid; try{ localStorage.setItem(KEY,JSON.stringify(data)); }catch(e){} }
   function val(k){ if(k==='repo') return data.repo||(data.team?'theme1-'+data.team.toLowerCase():''); return data[k]||''; }
   function save(){ try{ localStorage.setItem(KEY,JSON.stringify(data)); localStorage.setItem(OLD,data.myname||''); }catch(e){} }
   function msg(inp,r,full){
@@ -1717,8 +1719,10 @@ git push -u origin HEAD</pre>
   function shareSid(team){ var d = sid().replace(/[^0-9]/g, ''); if (d.length >= 8 && window.theme1SetInfo) { var o = {sid: d}; if (team) o.team = team; try{ window.theme1SetInfo(o, true); }catch(e){} } }
 
   if (sidIn){
-    var first = store(KEY);
-    if (!first){ try{ first = (JSON.parse(localStorage.getItem('theme1-myinfo') || '{}') || {}).sid || ''; }catch(e){ first = ''; } }
+    // 入口（学籍番号を入れる画面）で入れた番号を、いちばん先に使う（2026-11-17）。前は、この欄に前に入っていた番号や、宿題の欄に残っていた番号を先に拾った。
+    // TA の T001 は、宿題の欄に「001」として残っていたので、T001 で開いても「001」で送ってしまい、TA の帯が出なかった
+    var first = store('viewlog-sid-exp') || store(KEY);
+    if (!first){ try{ first = (JSON.parse(localStorage.getItem('theme1-myinfo') || '{}') || {}).sid || ''; }catch(e){ first = ''; } if (!/^\d{8,10}$/.test(first)) first = ''; }
     sidIn.value = first; if (first) store(KEY, first);
     var okm = me.querySelector('.ok');
     var upd = function(){ okm.textContent = sid() ? '下4桁 ' + sid().slice(-4) + ' で送ります' : ''; okm.className = 'ok'; };
